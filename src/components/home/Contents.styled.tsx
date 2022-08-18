@@ -6,7 +6,6 @@ export const Contents = styled.section`
   min-width: 1024px;
   height: 100%;
   margin: 0 auto;
-  background-color: #000;
 `;
 
 export const TitleSection = styled.div`
@@ -35,7 +34,6 @@ export const Highlight = styled.strong`
   font-size: 8vh;
 `;
 
-
 export const ContentSection = styled.div`
   display: block;
   text-align: center;
@@ -45,10 +43,9 @@ export const ContentSection = styled.div`
   transform: translateX(-50%);
 `;
 
-
 export const Navigation = styled.ul`
   display: flex;
-  flex-wrap : wrap;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 5vh 140px;
   font-size: 3.5vh;
@@ -68,7 +65,7 @@ export const Menu = styled.li`
     font-family: 'Noto Sans KR', sans-serif;
   }
   &:last-child {
-    gap: 25px
+    gap: 25px;
   }
 `;
 
@@ -79,11 +76,11 @@ export const Address = styled.address`
   text-align: center;
   font-size: 1.2vh;
   font-family: 'Noto Sans KR', sans-serif;
-`
+`;
 
 export const Tell = styled.span`
   margin-left: 10px;
   &::before {
-    content: 'tell. '
+    content: 'tell. ';
   }
-`
+`;

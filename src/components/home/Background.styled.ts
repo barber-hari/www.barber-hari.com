@@ -15,4 +15,12 @@ export const BackgroundCover = styled.div`
 
 export const Video = styled.video``;
 
-export const SideBar = styled.img``;
+export const SideBarLeft = styled.img`
+  height: 100vh;
+  width: 5%;
+  z-index: 1;
+  float: left;
+`;
+export const SideBarRight = styled(SideBarLeft)`
+  float: right;
+`;
