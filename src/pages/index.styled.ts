@@ -4,7 +4,6 @@ export const Container = styled.div`
   display: block;
   width: 100%;
   height: 100vh;
-  background-color: black;
   color: #fff;
 `;
 

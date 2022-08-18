@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const Background = styled.section`
   position: fixed;
@@ -6,14 +6,27 @@ export const Background = styled.section`
   height: 100vh;
 `;
 
-export const BackgroundCover = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background-color: #000;
+const boxFade = keyframes`
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
 `;
 
-export const Video = styled.video``;
+export const BackgroundCover = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  margin: 0 auto;
+  opacity: 1;
+  animation: ${boxFade} 5s linear forwards;
+`;
+
+export const Video = styled.video`
+  width: 90%;
+`;
 
 export const SideBarLeft = styled.img`
   height: 100vh;
