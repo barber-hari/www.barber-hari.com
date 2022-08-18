@@ -25,10 +25,10 @@ export const TitleImage = styled.img`
   margin-bottom: 1vh;
 `;
 export const Headline = styled.h1`
-  font-family: 'SF_HambakSnow';
   font-size: 20vh;
   line-height: 13vh;
   height: 350px;
+  font-weight: bold;
 `;
 export const Highlight = styled.strong`
   display: block;
@@ -52,7 +52,6 @@ export const Navigation = styled.ul`
   justify-content: center;
   gap: 5vh 140px;
   font-size: 3.5vh;
-  font-family: 'SF_HambakSnow';
   min-width: 1024px;
 `;
 
@@ -66,6 +65,7 @@ export const Menu = styled.li`
     width: 100%;
     font-size: 1.5vh;
     gap: 15px;
+    font-family: 'Noto Sans KR', sans-serif;
   }
   &:last-child {
     gap: 25px
@@ -78,6 +78,7 @@ export const Address = styled.address`
   font-style: normal;
   text-align: center;
   font-size: 1.2vh;
+  font-family: 'Noto Sans KR', sans-serif;
 `
 
 export const Tell = styled.span`
