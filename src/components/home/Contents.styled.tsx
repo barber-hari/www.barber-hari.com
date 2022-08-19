@@ -6,6 +6,7 @@ export const Contents = styled.section`
   min-width: 1024px;
   height: 100%;
   margin: 0 auto;
+  z-index: 10;
 `;
 
 export const TitleSection = styled.div`
