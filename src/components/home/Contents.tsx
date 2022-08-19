@@ -22,9 +22,13 @@ const Contents: FC = () => {
             <Icon iconType="NAVER" width="3vh" />
             네이버 예약
           </$.Menu>
+          <$.Menu className="navi-mobile">
+            <Icon iconType="KAKAO" width="3vh" />
+            <Icon iconType="INSTARGRAM" width="3vh" />
+          </$.Menu>
           <$.Menu>INFO</$.Menu>
           <$.Menu>STYLES</$.Menu>
-          <$.Menu>
+          <$.Menu className="navi-mobile-none">
             <Icon iconType="KAKAO" width="3vh" />
             <Icon iconType="INSTARGRAM" width="3vh" />
           </$.Menu>

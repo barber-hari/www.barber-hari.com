@@ -68,6 +68,28 @@ export const Menu = styled.li`
   &:last-child {
     gap: 25px;
   }
+
+
+  &.navi-mobile {
+    display: none;
+  }
+
+  @media (max-width: 1023px) {
+    & i {
+      width: 7vw;
+      height: 7vw;
+    }
+
+    &.navi-mobile {
+      display: flex;
+    }
+    &:nth-child(2) {
+      width: 100%;
+    }
+    &.navi-mobile-none {
+      display: none;
+    }
+  }
 `;
 
 export const Address = styled.address`
@@ -77,6 +99,9 @@ export const Address = styled.address`
   text-align: center;
   font-size: 1.2vh;
   font-family: 'Noto Sans KR', sans-serif;
+  @media (max-width: 1023px) {
+    display: none;
+  }
 `;
 
 export const Tell = styled.span`
