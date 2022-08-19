@@ -28,7 +28,7 @@ export const Headline = styled.h1`
   font-size: 20vh;
   line-height: 13vh;
   height: 350px;
-  font-weight: bold;
+  font-weight: 500;
 `;
 export const Highlight = styled.strong`
   display: block;
@@ -55,7 +55,6 @@ export const Navigation = styled.ul`
 
 export const Menu = styled.li`
   display: flex;
-
   align-items: center;
   justify-content: center;
 
@@ -68,8 +67,6 @@ export const Menu = styled.li`
   &:last-child {
     gap: 25px;
   }
-
-
   &.navi-mobile {
     display: none;
   }
@@ -79,15 +76,19 @@ export const Menu = styled.li`
       width: 7vw;
       height: 7vw;
     }
-
     &.navi-mobile {
       display: flex;
     }
     &:nth-child(2) {
       width: 100%;
+      gap: 3%;
     }
     &.navi-mobile-none {
       display: none;
+    }
+    &.navi-string {
+      font-size: 30px;
+      font-weight: bold;
     }
   }
 `;

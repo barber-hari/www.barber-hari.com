@@ -6,22 +6,22 @@ export const Navigation = styled.nav`
   left: 0;
   width: 100%;
   height: 50px;
+  z-index: 10;
 `;
 
 export const Pages = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: center;
   width: 100%;
-  gap: 30px;
+  height: 100px;
+  gap: 40px;
+  background-color: #000;
 `;
 export const Page = styled.li`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
   font-size: 25px;
+  left: 8%;
+  color: #ffffff;
 `;
 
 export const Anchor = styled.a``;

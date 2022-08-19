@@ -1,7 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 import * as $ from './Layout.styled';
-import GlobalStyle from './GlobalStyle';
-import { Navigation } from './Navigation.styled';
+import Navigation from './Navigation';
 
 interface LayoutProps {
   children: ReactNode;
@@ -10,12 +9,10 @@ interface LayoutProps {
 const Layout: FC<LayoutProps> = props => {
   const { children } = props;
   return (
-    <>
-      <GlobalStyle />
-      <$.Wrapper>
-        <$.Main>{children}</$.Main>
-      </$.Wrapper>
-    </>
+    <$.Container>
+      <Navigation />
+      <main>{children}</main>
+    </$.Container>
   );
 };
 

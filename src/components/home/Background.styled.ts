@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 interface IsLoadedProps {
   isLoaded: boolean;
@@ -12,10 +12,10 @@ export const Background = styled.section`
 `;
 
 const boxFade = keyframes`
-  0%{
+  0% {
     opacity: 1;
   }
-  100%{
+  100% {
     opacity: .5;
   }
 `;
@@ -31,9 +31,11 @@ export const BackgroundCover = styled.div<IsLoadedProps>`
   opacity: 1;
   z-index: 3;
 
-  ${({ isLoaded }) => isLoaded && css`  animation: ${boxFade} 4s linear forwards;`}
-
-
+  ${({ isLoaded }) =>
+    isLoaded &&
+    css`
+      animation: ${boxFade} 4s linear forwards;
+    `}
 `;
 
 export const Video = styled.video`
@@ -57,13 +59,18 @@ export const SideBar = styled.img<SideBarProps>`
   transition: 2s;
   transition-timing-function: ease;
 
-  ${({ position }) => 
-    position === 'left' ? css`
-      left: 0;
-    ` : css`
-      right: 0;
-    `
-  }
+  ${({ position }) =>
+    position === 'left'
+      ? css`
+          left: 0;
+        `
+      : css`
+          right: 0;
+        `}
 
-  ${({ isLoaded }) => isLoaded && css` width: 20px;`}
+  ${({ isLoaded }) =>
+    isLoaded &&
+    css`
+      width: 20px;
+    `}
 `;
