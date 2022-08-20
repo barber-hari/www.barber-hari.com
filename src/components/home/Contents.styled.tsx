@@ -9,8 +9,13 @@ export const Contents = styled.section`
   z-index: 10;
   @media (max-width: 1023px) {
     min-width: 0;
+    min-height: 130vw;
     overflow-y: auto;
     overflow-x: hidden;
+  }
+
+  @media (max-height: 600px)  {
+    min-height: 1200px;
   }
 `;
 
@@ -22,7 +27,7 @@ export const TitleSection = styled.div`
   left: 50%;
   transform: translateX(-50%);
   @media (max-width: 1023px) {
-    top: 12%;
+    top: 10%;
   }
 `;
 
@@ -55,6 +60,9 @@ export const ContentSection = styled.div`
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
+  @media (max-width: 1023px)  {
+    width: min(60%, 375px);
+  }
 `;
 
 export const Navigation = styled.ul`
@@ -67,9 +75,9 @@ export const Navigation = styled.ul`
   min-width: 1024px;
 
   @media (max-width: 1023px)  {
-    gap: 5vh 80px;
+    gap: 8vw 0;
+    min-width: 0;
   }
-=
 `;
 
 export const Menu = styled.li`
@@ -107,20 +115,22 @@ export const Menu = styled.li`
       font-size: 20px;
       font-weight: bolder;
       gap: 30px;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
     }
 
     &:nth-child(2) {
       width: 100%;
-      gap: 3%;
+      justify-content: space-between;
     }
 
     &:nth-child(3) {
-      font-size: min(6vw, 50px);
+      font-size: min(7vw, 50px);
+      margin-right: auto;
     }
 
     &:nth-child(4) {
-      font-size: min(6vw, 50px);
+      font-size: min(7vw, 50px);
+      margin-left: auto;
     }
 
     &.navi-mobile-none {
