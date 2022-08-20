@@ -6,16 +6,3 @@ export const Container = styled.div`
   height: 100vh;
   color: #fff;
 `;
-
-// export const ImageContainer = styled.div`
-//   position: absolute;
-//   text-align: center;
-//   top: 10%;
-// `;
-
-// export const BoldTitle = styled.b`
-//   position: relative;
-//   align-items: center;
-//   justify-content: center;
-//   display: block;
-// `;

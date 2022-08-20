@@ -7,6 +7,10 @@ export const Contents = styled.section`
   height: 100%;
   margin: 0 auto;
   z-index: 10;
+  @media (max-width: 1023px) {
+    min-width: 0;
+    overflow-y: auto;
+  }
 `;
 
 export const TitleSection = styled.div`
@@ -17,7 +21,7 @@ export const TitleSection = styled.div`
   left: 50%;
   transform: translateX(-50%);
   @media (max-width: 1023px) {
-    top: 40%;
+    top: 12%;
   }
 `;
 
@@ -28,13 +32,11 @@ export const TitleImage = styled.img`
 `;
 export const Headline = styled.h1`
   font-size: 20vh;
-  line-height: 13vh;
-  height: 350px;
+  line-height: inherit;
   font-weight: 500;
 
   @media (max-width: 1023px) {
-    line-height: 30vh;
-    font-size: 18rem;
+    font-size: min(30vw, 200px);
   }
 `;
 export const Highlight = styled.strong`
@@ -42,7 +44,7 @@ export const Highlight = styled.strong`
   font-size: 8vh;
 
   @media (max-width: 1023px) {
-    font-size: 8rem;
+    font-size: min(12vw, 80px);
   }
 `;
 

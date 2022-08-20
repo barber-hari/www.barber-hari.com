@@ -4,7 +4,7 @@ export default createGlobalStyle`
 
 @import url('https://fonts.googleapis.com/css2?family=Inria+Serif:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inria+Serif:wght@700&family=Noto+Sans+KR:wght@100;400&display=swap');
-* {
+  * {
     position: relative;
     margin: 0;
     padding: 0;
@@ -12,9 +12,11 @@ export default createGlobalStyle`
     border-color: inherit;
     font-family: 'Inria Serif', serif;
   }
+
   body {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
+    position: fixed;
     overflow-x: hidden;
     overflow-y: scroll;
     font-size: 100%;
