@@ -6,7 +6,11 @@ export const Navigation = styled.nav`
   left: 0;
   width: 100%;
   height: 50px;
-  z-index: 10;
+  z-index: 1;
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
 `;
 
 export const Pages = styled.ul`
@@ -23,5 +27,3 @@ export const Page = styled.li`
   left: 8%;
   color: #ffffff;
 `;
-
-export const Anchor = styled.a``;

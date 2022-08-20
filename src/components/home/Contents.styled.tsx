@@ -20,9 +20,8 @@ export const TitleSection = styled.div`
 
 export const TitleImage = styled.img`
   display: block;
-  margin: 0 auto;
   width: 30%;
-  margin-bottom: 1vh;
+  margin: 0 auto 1vh;
 `;
 export const Headline = styled.h1`
   font-size: 20vh;

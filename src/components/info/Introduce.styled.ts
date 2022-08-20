@@ -4,7 +4,7 @@ export const Container = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
-  z-index: -10;
+  background-color: #000;
 `;
 
 export const PictureBox = styled.div`
@@ -13,7 +13,10 @@ export const PictureBox = styled.div`
   height: 250px;
   top: 15%;
   left: 7%;
-  z-index: -5;
+
+  @media (max-width: 1023px) {
+    top: 1%;
+  }
 `;
 
 export const Picture = styled.img`
@@ -47,14 +50,28 @@ export const Address = styled.address`
   padding: 10px;
   gap: 15px;
   align-items: center;
+  &.mobile {
+    display: none;
+  }
+
+  @media (max-width: 1023px) {
+    &.desktop {
+      display: none;
+    }
+    &.mobile {
+      display: flex;
+    }
+    &:nth-child(2) {
+    }
+  }
 `;
 
 export const GalleryBox = styled.div`
   width: 55%;
-  height: 800px;
-  z-index: -10;
+  height: 700px;
   position: absolute;
   right: 5%;
+  top: 10%;
 
   @media (max-width: 1023px) {
     display: none;
@@ -62,19 +79,17 @@ export const GalleryBox = styled.div`
 `;
 
 export const Image = styled.img`
-  top: 15%;
+  top: 5%;
   left: 3%;
   display: inline-block;
-  border-radius: 15px;
+  border-radius: 15%;
   width: 20%;
-  height: 20%;
+  height: 23%;
   margin: 15px;
-  transition: 0.5s linear;
-  z-index: 10;
+  transition: all 0.2s linear;
 
   &:hover {
-    display: none;
-    background-color: #fff;
+    transform: scale(1.4);
   }
   //호버가안됨
 `;

@@ -11,7 +11,7 @@ const Layout: FC<LayoutProps> = props => {
   return (
     <$.Container>
       <Navigation />
-      <main>{children}</main>
+      <$.Main>{children}</$.Main>
     </$.Container>
   );
 };
