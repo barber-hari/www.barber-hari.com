@@ -28,6 +28,12 @@ export const Headline = styled.h1`
   line-height: 13vh;
   height: 350px;
   font-weight: 500;
+
+  @media (max-width: 1023px) {
+
+    font-size: 20rem;
+  }
+
 `;
 export const Highlight = styled.strong`
   display: block;
