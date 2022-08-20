@@ -1,7 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const withPlugins = require('next-compose-plugins');
+const withVideos = require('next-videos');
+
+
+module.exports = withPlugins([withVideos], {
   reactStrictMode: true,
   swcMinify: true,
-}
-
-module.exports = nextConfig
+})
