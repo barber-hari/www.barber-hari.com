@@ -10,6 +10,7 @@ export const Contents = styled.section`
   @media (max-width: 1023px) {
     min-width: 0;
     overflow-y: auto;
+    overflow-x: hidden;
   }
 `;
 
@@ -32,7 +33,6 @@ export const TitleImage = styled.img`
 `;
 export const Headline = styled.h1`
   font-size: 20vh;
-  line-height: inherit;
   font-weight: 500;
 
   @media (max-width: 1023px) {
@@ -66,15 +66,17 @@ export const Navigation = styled.ul`
   font-weight: bolder;
   min-width: 1024px;
 
-  @media (max-width: 1023px) {
-    top: 850px;
+  @media (max-width: 1023px)  {
+    gap: 5vh 80px;
   }
+=
 `;
 
 export const Menu = styled.li`
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 15%;
 
   &:first-child {
     width: 100%;
@@ -92,10 +94,9 @@ export const Menu = styled.li`
   }
 
   @media (max-width: 1023px) {
-    margin-bottom: 50px;
     & i {
-      width: 30vw;
-      height: 30vw;
+      width: min(12vw, 70px);
+      height: min(12vw, 70px);
     }
 
     &.navi-mobile {
@@ -103,26 +104,23 @@ export const Menu = styled.li`
     }
 
     &:first-child {
-      font-size: 50px;
+      font-size: 20px;
       font-weight: bolder;
-      top: 200px;
       gap: 30px;
+      margin-bottom: 30px;
     }
 
     &:nth-child(2) {
       width: 100%;
       gap: 3%;
-      top: 200px;
     }
 
     &:nth-child(3) {
-      font-size: 100px;
-      top: 300px;
+      font-size: min(6vw, 50px);
     }
 
     &:nth-child(4) {
-      font-size: 100px;
-      top: 300px;
+      font-size: min(6vw, 50px);
     }
 
     &.navi-mobile-none {
@@ -150,3 +148,13 @@ export const Tell = styled.span`
     content: 'tell. ';
   }
 `;
+
+/*
+@media (orientation: portrait) {
+    /!* 세로 모드 일 경우 *!/
+}
+
+@media (orientation: landscape) {
+    /!* 가로 모드일 경우 *!/
+}
+*/
