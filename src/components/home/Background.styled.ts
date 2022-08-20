@@ -59,6 +59,10 @@ export const SideBar = styled.img<SideBarProps>`
   transition: 2s;
   transition-timing-function: ease;
 
+  @media (max-width: 1023px) {
+    width: 40px;
+  }
+
   ${({ position }) =>
     position === 'left'
       ? css`

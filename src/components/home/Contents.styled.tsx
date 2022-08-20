@@ -16,6 +16,9 @@ export const TitleSection = styled.div`
   top: 15%;
   left: 50%;
   transform: translateX(-50%);
+  @media (max-width: 1023px) {
+    top: 40%;
+  }
 `;
 
 export const TitleImage = styled.img`
@@ -30,14 +33,17 @@ export const Headline = styled.h1`
   font-weight: 500;
 
   @media (max-width: 1023px) {
-
-    font-size: 20rem;
+    line-height: 30vh;
+    font-size: 18rem;
   }
-
 `;
 export const Highlight = styled.strong`
   display: block;
   font-size: 8vh;
+
+  @media (max-width: 1023px) {
+    font-size: 8rem;
+  }
 `;
 
 export const ContentSection = styled.div`
@@ -55,7 +61,12 @@ export const Navigation = styled.ul`
   justify-content: center;
   gap: 5vh 140px;
   font-size: 3.5vh;
+  font-weight: bolder;
   min-width: 1024px;
+
+  @media (max-width: 1023px) {
+    top: 850px;
+  }
 `;
 
 export const Menu = styled.li`
@@ -65,35 +76,55 @@ export const Menu = styled.li`
 
   &:first-child {
     width: 100%;
-    font-size: 1.5vh;
+    font-size: 1.8vh;
     gap: 15px;
     font-family: 'Noto Sans KR', sans-serif;
   }
+
   &:last-child {
     gap: 25px;
   }
+
   &.navi-mobile {
     display: none;
   }
 
   @media (max-width: 1023px) {
+    margin-bottom: 50px;
     & i {
-      width: 7vw;
-      height: 7vw;
+      width: 30vw;
+      height: 30vw;
     }
+
     &.navi-mobile {
       display: flex;
     }
+
+    &:first-child {
+      font-size: 50px;
+      font-weight: bolder;
+      top: 200px;
+      gap: 30px;
+    }
+
     &:nth-child(2) {
       width: 100%;
       gap: 3%;
+      top: 200px;
     }
+
+    &:nth-child(3) {
+      font-size: 100px;
+      top: 300px;
+    }
+
+    &:nth-child(4) {
+      font-size: 100px;
+      top: 300px;
+    }
+
     &.navi-mobile-none {
       display: none;
-    }
-    &.navi-string {
-      font-size: 30px;
-      font-weight: bold;
     }
   }
 `;
@@ -112,6 +143,7 @@ export const Address = styled.address`
 
 export const Tell = styled.span`
   margin-left: 10px;
+
   &::before {
     content: 'tell. ';
   }

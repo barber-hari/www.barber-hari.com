@@ -19,7 +19,7 @@ const Contents: FC = () => {
       </$.TitleSection>
       <$.ContentSection>
         <$.Navigation>
-          <$.Menu className="navi-string">
+          <$.Menu>
             <Icon iconType="NAVER" width="3vh" />
             네이버 예약
           </$.Menu>
