@@ -17,44 +17,60 @@ const Introduce: FC = () => {
   const imageState = useRecoilValue(ImageState);
   return (
     <$.Container>
-      <$.PictureBox>
-        <$.Picture src={barberHariImage.src} alt="" />
-        <$.Name>
-          BARBER <br />
-          HARI
-        </$.Name>
-        <$.History>
-          History <br /> <br />
-          Lumio salon <br />
-          Cobera salon <br />
-          Uncle's booth barbershop <br />
-          Alex-muller barbershop
-        </$.History>
-        <$.Address className={'desktop'}>
-          <Icon iconType={'KAKAO'} width={'3vh'} />
-          KAKAO ADDRESS &nbsp;
-          <Icon iconType={'INSTARGRAM'} width={'3vh'} />
-          INSTA ADDRESS
-        </$.Address>
-        <$.Address className={'mobile'}>
-          <Icon iconType={'KAKAO'} width={'3vh'} />
-          KAKAO ADDRESS &nbsp;
-          <Icon iconType={'INSTARGRAM'} width={'3vh'} />
-          INSTA ADDRESS
-          <Icon iconType={'TELL'} width={'3vh'} />
-        </$.Address>
-      </$.PictureBox>
+      <$.BoxWrapper>
+        <$.PictureBox>
+          <$.Picture src={barberHariImage.src} alt="" />
+          <$.Name>
+            BARBER <br />
+            HARI <br /> <br />
+            <$.History>
+              History <br /> <br />
+              Lumio salon <br />
+              Cobera salon <br />
+              Uncle's booth barbershop <br />
+              Alex-muller barbershop
+            </$.History>
+          </$.Name>
+
+          <$.Address className={'desktop'}>
+            <Icon iconType={'KAKAO'} width={'3vh'} />
+            KAKAO ADDRESS &nbsp;
+            <Icon iconType={'INSTARGRAM'} width={'3vh'} />
+            INSTA ADDRESS
+          </$.Address>
+          <$.Address className={'mobile'}>
+            <Icon iconType={'KAKAO'} width={'3vh'} />
+            KAKAO ADDRESS &nbsp;
+            <Icon iconType={'INSTARGRAM'} width={'3vh'} />
+            INSTA ADDRESS
+            <Icon iconType={'TELL'} width={'3vh'} />
+          </$.Address>
+        </$.PictureBox>
+      </$.BoxWrapper>
+
+      <$.EmptyBox />
+
       <$.GalleryBox>
-        <$.Image src={shopImage1.src} />
-        <$.Image src={shopImage2.src} />
-        <$.Image src={shopImage3.src} />
-        <$.Image src={shopImage4.src} />
-        <$.Image src={shopImage5.src} />
-        <$.Image src={shopImage6.src} />
-        <$.Image src={shopImage7.src} />
-        <$.Image src={shopImage8.src} />
-        {/* TODO:반복문으로 만들기 */}
+        <$.ImageColumns>
+          <$.ImageBox>
+            <$.Image src={shopImage6.src} />
+          </$.ImageBox>
+        </$.ImageColumns>
+        <$.ImageColumns>
+          <$.ImageBox>
+            <$.Image src={shopImage5.src} />
+          </$.ImageBox>
+        </$.ImageColumns>
       </$.GalleryBox>
+      {/*
+        <$.Image src={shopImage4.src} />
+        <$.Image src={shopImage3.src} />
+        <$.Image src={shopImage2.src} />
+        <$.Image src={shopImage8.src} />
+        <$.Image src={shopImage7.src} />
+        <$.Image src={shopImage1.src} />
+        */}
+      {/* TODO:반복문으로 만들기 */}
     </$.Container>
   );
 };
