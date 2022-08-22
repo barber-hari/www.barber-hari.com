@@ -1,33 +1,59 @@
 import styled from 'styled-components';
+import exp from 'constants';
 
 export const Container = styled.div`
-  position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  width: 85vw;
   height: 100vh;
+  overflow-y: scroll;
   background-color: #000;
 `;
 
 export const BoxWrapper = styled.div`
   padding-top: 25px;
+  padding-left: 25px;
+  padding-right: 25px;
   display: flex;
-  width: 100%;
-  height: 300px;
 `;
-export const PictureBox = styled.div`
-  padding-left: 15px;
-  padding-top: 20px;
-  width: 55%;
-  @media (max-width: 1023px) {
+
+export const LeftBox = styled.div`
+  width: 50%;
+  padding-right: 25px;
+
+  @media (max-width: 1439px) {
+    width: 100%;
+    padding-right: 0;
   }
+
+  @media (max-width: 426px) {
+    height: 90vh;
+  }
+`;
+
+export const RightBox = styled.div`
+  display: flex;
+  justify-content: right;
+  width: 50%;
+  @media (max-width: 1439px) {
+    display: none;
+  }
+`;
+
+export const PictureBox = styled.div`
+  padding-top: 20px;
+  height: 40%;
 `;
 
 export const Picture = styled.img`
   display: inline-block;
   margin-right: 20px;
   width: 250px;
-  @media (max-width: 1023px) {
+
+  @media (max-width: 425px) {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
   }
 `;
 
@@ -49,60 +75,43 @@ export const History = styled.p`
   @media (max-width: 1023px) {
     font-size: min(2vw, 20px);
   }
+
+  @media (max-width: 424px) {
+  }
+`;
+export const MapBox = styled.div`
+  width: 100%;
+  height: 480px;
+  background-color: #fff;
+
+  @media (max-width: 1439px) {
+    margin-top: 8vh;
+  }
+
+  @media (max-width: 425px) {
+    margin-top: 30vh;
+    height: 200px;
+  }
 `;
 
 export const Address = styled.address`
-  margin-top: 10px;
   display: flex;
-  justify-content: left;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   color: white;
-  &.mobile {
-    display: none;
+  width: 538px;
+  justify-content: right;
+  margin-top: 30px;
+  & i {
+    width: 25px;
+    height: 25px;
   }
 
-  @media (max-width: 1023px) {
-    &.desktop {
-      display: none;
-    }
-    &.mobile {
-      display: flex;
-      width: 320px;
-      justify-content: center;
-      flex-wrap: wrap;
-      align-items: center;
-      font-size: 10px;
-    }
+  @media (max-width: 1439px) {
+    margin-top: 15px;
   }
-`;
-export const EmptyBox = styled.div`
-  height: 150px;
-`;
-export const GalleryBox = styled.div`
-  width: 100%;
-  height: 400px;
-`;
-
-export const ImageColumns = styled.div`
-  position: absolute;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 30px;
-  width: 50%;
-  &:nth-child(2) {
-    left: 50%;
+  @media (max-width: 426px) {
+    justify-content: start;
+    width: 100%;
   }
-  // TODO: 슬라이드 -> 자동으로 left 50% 추가되기
-  // TODO: 클릭시 배경 페이드아웃 & 화면중앙에 이미지 띄우기
-`;
-
-export const ImageBox = styled.div`
-  width: 100%;
-  height: 400px;
-`;
-
-export const Image = styled.img`
-  width: 100%;
-  height: 100%;
 `;

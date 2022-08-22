@@ -20,12 +20,12 @@ export const Pages = styled.ul`
 `;
 
 export const Page = styled.li`
-  margin-top: 10px;
+  margin-top: 25px;
   font-size: 15px;
   color: #ffffff;
 
   &:first-child {
-    margin-left: 16vw;
+    margin-left: 9vw;
     margin-right: 30px;
   }
 `;
