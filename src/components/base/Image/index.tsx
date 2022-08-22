@@ -17,7 +17,7 @@ const ImageList: FC<ImageListProps> = props => {
     <$.ImageBox>
       <$.Image
         onClick={openModal}
-        height={hei함ght || width}
+        height={height || width}
         width={width}
         src={value.image}
         key={index}
