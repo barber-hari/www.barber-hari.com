@@ -1,18 +1,20 @@
 import styled from 'styled-components';
 
-export const GalleryBox = styled.div`
-  width: 800px;
-  height: 900px;
-  display: grid;
-  margin-top: 20px;
-  grid-template-columns: repeat(4, minmax(100px, 200px));
-  grid-template-rows: repeat(4, minmax(100px, 200px));
-  grid-column-gap: 15px;
-  grid-row-gap: 15px;
-  cursor: pointer;
-  @media (max-width: 1439px) {
-    display: none;
-  }
+export interface ImageStyledProps {
+  width: string;
+  height: string;
+  src: string;
+}
+
+export const Image = styled.i<ImageStyledProps>`
+  display: block;
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
+  background-image: url('${({ src }) => src}');
+  background-size: cover;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  object-fit: cover;
 `;
 
 export const ImageBox = styled.div`
@@ -47,16 +49,5 @@ export const ImageBox = styled.div`
   &:nth-child(6) {
     grid-column: 4/5;
     grid-row: 3/5;
-  }
-`;
-
-export const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 5px;
-  transition: all 0.3s linear;
-  &:hover {
-    transform: scale(1.4);
   }
 `;
