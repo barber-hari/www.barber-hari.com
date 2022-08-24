@@ -7,17 +7,16 @@ import image6src from 'public/images/info/img-shop6.png';
 import image7src from 'public/images/info/img-shop7.png';
 import image8src from 'public/images/info/img-shop8.png';
 
-export interface IImageList {
-  image: string;
+export default interface Image {
+  src: string;
   id: number;
 }
 
-const Images: IImageList[] = [
-  { id: 1, image: `${image6src.src}` },
-  { id: 2, image: `${image5src.src}` },
-  { id: 3, image: `${image2src.src}` },
-  { id: 4, image: `${image1src.src}` },
-  { id: 5, image: `${image7src.src}` },
-  { id: 6, image: `${image8src.src}` },
+export const INFO_IMAGES: Image[] = [
+  { id: 1, src: `${image6src.src}` },
+  { id: 2, src: `${image5src.src}` },
+  { id: 3, src: `${image2src.src}` },
+  { id: 4, src: `${image1src.src}` },
+  { id: 5, src: `${image7src.src}` },
+  { id: 6, src: `${image8src.src}` },
 ];
-export default Images;

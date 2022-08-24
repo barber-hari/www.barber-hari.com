@@ -1,31 +1,28 @@
 import React, { FC } from 'react';
 import * as $ from './ImageList.styled';
-import Images, { IImageList } from './ImageList';
+import Image from 'models/Image';
 
 interface ImageListProps {
   width?: string;
   height?: string;
-  openModal?: () => void;
-  closeModal?: () => void;
-  onView: (id: number) => void;
-  imageData: IImageList[];
+  onClick: (imageId: number) => void;
+  images: Image[];
 }
 
 const ImageList: FC<ImageListProps> = props => {
-  const { width = '100%', height, onView, openModal, imageData } = props;
+  const { width = '100%', height, onClick, images } = props;
 
-  const imageList = imageData.map(value => (
-    <$.ImageBox onClick={openModal}>
+  return <>{images.map(({src, id}) => (
+    <$.ImageBox >
       <$.Image
         height={height || width}
         width={width}
-        src={value.image}
-        key={value.id}
-        onClick={() => onView(value.id)}
+        src={src}
+        key={id}
+        onClick={() => void onClick(id)}
       />
     </$.ImageBox>
-  ));
-  return <>{imageList}</>;
+  ))}</>;
 };
 
 export default ImageList;

@@ -12,18 +12,19 @@ export const Background = styled.div<showProps>`
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
+  z-index: 500;
 
   ${({ show }) =>
     show &&
     css`
-      animation: ${BackgroundFade} 1s linear forwards;
+      animation: ${BackgroundFade} .3s linear forwards;
     `}
 `;
 
 const BackgroundFade = keyframes`
 
   0% {
-    opacity: 0.7;
+    opacity: 0;
   }
 
   100% {
@@ -35,20 +36,14 @@ export const Container = styled.div`
   position: fixed;
   left: 50%;
   top: 50%;
-  width: 600px;
-  height: 600px;
-  background: rgb(255, 255, 255);
+  min-width: 600px;
+  max-width: 800px;
   transform: translate(-50%, -50%);
-  z-index: 10;
+  z-index: 510;
 `;
 
-export const Image = styled.i<showProps>`
+export const Image = styled.img`
   display: block;
   width: 100%;
   height: 100%;
-  background-image: url('${({ src }) => src}');
-  background-size: cover;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  object-fit: cover;
 `;

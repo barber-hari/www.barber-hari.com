@@ -6,15 +6,11 @@ export interface ImageStyledProps {
   src: string;
 }
 
-export const Image = styled.i<ImageStyledProps>`
+export const Image = styled.img<ImageStyledProps>`
   z-index: 30;
   display: block;
   width: ${({ width }) => width};
   height: ${({ height }) => height};
-  background-image: url('${({ src }) => src}');
-  background-size: cover;
-  background-position: 0 0;
-  background-repeat: no-repeat;
   object-fit: cover;
 `;
 

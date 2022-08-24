@@ -3,20 +3,19 @@ import barberHariImage from 'public/images/info/img-hariface.png';
 import * as $ from './Introduce.styled';
 import Icon from '../base/Icon';
 import ImageModal from '../base/Modal/ImageModal';
-import ImageList from '../base/Image';
-import Images, { IImageList } from '../base/Image/ImageList';
+import ImageList from 'components/base/Image'
+import Image, { INFO_IMAGES } from 'models/Image';
 
 const Introduce: FC = () => {
   const [show, setShow] = useState(false);
-  const openModal = () => setShow(true);
-  const closeModal = () => setShow(false);
+  const [currentImage, setCurrentImage] = useState<Image>(INFO_IMAGES[0]);
 
-  const [imageData, setImageData] = useState(Images);
-  const [currentImage, setCurrentImage] = useState(imageData[0]);
+  const openModalHandler = (targetId: number) => {
+    setCurrentImage(INFO_IMAGES.find(({ id }) => id === targetId)!);
+    setShow(true);
+  }
 
-  const onVIew = (id: number) => {
-    setCurrentImage(imageData.find(value => value.id === id) as IImageList);
-  };
+  const closeModalHandler = () => void setShow(false);
 
   return (
     <$.Container>
@@ -48,17 +47,16 @@ const Introduce: FC = () => {
         <$.RightBox>
           <$.GalleryBox>
             <ImageList
-              onView={onVIew}
-              openModal={openModal}
-              imageData={imageData}
+              onClick={openModalHandler}
+              images={INFO_IMAGES}
             />
-            {show ? (
+            {show && (
               <ImageModal
-                closeModal={closeModal}
+                closeModal={closeModalHandler}
                 show={show}
                 currentImage={currentImage}
               />
-            ) : null}
+            )}
           </$.GalleryBox>
         </$.RightBox>
       </$.BoxWrapper>
