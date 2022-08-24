@@ -2,7 +2,7 @@ import React from 'react';
 
 export interface DetailProps {}
 
-const Detail: React.FC<DetailProps> = props => {
+const Detail: React.FC<DetailProps> = () => {
   // const {} = props;
   return <div />;
 };
