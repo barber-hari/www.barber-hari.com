@@ -62,7 +62,6 @@ export const ContentSection = styled.div`
   transform: translateX(-50%);
   @media (max-width: 1023px) {
     width: min(60%, 250px);
-    position: fixed;
     bottom: 0;
     padding-bottom: calc(constant(safe-area-inset-bottom) + 10vh);
     padding-bottom: calc(env(safe-area-inset-bottom) + 10vh);
