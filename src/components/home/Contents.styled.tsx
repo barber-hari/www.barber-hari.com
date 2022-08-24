@@ -12,10 +12,6 @@ export const Contents = styled.section`
     min-height: 130vw;
     overflow-y: auto;
     overflow-x: hidden;
-    display: flex;
-    justify-content: center;
-    padding-bottom: calc(constant(safe-area-inset-bottom) + 10vh);
-    padding-bottom: calc(env(safe-area-inset-bottom) + 10vh);
   }
 
   @media (max-height: 600px) {
@@ -66,9 +62,10 @@ export const ContentSection = styled.div`
   transform: translateX(-50%);
   @media (max-width: 1023px) {
     width: min(60%, 250px);
-    margin-top: auto;
-    transform: none;
-    position: unset;
+    position: fixed;
+    bottom: 0;
+    padding-bottom: calc(constant(safe-area-inset-bottom) + 10vh);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 10vh);
   }
 `;
 

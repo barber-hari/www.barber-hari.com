@@ -25,6 +25,10 @@ export default createGlobalStyle`
     line-height: 1;
     margin: 0;
     padding: 0;
+
+    @media (max-width: 1023px) {
+      min-height: -webkit-fill-available;
+    }
   }
   /* ∞∞ text styling ∞∞ */
   h1,
