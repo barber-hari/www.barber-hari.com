@@ -52,7 +52,7 @@ export const Highlight = styled.strong`
   font-size: 8vh;
 
   @media (max-width: 1023px) {
-    font-size: min(10vw, 50px);
+    font-size: min(10vw, 65px);
   }
 `;
 
