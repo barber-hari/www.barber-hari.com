@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import * as $ from './ImageList.styled';
 import Image from 'models/Image';
+import * as $ from './ImageList.styled';
 
 interface ImageListProps {
   width?: string;
@@ -15,12 +15,11 @@ const ImageList: FC<ImageListProps> = props => {
   return (
     <>
       {images.map(({ src, id }) => (
-        <$.ImageBox>
+        <$.ImageBox key={id}>
           <$.Image
             height={height || width}
             width={width}
             src={src}
-            key={id}
             onClick={() => void onClick(id)}
           />
         </$.ImageBox>

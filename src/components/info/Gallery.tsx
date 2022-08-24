@@ -18,7 +18,7 @@ export interface GalleryProps {
 const Gallery: FC<GalleryProps> = props => {
   const { openModal } = props;
 
-  return <$.GalleryBox></$.GalleryBox>;
+  return <$.GalleryBox />;
 };
 
 export default Gallery;

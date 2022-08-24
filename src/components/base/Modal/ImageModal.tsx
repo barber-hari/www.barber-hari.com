@@ -1,6 +1,6 @@
 import React, { FC, useRef } from 'react';
-import * as $ from './ImageModal.styled';
 import Image from 'models/Image';
+import * as $ from './ImageModal.styled';
 
 export interface ImageModalProps {
   closeModal: () => void;
@@ -9,7 +9,11 @@ export interface ImageModalProps {
 }
 
 const ImageModal: FC<ImageModalProps> = props => {
-  const { closeModal, show, currentImage: { src } } = props;
+  const {
+    closeModal,
+    show,
+    currentImage: { src },
+  } = props;
 
   const backgroundRef = useRef<HTMLDivElement>(null);
 

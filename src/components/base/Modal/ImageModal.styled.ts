@@ -5,6 +5,17 @@ interface showProps {
   src?: string;
 }
 
+const BackgroundFade = keyframes`
+
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+`;
+
 export const Background = styled.div<showProps>`
   position: fixed;
   width: 100%;
@@ -17,19 +28,8 @@ export const Background = styled.div<showProps>`
   ${({ show }) =>
     show &&
     css`
-      animation: ${BackgroundFade} .3s linear forwards;
+      animation: ${BackgroundFade} 0.3s linear forwards;
     `}
-`;
-
-const BackgroundFade = keyframes`
-
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 `;
 
 export const Container = styled.div`

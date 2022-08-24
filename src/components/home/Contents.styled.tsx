@@ -14,7 +14,7 @@ export const Contents = styled.section`
     overflow-x: hidden;
   }
 
-  @media (max-height: 600px)  {
+  @media (max-height: 600px) {
     min-height: 1200px;
   }
 `;
@@ -60,7 +60,7 @@ export const ContentSection = styled.div`
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
-  @media (max-width: 1023px)  {
+  @media (max-width: 1023px) {
     width: min(60%, 375px);
   }
 `;
@@ -74,7 +74,7 @@ export const Navigation = styled.ul`
   font-weight: bolder;
   min-width: 1024px;
 
-  @media (max-width: 1023px)  {
+  @media (max-width: 1023px) {
     gap: 8vw 0;
     min-width: 0;
   }

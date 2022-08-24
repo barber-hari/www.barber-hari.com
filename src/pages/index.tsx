@@ -8,20 +8,18 @@ import * as $ from './index.styled';
 const Home: NextPage = () => {
   return (
     <>
-    <Head>
-      <title>BARBER-HARI 바버하리</title>
-      <meta name="description" content="바버하리" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </Head>
+      <Head>
+        <title>BARBER-HARI 바버하리</title>
+        <meta name="description" content="바버하리" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
 
-    <$.Container>
-      <Background />
-      <Contents />
-    </$.Container>
+      <$.Container>
+        <Background />
+        <Contents />
+      </$.Container>
     </>
   );
 };
 
 export default Home;
-
-

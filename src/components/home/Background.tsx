@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import sidebarImage from 'public/images/home/img-sidebar.jpg';
-import * as $ from './Background.styled';
 import videoSrc from 'public/videos/test-video.mp4';
+import * as $ from './Background.styled';
 
 const Background: FC = () => {
   const [isLoaded, setIsLoaded] = useState(false);
