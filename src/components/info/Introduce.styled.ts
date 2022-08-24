@@ -4,14 +4,13 @@ import exp from 'constants';
 export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
-  width: 85vw;
+  max-width: 1700px;
   height: 100vh;
   overflow-y: scroll;
   background-color: #000;
 `;
 
 export const BoxWrapper = styled.div`
-  padding-top: 25px;
   padding-left: 25px;
   padding-right: 25px;
   display: flex;

@@ -8,24 +8,23 @@ export const Navigation = styled.nav`
 `;
 
 export const Logo = styled.img`
-  width: 55px;
+  width: 75px;
 `;
 
 export const Pages = styled.ul`
   display: flex;
+  justify-content: center;
   align-items: center;
   height: 100px;
   background-color: #000;
-  gap: 1%;
+  gap: 2%;
 `;
 
 export const Page = styled.li`
-  margin-top: 25px;
+  margin-top: 10px;
   font-size: 15px;
   color: #ffffff;
 
   &:first-child {
-    margin-left: 9vw;
-    margin-right: 30px;
   }
 `;
