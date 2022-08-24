@@ -69,6 +69,10 @@ export const ContentSection = styled.div`
     bottom: 0;
     padding-bottom: calc(constant(safe-area-inset-bottom) + 10vh);
     padding-bottom: calc(env(safe-area-inset-bottom) + 10vh);
+
+    @media (orientation: landscape) {
+      position: absolute;
+    }
   }
 `;
 
