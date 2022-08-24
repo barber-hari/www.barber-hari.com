@@ -14,6 +14,7 @@ const Background: FC = () => {
     <$.Background>
       <$.Video
         controls={false}
+        playsInline
         loop
         muted
         preload="auto"

@@ -12,6 +12,10 @@ export const Contents = styled.section`
     min-height: 130vw;
     overflow-y: auto;
     overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    padding-bottom: calc(constant(safe-area-inset-bottom) + 10vh);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 10vh);
   }
 
   @media (max-height: 600px) {
@@ -41,7 +45,7 @@ export const Headline = styled.h1`
   font-weight: 500;
 
   @media (max-width: 1023px) {
-    font-size: min(30vw, 200px);
+    font-size: min(30vw, 170px);
   }
 `;
 export const Highlight = styled.strong`
@@ -49,7 +53,7 @@ export const Highlight = styled.strong`
   font-size: 8vh;
 
   @media (max-width: 1023px) {
-    font-size: min(12vw, 80px);
+    font-size: min(12vw, 70px);
   }
 `;
 
@@ -61,7 +65,10 @@ export const ContentSection = styled.div`
   left: 50%;
   transform: translateX(-50%);
   @media (max-width: 1023px) {
-    width: min(60%, 375px);
+    width: min(60%, 250px);
+    margin-top: auto;
+    transform: none;
+    position: unset;
   }
 `;
 
@@ -75,7 +82,8 @@ export const Navigation = styled.ul`
   min-width: 1024px;
 
   @media (max-width: 1023px) {
-    gap: 8vw 0;
+    column-gap: 0;
+    row-gap: min(6vw, 30px);
     min-width: 0;
   }
 `;
@@ -103,8 +111,8 @@ export const Menu = styled.li`
 
   @media (max-width: 1023px) {
     & i {
-      width: min(12vw, 70px);
-      height: min(12vw, 70px);
+      width: min(10vw, 40px);
+      height: min(10vw, 40px);
     }
 
     &.navi-mobile {
@@ -114,7 +122,7 @@ export const Menu = styled.li`
     &:first-child {
       font-size: 20px;
       font-weight: bolder;
-      gap: 30px;
+      gap: 20px;
       margin-bottom: 10px;
     }
 
@@ -124,12 +132,12 @@ export const Menu = styled.li`
     }
 
     &:nth-child(3) {
-      font-size: min(7vw, 50px);
+      font-size: min(7vw, 30px);
       margin-right: auto;
     }
 
     &:nth-child(4) {
-      font-size: min(7vw, 50px);
+      font-size: min(7vw, 30px);
       margin-left: auto;
     }
 
