@@ -35,13 +35,16 @@ export const TitleImage = styled.img`
   display: block;
   width: 30%;
   margin: 0 auto 1vh;
+  @media (max-width: 1023px) {
+    width: 40%;
+  }
 `;
 export const Headline = styled.h1`
   font-size: 20vh;
   font-weight: 500;
 
   @media (max-width: 1023px) {
-    font-size: min(30vw, 170px);
+    font-size: min(22vw, 150px);
   }
 `;
 export const Highlight = styled.strong`
@@ -49,7 +52,7 @@ export const Highlight = styled.strong`
   font-size: 8vh;
 
   @media (max-width: 1023px) {
-    font-size: min(12vw, 70px);
+    font-size: min(10vw, 50px);
   }
 `;
 
@@ -61,7 +64,7 @@ export const ContentSection = styled.div`
   left: 50%;
   transform: translateX(-50%);
   @media (max-width: 1023px) {
-    width: min(60%, 250px);
+    width: min(55%, 230px);
     position: fixed;
     bottom: 0;
     padding-bottom: calc(constant(safe-area-inset-bottom) + 10vh);
@@ -108,8 +111,8 @@ export const Menu = styled.li`
 
   @media (max-width: 1023px) {
     & i {
-      width: min(10vw, 40px);
-      height: min(10vw, 40px);
+      width: min(8vw, 30px);
+      height: min(8vw, 30px);
     }
 
     &.navi-mobile {
@@ -129,12 +132,12 @@ export const Menu = styled.li`
     }
 
     &:nth-child(3) {
-      font-size: min(7vw, 30px);
+      font-size: min(6vw, 24px);
       margin-right: auto;
     }
 
     &:nth-child(4) {
-      font-size: min(7vw, 30px);
+      font-size: min(6vw, 24px);
       margin-left: auto;
     }
 
