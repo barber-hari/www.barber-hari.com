@@ -60,7 +60,7 @@ export const SideBar = styled.img<SideBarProps>`
   transition-timing-function: ease;
 
   @media (max-width: 1023px) {
-    width: 20px;
+    width: 10px;
   }
 
   ${({ position }) =>
