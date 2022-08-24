@@ -83,7 +83,7 @@ export const Navigation = styled.ul`
 
   @media (max-width: 1023px) {
     column-gap: 0;
-    row-gap: min(7vw, 35px);
+    row-gap: min(10vw, 40px);
     min-width: 0;
   }
 `;
@@ -123,7 +123,7 @@ export const Menu = styled.li`
       font-size: 20px;
       font-weight: bolder;
       gap: 20px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     &:nth-child(2) {
