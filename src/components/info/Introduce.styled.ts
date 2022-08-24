@@ -82,7 +82,6 @@ export const History = styled.p`
 export const MapBox = styled.div`
   width: 100%;
   height: 480px;
-  background-color: #fff;
 
   @media (max-width: 1439px) {
     margin-top: 8vh;
@@ -113,5 +112,20 @@ export const Address = styled.address`
   @media (max-width: 426px) {
     justify-content: start;
     width: 100%;
+  }
+`;
+export const GalleryBox = styled.div`
+  z-index: 10;
+  width: 800px;
+  height: 900px;
+  display: grid;
+  margin-top: 20px;
+  grid-template-columns: repeat(4, minmax(100px, 200px));
+  grid-template-rows: repeat(4, minmax(100px, 200px));
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  cursor: pointer;
+  @media (max-width: 1439px) {
+    display: none;
   }
 `;
