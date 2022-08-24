@@ -3,7 +3,15 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Background from 'components/home/Background';
 import Contents from 'components/home/Contents';
-import * as $ from './index.styled';
+import styled from 'styled-components';
+
+ const Container = styled.div`
+  display: block;
+  width: 100%;
+  height: 100vh;
+  color: #fff;
+  overflow-y: auto;
+`;
 
 const Home: NextPage = () => {
   return (
@@ -14,10 +22,10 @@ const Home: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <$.Container>
+      <Container>
         <Background />
         <Contents />
-      </$.Container>
+      </Container>
     </>
   );
 };
