@@ -80,7 +80,7 @@ export const Navigation = styled.ul`
 
   @media (max-width: 1023px) {
     column-gap: 0;
-    row-gap: min(6vw, 30px);
+    row-gap: min(7vw, 35px);
     min-width: 0;
   }
 `;

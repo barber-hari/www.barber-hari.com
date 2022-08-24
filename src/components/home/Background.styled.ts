@@ -16,7 +16,7 @@ const boxFade = keyframes`
     opacity: 1;
   }
   100% {
-    opacity: .5;
+    opacity: .3;
   }
 `;
 
