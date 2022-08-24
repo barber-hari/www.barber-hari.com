@@ -1,13 +1,15 @@
 import React, { FC, useRef } from 'react';
 import * as $ from './ImageModal.styled';
-import ImageList from '../Image';
+import { IImageList } from '../Image/ImageList';
 
 export interface ImageModalProps {
   closeModal: () => void;
+  show: boolean;
+  currentImage: IImageList;
 }
 
 const ImageModal: FC<ImageModalProps> = props => {
-  const { closeModal } = props;
+  const { closeModal, show, currentImage } = props;
 
   const backgroundRef = useRef<HTMLDivElement>(null);
 
@@ -18,9 +20,13 @@ const ImageModal: FC<ImageModalProps> = props => {
   };
 
   return (
-    <$.Background ref={backgroundRef} onClick={handleClickBackground}>
+    <$.Background
+      show={show}
+      ref={backgroundRef}
+      onClick={handleClickBackground}
+    >
       <$.Container>
-        <ImageList />
+        <$.Image src={currentImage.image} />
       </$.Container>
     </$.Background>
   );

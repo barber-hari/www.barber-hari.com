@@ -7,6 +7,7 @@ export interface ImageStyledProps {
 }
 
 export const Image = styled.i<ImageStyledProps>`
+  z-index: 30;
   display: block;
   width: ${({ width }) => width};
   height: ${({ height }) => height};
@@ -18,6 +19,7 @@ export const Image = styled.i<ImageStyledProps>`
 `;
 
 export const ImageBox = styled.div`
+  z-index: 20;
   width: 100%;
   height: 100%;
   overflow: hidden;

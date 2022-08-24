@@ -4,11 +4,19 @@ import * as $ from './Introduce.styled';
 import Icon from '../base/Icon';
 import ImageModal from '../base/Modal/ImageModal';
 import ImageList from '../base/Image';
+import Images, { IImageList } from '../base/Image/ImageList';
 
 const Introduce: FC = () => {
   const [show, setShow] = useState(false);
   const openModal = () => setShow(true);
   const closeModal = () => setShow(false);
+
+  const [imageData, setImageData] = useState(Images);
+  const [currentImage, setCurrentImage] = useState(imageData[0]);
+
+  const onVIew = (id: number) => {
+    setCurrentImage(imageData.find(value => value.id === id) as IImageList);
+  };
 
   return (
     <$.Container>
@@ -39,8 +47,18 @@ const Introduce: FC = () => {
         </$.LeftBox>
         <$.RightBox>
           <$.GalleryBox>
-            <ImageList openModal={openModal} />
-            {show ? <ImageModal closeModal={closeModal} /> : null}
+            <ImageList
+              onView={onVIew}
+              openModal={openModal}
+              imageData={imageData}
+            />
+            {show ? (
+              <ImageModal
+                closeModal={closeModal}
+                show={show}
+                currentImage={currentImage}
+              />
+            ) : null}
           </$.GalleryBox>
         </$.RightBox>
       </$.BoxWrapper>

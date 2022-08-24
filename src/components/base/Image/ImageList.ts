@@ -9,14 +9,15 @@ import image8src from 'public/images/info/img-shop8.png';
 
 export interface IImageList {
   image: string;
+  id: number;
 }
 
 const Images: IImageList[] = [
-  { image: `${image6src.src}` },
-  { image: `${image5src.src}` },
-  { image: `${image2src.src}` },
-  { image: `${image1src.src}` },
-  { image: `${image7src.src}` },
-  { image: `${image8src.src}` },
+  { id: 1, image: `${image6src.src}` },
+  { id: 2, image: `${image5src.src}` },
+  { id: 3, image: `${image2src.src}` },
+  { id: 4, image: `${image1src.src}` },
+  { id: 5, image: `${image7src.src}` },
+  { id: 6, image: `${image8src.src}` },
 ];
 export default Images;

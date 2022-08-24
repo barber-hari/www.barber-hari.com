@@ -115,6 +115,7 @@ export const Address = styled.address`
   }
 `;
 export const GalleryBox = styled.div`
+  z-index: 10;
   width: 800px;
   height: 900px;
   display: grid;
