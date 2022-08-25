@@ -5,14 +5,17 @@ import Image, { INFO_IMAGES } from 'models/Image';
 import * as $ from './Introduce.styled';
 import Icon from '../base/Icon';
 import ImageModal from '../base/Modal/ImageModal';
+import ReImageModal from '../base/Modal/ReImageModal';
 
 const Introduce: FC = () => {
   const [show, setShow] = useState(false);
   const [currentImage, setCurrentImage] = useState<Image>(INFO_IMAGES[0]);
+  const [targetId, setTargetId] = useState(0);
 
   const openModalHandler = (targetId: number) => {
     setCurrentImage(INFO_IMAGES.find(({ id }) => id === targetId) as Image);
     setShow(true);
+    setTargetId(targetId)
   };
 
   const clickImageChangeHandler = (targetId: number) => {
@@ -57,14 +60,24 @@ const Introduce: FC = () => {
         <$.RightBox>
           <$.GalleryBox>
             <ImageList onClick={openModalHandler} INFO_IMAGES={INFO_IMAGES} />
-            {show && (
+            {
+              show && (
+                <ReImageModal 
+                  images={INFO_IMAGES}
+                  targetIndex={targetId - 1}
+                  closeModal={closeModalHandler}
+                  show={show}
+                />
+              )
+            }
+            {/* {show && (
               <ImageModal
                 closeModal={closeModalHandler}
                 show={show}
                 currentImage={currentImage}
                 clickImageChangeHandler={clickImageChangeHandler}
               />
-            )}
+            )} */}
           </$.GalleryBox>
         </$.RightBox>
       </$.BoxWrapper>
