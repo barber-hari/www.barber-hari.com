@@ -1,23 +1,45 @@
 import React, { FC, useRef } from 'react';
 import Image from 'models/Image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Scrollbar, Pagination } from 'swiper';
 import * as $ from './ImageModal.styled';
 
 export interface ImageModalProps {
   closeModal: () => void;
   show: boolean;
-  currentImage: Image;
+  INFO_IMAGES: Image[];
+  // currentImage: Image;
 }
 
 const ImageModal: FC<ImageModalProps> = props => {
   const {
+    // currentImage: { src },
     closeModal,
+    INFO_IMAGES,
     show,
-    currentImage: { src },
   } = props;
+
+  SwiperCore.use([Navigation, Scrollbar, Pagination]);
+
+  // const prevRef = useRef<HTMLButtonElement>(null);
+  // const nextRef = useRef<HTMLButtonElement>(null);
+
+  const settings = {
+    spaceBetween: 5,
+    navigation: {},
+    scrollbar: {
+      draggable: true,
+      el: null,
+    },
+    pagination: {
+      clickable: true,
+    },
+    slidesPerView: 5,
+  };
 
   const backgroundRef = useRef<HTMLDivElement>(null);
 
-  const handleClickBackground = (e: React.MouseEvent<HTMLDivElement>) => {
+  const closeBackgroundHandler = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === backgroundRef.current) {
       closeModal();
     }
@@ -27,10 +49,16 @@ const ImageModal: FC<ImageModalProps> = props => {
     <$.Background
       show={show}
       ref={backgroundRef}
-      onClick={handleClickBackground}
+      onClick={closeBackgroundHandler}
     >
       <$.Container>
-        <$.Image src={src} />
+        <Swiper {...settings}>
+          {INFO_IMAGES.map(({ src, id }) => (
+            <SwiperSlide key={id}>
+              <$.Image src={src} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </$.Container>
     </$.Background>
   );

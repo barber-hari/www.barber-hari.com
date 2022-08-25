@@ -11,7 +11,7 @@ const Introduce: FC = () => {
   const [currentImage, setCurrentImage] = useState<Image>(INFO_IMAGES[0]);
 
   const openModalHandler = (targetId: number) => {
-    setCurrentImage(INFO_IMAGES.find(({ id }) => id === targetId)!);
+    setCurrentImage(INFO_IMAGES.find(({ id }) => id === targetId) as Image);
     setShow(true);
   };
 
@@ -46,12 +46,13 @@ const Introduce: FC = () => {
         </$.LeftBox>
         <$.RightBox>
           <$.GalleryBox>
-            <ImageList onClick={openModalHandler} images={INFO_IMAGES} />
+            <ImageList onClick={openModalHandler} INFO_IMAGES={INFO_IMAGES} />
             {show && (
               <ImageModal
                 closeModal={closeModalHandler}
                 show={show}
-                currentImage={currentImage}
+                INFO_IMAGES={INFO_IMAGES}
+                // currentImage={currentImage}
               />
             )}
           </$.GalleryBox>

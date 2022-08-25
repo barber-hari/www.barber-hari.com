@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+import { SwiperSlide } from 'swiper/react';
 
 interface showProps {
   show?: boolean;
@@ -43,7 +44,6 @@ export const Container = styled.div`
 `;
 
 export const Image = styled.img`
-  display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
 `;
