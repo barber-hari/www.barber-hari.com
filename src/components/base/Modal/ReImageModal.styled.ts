@@ -1,8 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 
-interface showProps {
-  show?: boolean;
-  src?: string;
+interface ModalContainerProps {
+  show: boolean;
 }
 
 const BackgroundFade = keyframes`
@@ -16,7 +15,7 @@ const BackgroundFade = keyframes`
   }
 `;
 
-export const Background = styled.div<showProps>`
+export const ModalContainer = styled.div<ModalContainerProps>`
   position: fixed;
   width: 100%;
   height: 100%;
@@ -32,6 +31,19 @@ export const Background = styled.div<showProps>`
     `}
 `;
 
+export const Background = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 510;
+`;
+
+
+
+
 interface ImageProps {
   index: number;
   curruntIndex: number;
@@ -44,7 +56,7 @@ export const Container = styled.div`
   width: 600px;
   height: 600px;
   transform: translate(-50%, -50%);
-  z-index: 510;
+  z-index: 520;
   overflow: hidden;
   align-items: center;
 `;

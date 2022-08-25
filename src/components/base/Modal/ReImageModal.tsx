@@ -22,28 +22,29 @@ const ImageModal: FC<ImageModalProps> = props => {
   const backgroundRef = useRef<HTMLDivElement>(null);
 
   const closeBackgroundHandler = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target === backgroundRef.current) {
       closeModal();
-    }
   };
+
   const handleNextImage = (index: number) => {
+    console.log(index)
     setCurruntIndex(index === images.length - 1 ? 0 : index + 1);
   }
+
   return (
-    <$.Background
+    <$.ModalContainer
       show={show}
       ref={backgroundRef}
-      onClick={closeBackgroundHandler}
     >
-      <$.Container>
+      <$.Background onClick={closeBackgroundHandler}/>
+      <$.Container onClick={(e ) => void handleNextImage(Number(e.target.dataset.index))}>
         {
           images.map(({ src, id }, index) => (
-            <$.Image key={`modal-image-${id}`} src={src} onClick={() => void handleNextImage(index)} index={index} curruntIndex={curruntIndex}/>
+            <$.Image key={`modal-image-${id}`} src={src} data-index={index} index={index} curruntIndex={curruntIndex}/>
           ))
         }
         {/* <$.Image src={src} onClick={() => void clickImageChangeHandler(id)} /> */}
       </$.Container>
-    </$.Background>
+    </$.ModalContainer>
   );
 };
 
