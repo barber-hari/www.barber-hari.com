@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { SwiperSlide } from 'swiper/react';
+import swiper from 'swiper/swiper.min.css';
 
 interface showProps {
   show?: boolean;
@@ -41,6 +41,8 @@ export const Container = styled.div`
   max-width: 800px;
   transform: translate(-50%, -50%);
   z-index: 510;
+
+  ${swiper}
 `;
 
 export const Image = styled.img`
