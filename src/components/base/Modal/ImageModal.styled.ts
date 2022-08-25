@@ -1,5 +1,4 @@
 import styled, { css, keyframes } from 'styled-components';
-import swiper from 'swiper/swiper.min.css';
 
 interface showProps {
   show?: boolean;
@@ -34,18 +33,20 @@ export const Background = styled.div<showProps>`
 `;
 
 export const Container = styled.div`
+  display: flex;
   position: fixed;
   left: 50%;
   top: 50%;
-  min-width: 600px;
-  max-width: 800px;
+  max-width: 600px;
+  max-height: 600px;
   transform: translate(-50%, -50%);
   z-index: 510;
-
-  ${swiper}
+  overflow: hidden;
 `;
 
 export const Image = styled.img`
   width: 100%;
-  height: auto;
+  height: 100%;
+  float: none;
+  object-fit: cover;
 `;

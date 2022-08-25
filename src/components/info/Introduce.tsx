@@ -15,6 +15,16 @@ const Introduce: FC = () => {
     setShow(true);
   };
 
+  const clickImageChangeHandler = (targetId: number) => {
+    setCurrentImage(
+      INFO_IMAGES.find(({ id }) =>
+        targetId !== INFO_IMAGES.length
+          ? id === targetId + 1
+          : id === INFO_IMAGES[0].id
+      ) as Image
+    );
+  };
+
   const closeModalHandler = () => void setShow(false);
 
   return (
@@ -51,8 +61,8 @@ const Introduce: FC = () => {
               <ImageModal
                 closeModal={closeModalHandler}
                 show={show}
-                INFO_IMAGES={INFO_IMAGES}
-                // currentImage={currentImage}
+                currentImage={currentImage}
+                clickImageChangeHandler={clickImageChangeHandler}
               />
             )}
           </$.GalleryBox>

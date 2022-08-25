@@ -1,41 +1,21 @@
 import React, { FC, useRef } from 'react';
 import Image from 'models/Image';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Scrollbar, Pagination } from 'swiper';
 import * as $ from './ImageModal.styled';
 
 export interface ImageModalProps {
   closeModal: () => void;
   show: boolean;
-  INFO_IMAGES: Image[];
-  // currentImage: Image;
+  currentImage: Image;
+  clickImageChangeHandler: (targetId: number) => void;
 }
 
 const ImageModal: FC<ImageModalProps> = props => {
   const {
-    // currentImage: { src },
+    clickImageChangeHandler,
+    currentImage: { src, id },
     closeModal,
-    INFO_IMAGES,
     show,
   } = props;
-
-  SwiperCore.use([Navigation, Scrollbar, Pagination]);
-
-  // const prevRef = useRef<HTMLButtonElement>(null);
-  // const nextRef = useRef<HTMLButtonElement>(null);
-
-  const settings = {
-    spaceBetween: 5,
-    navigation: {},
-    scrollbar: {
-      draggable: true,
-      el: null,
-    },
-    pagination: {
-      clickable: true,
-    },
-    slidesPerView: 5,
-  };
 
   const backgroundRef = useRef<HTMLDivElement>(null);
 
@@ -52,13 +32,7 @@ const ImageModal: FC<ImageModalProps> = props => {
       onClick={closeBackgroundHandler}
     >
       <$.Container>
-        <Swiper {...settings}>
-          {INFO_IMAGES.map(({ src, id }) => (
-            <SwiperSlide key={id}>
-              <$.Image src={src} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <$.Image src={src} onClick={() => void clickImageChangeHandler(id)} />
       </$.Container>
     </$.Background>
   );
