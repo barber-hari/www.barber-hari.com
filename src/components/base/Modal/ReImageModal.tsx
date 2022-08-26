@@ -1,6 +1,8 @@
 import React, { FC, useRef, useState } from 'react';
 import Image from 'models/Image';
+import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 import * as $ from './ReImageModal.styled';
+import SlideButton from '../button/SlideButton';
 
 export interface ImageModalProps {
   closeModal: () => void;
@@ -20,24 +22,42 @@ const ImageModal: FC<ImageModalProps> = props => {
   };
 
   const handleNextImage = (index: number) => {
-    setCurrentIndex(index === images.length - 1 ? 0 : index + 1);
+    setCurrentIndex(index < images.length - 1 ? index + 1 : 0);
+  };
+
+  const handleNextButton = (index: number) => {
+    setCurrentIndex(index < images.length - 1 ? index : 0);
+  };
+
+  const handleSlideButton = (direction: number) => {
+    handleNextButton(currentIndex + direction);
   };
 
   return (
     <$.ModalContainer show={show} ref={backgroundRef}>
       <$.Background onClick={closeBackgroundHandler} />
-      <$.Container>
+      <$.Container onClick={() => void handleNextImage(currentIndex)}>
         {images.map(({ src, id }, index) => (
           <$.Image
             key={`modal-image-${id}`}
             src={src}
-            onClick={() => void handleNextImage(index)}
             index={index}
             currentIndex={currentIndex}
           />
         ))}
-        {/* <$.Image src={src} onClick={() => void clickImageChangeHandler(id)} /> */}
       </$.Container>
+      <SlideButton
+        direction="direction-prev"
+        onClick={() => void handleSlideButton(-1)}
+      >
+        <$.LeftButtonIcon />
+      </SlideButton>
+      <SlideButton
+        direction="direction-next"
+        onClick={() => void handleSlideButton(1)}
+      >
+        <$.RightButtonIcon />
+      </SlideButton>
     </$.ModalContainer>
   );
 };

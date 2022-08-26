@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 
 interface ModalContainerProps {
   show: boolean;
@@ -42,8 +43,8 @@ export const Background = styled.div`
 `;
 
 interface ImageProps {
-  index: number;
   currentIndex: number;
+  index: number;
 }
 
 export const Container = styled.div`
@@ -61,17 +62,9 @@ export const Container = styled.div`
 export const Image = styled.img<ImageProps>`
   width: 100%;
   height: 100%;
-  float: none;
-  object-fit: cover;
-  flex-basis: 100%;
-  flex-grow: 0;
-  flex-shrink: 0;
   transition: 1s;
   position: absolute;
-  left: 0;
-  top: 0;
   opacity: 0;
-
   transform: translateX(
     ${({ index, currentIndex }) => (index - currentIndex) * 100}%
   );
@@ -80,5 +73,16 @@ export const Image = styled.img<ImageProps>`
     index === currentIndex &&
     css`
       opacity: 1;
-    `}
+    `};
+`;
+
+export const LeftButtonIcon = styled(AiFillCaretLeft)`
+  width: 40px;
+  height: 40px;
+  color: #fff;
+`;
+export const RightButtonIcon = styled(AiFillCaretRight)`
+  width: 40px;
+  height: 40px;
+  color: #fff;
 `;
