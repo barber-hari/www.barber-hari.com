@@ -41,12 +41,9 @@ export const Background = styled.div`
   z-index: 510;
 `;
 
-
-
-
 interface ImageProps {
   index: number;
-  curruntIndex: number;
+  currentIndex: number;
 }
 
 export const Container = styled.div`
@@ -60,7 +57,6 @@ export const Container = styled.div`
   overflow: hidden;
   align-items: center;
 `;
-
 
 export const Image = styled.img<ImageProps>`
   width: 100%;
@@ -76,11 +72,13 @@ export const Image = styled.img<ImageProps>`
   top: 0;
   opacity: 0;
 
-  transform: translateX(${({ index, curruntIndex }) => (index - curruntIndex) * 100}%);
+  transform: translateX(
+    ${({ index, currentIndex }) => (index - currentIndex) * 100}%
+  );
 
-  ${({ index, curruntIndex }) => index === curruntIndex && css`
-    opacity: 1;
-  `}
+  ${({ index, currentIndex }) =>
+    index === currentIndex &&
+    css`
+      opacity: 1;
+    `}
 `;
-
-

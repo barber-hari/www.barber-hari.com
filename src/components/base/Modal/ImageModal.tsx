@@ -5,36 +5,42 @@ import * as $ from './ImageModal.styled';
 export interface ImageModalProps {
   closeModal: () => void;
   show: boolean;
-  currentImage: Image;
+  images: Image[];
   clickImageChangeHandler: (targetId: number) => void;
+  currentImage: Image;
 }
 
 const ImageModal: FC<ImageModalProps> = props => {
   const {
     clickImageChangeHandler,
-    currentImage: { src, id },
+    images,
     closeModal,
     show,
+    currentImage: { id },
   } = props;
 
   const backgroundRef = useRef<HTMLDivElement>(null);
 
-  const closeBackgroundHandler = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target === backgroundRef.current) {
-      closeModal();
-    }
+  const closeBackgroundHandler = () => {
+    closeModal();
   };
 
   return (
-    <$.Background
-      show={show}
-      ref={backgroundRef}
-      onClick={closeBackgroundHandler}
-    >
+    <$.ModalContainer show={show} ref={backgroundRef}>
+      <$.Background onClick={closeBackgroundHandler} />
       <$.Container>
-        <$.Image src={src} onClick={() => void clickImageChangeHandler(id)} />
+        {images.map(({ src }, index) => (
+          <$.Image
+            key={`modal-image-${id}`}
+            src={src}
+            onClick={() => void clickImageChangeHandler(index)}
+            index={index}
+            currentIndex={id}
+          />
+        ))}
+        {/* <$.Image src={src} onClick={() => void clickImageChangeHandler(id)} /> */}
       </$.Container>
-    </$.Background>
+    </$.ModalContainer>
   );
 };
 

@@ -1,31 +1,18 @@
 import React, { FC, useState } from 'react';
 import barberHariImage from 'public/images/info/img-hariface.png';
 import ImageList from 'components/base/Image';
-import Image, { INFO_IMAGES } from 'models/Image';
+import { INFO_IMAGES } from 'models/Image';
 import * as $ from './Introduce.styled';
 import Icon from '../base/Icon';
-import ImageModal from '../base/Modal/ImageModal';
 import ReImageModal from '../base/Modal/ReImageModal';
 
 const Introduce: FC = () => {
   const [show, setShow] = useState(false);
-  const [currentImage, setCurrentImage] = useState<Image>(INFO_IMAGES[0]);
   const [targetId, setTargetId] = useState(0);
 
-  const openModalHandler = (targetId: number) => {
-    setCurrentImage(INFO_IMAGES.find(({ id }) => id === targetId) as Image);
+  const openModalHandler = (targetIndex: number) => {
     setShow(true);
-    setTargetId(targetId)
-  };
-
-  const clickImageChangeHandler = (targetId: number) => {
-    setCurrentImage(
-      INFO_IMAGES.find(({ id }) =>
-        targetId !== INFO_IMAGES.length
-          ? id === targetId + 1
-          : id === INFO_IMAGES[0].id
-      ) as Image
-    );
+    setTargetId(targetIndex);
   };
 
   const closeModalHandler = () => void setShow(false);
@@ -60,24 +47,14 @@ const Introduce: FC = () => {
         <$.RightBox>
           <$.GalleryBox>
             <ImageList onClick={openModalHandler} INFO_IMAGES={INFO_IMAGES} />
-            {
-              show && (
-                <ReImageModal 
-                  images={INFO_IMAGES}
-                  targetIndex={targetId - 1}
-                  closeModal={closeModalHandler}
-                  show={show}
-                />
-              )
-            }
-            {/* {show && (
-              <ImageModal
+            {show && (
+              <ReImageModal
+                images={INFO_IMAGES}
+                targetIndex={targetId - 1}
                 closeModal={closeModalHandler}
                 show={show}
-                currentImage={currentImage}
-                clickImageChangeHandler={clickImageChangeHandler}
               />
-            )} */}
+            )}
           </$.GalleryBox>
         </$.RightBox>
       </$.BoxWrapper>
