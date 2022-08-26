@@ -1,6 +1,6 @@
 import React, { FC, useRef, useState } from 'react';
 import Image from 'models/Image';
-import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
+import { log } from 'util';
 import * as $ from './ReImageModal.styled';
 import SlideButton from '../button/SlideButton';
 
@@ -26,7 +26,7 @@ const ImageModal: FC<ImageModalProps> = props => {
   };
 
   const handleNextButton = (index: number) => {
-    setCurrentIndex(index < images.length - 1 ? index : 0);
+    setCurrentIndex(index < images.length ? index : 0);
   };
 
   const handleSlideButton = (direction: number) => {
@@ -61,5 +61,4 @@ const ImageModal: FC<ImageModalProps> = props => {
     </$.ModalContainer>
   );
 };
-
 export default ImageModal;

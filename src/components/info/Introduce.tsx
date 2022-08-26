@@ -1,10 +1,12 @@
 import React, { FC, useState } from 'react';
 import barberHariImage from 'public/images/info/img-hariface.png';
+import barberHariImage2 from 'public/images/info/img-hariface2.jpg';
 import ImageList from 'components/base/Image';
 import { INFO_IMAGES } from 'models/Image';
 import * as $ from './Introduce.styled';
 import Icon from '../base/Icon';
 import ReImageModal from '../base/Modal/ReImageModal';
+import SmallSlider from './SmallSlider';
 
 const Introduce: FC = () => {
   const [show, setShow] = useState(false);
@@ -22,12 +24,12 @@ const Introduce: FC = () => {
       <$.BoxWrapper>
         <$.LeftBox>
           <$.PictureBox>
-            <$.Picture src={barberHariImage.src} alt="" />
+            <$.Picture src={barberHariImage.src} alt="" className="pc" />
+            <$.Picture src={barberHariImage2.src} alt="" className="mobile" />
             <$.Name>
               BARBER <br />
-              HARI <br /> <br />
+              HARI <br />
               <$.History>
-                History <br /> <br />
                 Lumio salon <br />
                 Cobera salon <br />
                 Uncle's booth barbershop <br />
@@ -42,7 +44,8 @@ const Introduce: FC = () => {
               barber_hari
             </$.Address>
           </$.PictureBox>
-          <$.MapBox />
+          <SmallSlider />
+          <$.MapBox>네이버맵</$.MapBox>
         </$.LeftBox>
         <$.RightBox>
           <$.GalleryBox>

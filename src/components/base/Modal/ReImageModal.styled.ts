@@ -42,11 +42,6 @@ export const Background = styled.div`
   z-index: 510;
 `;
 
-interface ImageProps {
-  currentIndex: number;
-  index: number;
-}
-
 export const Container = styled.div`
   position: fixed;
   left: 50%;
@@ -58,6 +53,11 @@ export const Container = styled.div`
   overflow: hidden;
   align-items: center;
 `;
+
+interface ImageProps {
+  currentIndex: number;
+  index: number;
+}
 
 export const Image = styled.img<ImageProps>`
   width: 100%;
