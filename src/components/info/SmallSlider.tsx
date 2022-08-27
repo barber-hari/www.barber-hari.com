@@ -62,10 +62,10 @@ const SmallSlider: FC<SmallSliderProps> = props => {
               <$.Image src={src} />
             </SwiperSlide>
           ))}
-          <$.ButtonContainer ref={prevRef}>
+          <$.ButtonContainer ref={prevRef} direction={'left'}>
             <$.LeftButtonIcon />
           </$.ButtonContainer>
-          <$.ButtonContainer ref={nextRef}>
+          <$.ButtonContainer ref={nextRef} direction={'right'}>
             <$.RightButtonIcon />
           </$.ButtonContainer>
         </Swiper>
@@ -89,11 +89,12 @@ const SmallSlider: FC<SmallSliderProps> = props => {
 };
 
 const swiperStyle = {
-  backgroundColor: 'green',
+  backgroundColor: 'black',
+  height: '100%',
 };
 
 const swiperSlideStyle = {
-  backgroundColor: 'red',
+  borderRadius: '10px',
 };
 
 export default SmallSlider;

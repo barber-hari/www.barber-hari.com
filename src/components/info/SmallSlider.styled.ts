@@ -18,6 +18,7 @@ export const Container = styled.div`
   }
 `;
 
+//스타일컴포넌트 사용시 적용이 안됨
 export const StyledSwiper = styled(Swiper)`
   backgroundcolor: 'green';
 `;
@@ -25,14 +26,26 @@ export const StyledSwiper = styled(Swiper)`
 export const StyledSwiperSlide = styled(SwiperSlide)`
   backgroundcolor: 'red';
 `;
+interface ButtonProps {
+  direction: string;
+}
 
 export const Image = styled.img`
   border-radius: 10px;
-  width: 100px;
-  height: 250px;
+  width: 100%;
+  height: 100%;
 `;
 
-export const ButtonContainer = styled.button``;
+export const ButtonContainer = styled.button<ButtonProps>`
+  justify-content: center;
+  top: -150px;
+  z-index: 1000;
+  ${({ direction }) =>
+    direction == 'right' &&
+    css`
+      float: right;
+    `}
+`;
 
 export const LeftButtonIcon = styled(AiFillCaretLeft)`
   width: 40px;
