@@ -5,8 +5,9 @@ import ImageList from 'components/base/Image';
 import { INFO_IMAGES } from 'models/Image';
 import * as $ from './Introduce.styled';
 import Icon from '../base/Icon';
-import ReImageModal from '../base/Modal/ReImageModal';
+import ReImageModal from '../base/modal/ReImageModal';
 import SmallSlider from './SmallSlider';
+import NaverMap from '../base/map/NaverMap';
 
 const Introduce: FC = () => {
   const [show, setShow] = useState(false);
@@ -45,7 +46,9 @@ const Introduce: FC = () => {
             </$.Address>
           </$.PictureBox>
           <SmallSlider />
-          <$.MapBox>네이버맵</$.MapBox>
+          <$.MapBox>
+            <NaverMap />
+          </$.MapBox>
         </$.LeftBox>
         <$.RightBox>
           <$.GalleryBox>

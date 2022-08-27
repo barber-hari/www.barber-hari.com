@@ -10,7 +10,6 @@ export const Container = styled.div`
 `;
 
 export const BoxWrapper = styled.div`
-  padding-top: 30px;
   padding-left: 25px;
   padding-right: 25px;
   display: flex;
