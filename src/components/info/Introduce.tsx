@@ -46,7 +46,9 @@ const Introduce: FC = () => {
             </$.Address>
           </$.PictureBox>
           <SmallSlider />
-          <$.MapBox>{/*<NaverMap />*/}</$.MapBox>
+          <$.MapBox>
+            <NaverMap />
+          </$.MapBox>
         </$.LeftBox>
         <$.RightBox>
           <$.GalleryBox>

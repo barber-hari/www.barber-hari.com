@@ -35,7 +35,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       </Head>
       <Script
         type={'text/javascript'}
-        src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_KEY}`}
+        src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_KEY}&callback=initMap`}
       ></Script>
       <RecoilRoot>
         <GlobalStyle />

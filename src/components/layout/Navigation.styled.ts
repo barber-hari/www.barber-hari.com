@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Navigation = styled.nav`
   width: 100vw;
-  @media (max-width: 1024px) {
+  @media (max-width: 903px) {
     display: none;
   }
 `;
