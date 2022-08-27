@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
+import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 
 export const Container = styled.div`
   width: 80vw;
@@ -18,9 +19,28 @@ export const Container = styled.div`
 `;
 
 export const StyledSwiper = styled(Swiper)`
-  background-color: #000;
+  backgroundcolor: 'green';
 `;
 
 export const StyledSwiperSlide = styled(SwiperSlide)`
+  backgroundcolor: 'red';
+`;
+
+export const Image = styled.img`
+  border-radius: 10px;
+  width: 100px;
+  height: 250px;
+`;
+
+export const ButtonContainer = styled.button``;
+
+export const LeftButtonIcon = styled(AiFillCaretLeft)`
+  width: 40px;
+  height: 40px;
+  color: #fff;
+`;
+export const RightButtonIcon = styled(AiFillCaretRight)`
+  width: 40px;
+  height: 40px;
   color: #fff;
 `;
