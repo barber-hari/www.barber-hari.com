@@ -6,9 +6,8 @@ import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 export const Container = styled.div`
   width: 80vw;
   height: 30vh;
-  position: fixed;
   border-radius: 10px;
-  top: 25%;
+  margin-top: 70px;
   left: 50%;
   transform: translateX(-50%);
   background-color: grey;
@@ -34,17 +33,20 @@ export const Image = styled.img`
   border-radius: 10px;
   width: 100%;
   height: 100%;
+  object-fit: cover;
 `;
 
 export const ButtonContainer = styled.button<ButtonProps>`
-  justify-content: center;
-  top: -150px;
+  top: -17vh;
   z-index: 1000;
   ${({ direction }) =>
     direction == 'right' &&
     css`
       float: right;
     `}
+  &:hover {
+    color: red;
+  }
 `;
 
 export const LeftButtonIcon = styled(AiFillCaretLeft)`

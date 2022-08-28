@@ -58,7 +58,7 @@ export const PictureBox = styled.div`
     padding-left: 0;
   }
   @media (max-width: 903px) {
-    padding-left: 50px;
+    padding-left: 5vw;
   }
 `;
 
@@ -68,7 +68,7 @@ export const Picture = styled.img`
   width: 250px;
   height: 250px;
   margin-left: 10px;
-
+  border-radius: 10px;
   &.mobile {
     display: none;
   }
@@ -82,11 +82,9 @@ export const Picture = styled.img`
       display: none;
     }
     &.mobile {
+      margin-left: 0px;
       display: block;
-      position: fixed;
-      margin-left: 0;
-      left: 10%;
-      border-radius: 4px;
+      float: left;
       width: 175px;
       height: 125px;
     }
@@ -110,7 +108,7 @@ export const Name = styled.h1`
   }
   @media (max-width: 903px) {
     margin-top: 0;
-    left: 150px;
+    padding-left: 10px;
     font-size: 30px;
   }
 `;
@@ -149,10 +147,7 @@ export const MapBox = styled.div`
     width: 80vw;
   }
   @media (max-width: 1024px) {
-    position: fixed;
     bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
     height: 40vh;
   }
 `;
