@@ -3,6 +3,16 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 
+
+const swiperStyle = {
+  backgroundColor: 'black',
+  height: '100%',
+};
+
+const swiperSlideStyle = {
+  borderRadius: '10px',
+};
+
 export const Container = styled.div`
   width: 80vw;
   height: 30vh;
@@ -15,22 +25,31 @@ export const Container = styled.div`
   @media (min-width: 904px) {
     display: none;
   }
+
+  & .swiper-container {
+    background-color: #000;
+    height: 100%;
+  }
+
+  & .swiper-slide {
+    /* border-radius: 10px; */
+  }
 `;
 
 //스타일컴포넌트 사용시 적용이 안됨
 export const StyledSwiper = styled(Swiper)`
-  backgroundcolor: 'green';
+  background-color: 'green';
 `;
 
 export const StyledSwiperSlide = styled(SwiperSlide)`
-  backgroundcolor: 'red';
+  background-color: 'red';
 `;
 interface ButtonProps {
   direction: string;
 }
 
 export const Image = styled.img`
-  border-radius: 10px;
+  /* border-radius: 10px; */
   width: 100%;
   height: 100%;
   object-fit: cover;

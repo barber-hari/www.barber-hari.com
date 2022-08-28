@@ -32,10 +32,10 @@ const SmallSlider: FC<SmallSliderProps> = props => {
         },
         breakpoints: {
           320: {
-            slidesPerView: 1,
+            slidesPerView: 4,
           },
           600: {
-            slidesPerView: 2,
+            slidesPerView: 6,
           },
         },
         scrollbar: { draggable: true, el: null },
@@ -56,9 +56,9 @@ const SmallSlider: FC<SmallSliderProps> = props => {
   return (
     <$.Container>
       {swiperSetting && (
-        <Swiper {...swiperSetting} style={swiperStyle}>
+        <Swiper {...swiperSetting}>
           {STYLES_IMAGES.map(({ src, id }) => (
-            <SwiperSlide key={id} style={swiperSlideStyle}>
+            <SwiperSlide key={id} >
               <$.Image src={src} />
             </SwiperSlide>
           ))}
@@ -86,15 +86,6 @@ const SmallSlider: FC<SmallSliderProps> = props => {
       </$.StyledSwiper>*/}
     </$.Container>
   );
-};
-
-const swiperStyle = {
-  backgroundColor: 'black',
-  height: '100%',
-};
-
-const swiperSlideStyle = {
-  borderRadius: '10px',
 };
 
 export default SmallSlider;

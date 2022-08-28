@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
 import faviconSrc from 'public/favicon.ico';
 import ogImageSrc from 'public/imgae-og.jpg';
-import Script from 'next/script';
+
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
@@ -33,10 +33,6 @@ const App = ({ Component, pageProps }: AppProps) => {
         <title>BARBER-HARI 바버하리</title>
         <link rel="shortcut icon" href={faviconSrc.src} />
       </Head>
-      <Script
-        type={'text/javascript'}
-        src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_KEY}&callback=initMap`}
-      ></Script>
       <RecoilRoot>
         <GlobalStyle />
         <Component {...pageProps} />

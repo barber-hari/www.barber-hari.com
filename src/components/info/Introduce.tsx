@@ -4,11 +4,11 @@ import barberHariImage2 from 'public/images/info/img-hariface2.jpg';
 import ImageList from 'components/base/Image';
 import { INFO_IMAGES } from 'models/Image';
 import * as $ from './Introduce.styled';
-import Icon from '../base/Icon';
-import ReImageModal from '../base/modal/ReImageModal';
+import Icon from 'components/base/Icon';
+import ReImageModal from 'components/base/modal/ReImageModal';
 import SmallSlider from './SmallSlider';
-import NaverMap from '../base/map/NaverMap';
-import Reservation from '../base/reservation/Reservation';
+import NaverMap from 'components/base/map/NaverMap';
+import Reservation from 'components/base/reservation/Reservation';
 
 const Introduce: FC = () => {
   const [show, setShow] = useState(false);
@@ -47,7 +47,7 @@ const Introduce: FC = () => {
             </$.Address>
           </$.PictureBox>
           <SmallSlider />
-          <$.MapBox>{/*<NaverMap />*/}</$.MapBox>
+          <$.MapBox><NaverMap /></$.MapBox>
         </$.LeftBox>
         <$.RightBox>
           <$.GalleryBox>
