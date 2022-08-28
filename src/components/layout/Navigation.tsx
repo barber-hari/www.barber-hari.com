@@ -7,11 +7,12 @@ import Path from '../../models/Path';
 
 const Navigation: FC = () => {
   const { pathname } = useRouter();
-  pathname === Path.INDEX;
+  console.log(pathname);
+
   return (
     <$.Navigation>
       <$.Pages>
-        <$.Page>
+        <$.Page pathname={pathname} id={'/info'}>
           <Link href={Path.INFO}>INFO</Link>
         </$.Page>
         <$.Page>
@@ -23,7 +24,7 @@ const Navigation: FC = () => {
           </Link>
         </$.Page>
 
-        <$.Page>
+        <$.Page pathname={pathname} id={'/styles'}>
           <Link href={Path.STYLES}>STYLES</Link>
         </$.Page>
       </$.Pages>

@@ -1,3 +1,4 @@
+/*
 import { useEffect, useRef, useState } from 'react';
 
 function useMap() {
@@ -40,3 +41,4 @@ function useMap() {
 }
 
 export default useMap;
+*/
