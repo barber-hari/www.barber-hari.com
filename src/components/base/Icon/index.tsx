@@ -6,6 +6,7 @@ interface IconProps {
   width?: string;
   height?: string;
   iconType: IconType;
+  onClick?: () => void;
 }
 
 const Icon: FC<IconProps> = props => {

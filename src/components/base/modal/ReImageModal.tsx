@@ -1,6 +1,5 @@
 import React, { FC, useRef, useState } from 'react';
 import Image from 'models/Image';
-import { log } from 'util';
 import * as $ from './ReImageModal.styled';
 import SlideButton from '../button/SlideButton';
 

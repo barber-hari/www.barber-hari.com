@@ -8,6 +8,7 @@ import Icon from '../base/Icon';
 import ReImageModal from '../base/modal/ReImageModal';
 import SmallSlider from './SmallSlider';
 import NaverMap from '../base/map/NaverMap';
+import Reservation from '../base/reservation/Reservation';
 
 const Introduce: FC = () => {
   const [show, setShow] = useState(false);
@@ -61,6 +62,7 @@ const Introduce: FC = () => {
             )}
           </$.GalleryBox>
         </$.RightBox>
+        <Reservation />
       </$.BoxWrapper>
     </$.Container>
   );

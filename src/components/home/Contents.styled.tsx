@@ -97,12 +97,25 @@ export const Menu = styled.li`
   align-items: center;
   justify-content: center;
   gap: 15%;
+  transition: 0.5s;
+
+  i {
+    cursor: pointer;
+  }
+
+  &:hover {
+    color: wheat;
+  }
 
   &:first-child {
     width: 100%;
-    font-size: 1.8vh;
     gap: 15px;
-    font-family: 'Noto Sans KR', sans-serif;
+
+    a {
+      font-size: 1.8vh;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: bolder;
+    }
   }
 
   &:last-child {

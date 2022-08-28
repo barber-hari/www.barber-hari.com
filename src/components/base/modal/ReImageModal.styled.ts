@@ -77,12 +77,12 @@ export const Image = styled.img<ImageProps>`
 `;
 
 export const LeftButtonIcon = styled(AiFillCaretLeft)`
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   color: #fff;
 `;
 export const RightButtonIcon = styled(AiFillCaretRight)`
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   color: #fff;
 `;

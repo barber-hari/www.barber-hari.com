@@ -3,8 +3,15 @@ import barberHariIcon from 'public/images/home/icon-barberhari.png';
 import Icon from 'components/base/Icon';
 import Link from 'next/link';
 import * as $ from './Contents.styled';
+import { useRouter } from 'next/router';
+import Path from 'models/Path';
 
 const Contents: FC = () => {
+  const router = useRouter();
+  console.log(router);
+
+  const handleLinkClick = () => router.push(Path.RESERVATION);
+
   return (
     <$.Contents>
       <$.TitleSection>
@@ -20,8 +27,8 @@ const Contents: FC = () => {
       <$.ContentSection>
         <$.Navigation>
           <$.Menu>
-            <Icon iconType="NAVER" width="3vh" />
-            네이버 예약
+            <Icon iconType="NAVER" width="3vh" onClick={handleLinkClick} />
+            <a onClick={handleLinkClick}>네이버 예약</a>
           </$.Menu>
           <$.Menu className="navi-mobile">
             <Icon iconType="KAKAO" width="3vh" />
@@ -29,10 +36,10 @@ const Contents: FC = () => {
             <Icon iconType="TELL" width="3vh" />
           </$.Menu>
           <$.Menu>
-            <Link href="/info">INFO</Link>
+            <Link href={Path.INFO}>INFO</Link>
           </$.Menu>
           <$.Menu>
-            <Link href="/styles">STYLES</Link>
+            <Link href={Path.STYLES}>STYLES</Link>
           </$.Menu>
           <$.Menu className="navi-mobile-none">
             <Icon iconType="KAKAO" width="3vh" />
