@@ -6,17 +6,20 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "lint": "next lint", 
+    "lint": "next lint",
     "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
     "prettier": "prettier --write --ext .js,.jsx,.ts,.tsx ."
   },
   "dependencies": {
+    "@types/navermaps": "^3.0.17",
     "core-js": "^3.24.1",
     "next": "12.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
     "recoil": "^0.7.5",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "swiper": "^6.8.4"
   },
   "devDependencies": {
     "@babel/core": "^7.18.9",

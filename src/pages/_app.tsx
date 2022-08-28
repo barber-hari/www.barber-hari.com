@@ -6,6 +6,7 @@ import { RecoilRoot } from 'recoil';
 import faviconSrc from 'public/favicon.ico';
 import ogImageSrc from 'public/imgae-og.jpg';
 
+
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>

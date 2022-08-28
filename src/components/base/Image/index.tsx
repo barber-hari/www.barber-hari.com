@@ -6,15 +6,15 @@ interface ImageListProps {
   width?: string;
   height?: string;
   onClick: (targetId: number) => void;
-  images: Image[];
+  INFO_IMAGES: Image[];
 }
 
 const ImageList: FC<ImageListProps> = props => {
-  const { width = '100%', height, onClick, images } = props;
+  const { width = '100%', height, onClick, INFO_IMAGES } = props;
 
   return (
     <>
-      {images.map(({ src, id }) => (
+      {INFO_IMAGES.map(({ src, id }) => (
         <$.ImageBox key={id}>
           <$.Image
             height={height || width}

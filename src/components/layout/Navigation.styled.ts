@@ -1,8 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import Path from '../../models/Path';
 
 export const Navigation = styled.nav`
   width: 100vw;
-  @media (max-width: 1023px) {
+  @media (max-width: 903px) {
     display: none;
   }
 `;
@@ -20,11 +21,22 @@ export const Pages = styled.ul`
   gap: 2%;
 `;
 
-export const Page = styled.li`
-  margin-top: 10px;
-  font-size: 15px;
-  color: #ffffff;
+interface PageProps {
+  pathname?: string;
+}
 
-  &:first-child {
+export const Page = styled.li<PageProps>`
+  margin-top: 10px;
+  font-size: 25px;
+  color: #fff;
+  cursor: pointer;
+  &:hover {
+    color: red;
   }
+
+  ${({ pathname, id }) =>
+    pathname === id &&
+    css`
+      color: aqua;
+    `}
 `;

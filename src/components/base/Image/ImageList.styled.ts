@@ -7,6 +7,7 @@ export interface ImageStyledProps {
 }
 
 export const Image = styled.img<ImageStyledProps>`
+  border-radius: 10px;
   z-index: 30;
   display: block;
   width: ${({ width }) => width};
