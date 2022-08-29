@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 
-
 const swiperStyle = {
   backgroundColor: 'black',
   height: '100%',
@@ -22,8 +21,20 @@ export const Container = styled.div`
   transform: translateX(-50%);
   background-color: grey;
 
-  @media (min-width: 904px) {
+  @media (max-width: 1439px) {
+    height: 150px;
+  }
+
+  @media (max-width: 903px) {
+    height: 30vh;
+  }
+
+  @media (min-width: 1440px) {
     display: none;
+  }
+
+  @media (min-width: 904px) {
+    margin-top: 20px;
   }
 
   & .swiper-container {
@@ -38,11 +49,11 @@ export const Container = styled.div`
 
 //스타일컴포넌트 사용시 적용이 안됨
 export const StyledSwiper = styled(Swiper)`
-  background-color: 'green';
+  background-color: green;
 `;
 
 export const StyledSwiperSlide = styled(SwiperSlide)`
-  background-color: 'red';
+  background-color: red;
 `;
 interface ButtonProps {
   direction: string;
@@ -65,6 +76,9 @@ export const ButtonContainer = styled.button<ButtonProps>`
     `}
   &:hover {
     color: red;
+  }
+  @media (min-width: 904px) {
+    top: -10vh;
   }
 `;
 

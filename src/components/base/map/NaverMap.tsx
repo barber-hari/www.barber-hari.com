@@ -5,14 +5,15 @@ import Script from 'next/script';
 function a() {
   let index = 1;
   return () => {
-    console.log(index++)
-  }
+    console.log(index++);
+  };
 }
 
 const NaverMapBox = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  z-index: 10;
 `;
 
 export interface NaverMapProps {
@@ -36,11 +37,11 @@ const NaverMap: FC<NaverMapProps> = props => {
       position: location,
       map: map,
     });
-  }
+  };
 
   useEffect(() => {
     handleLoadNaverMap();
-  }, [mapRef])
+  }, [mapRef]);
 
   return (
     <>
@@ -49,10 +50,9 @@ const NaverMap: FC<NaverMapProps> = props => {
         src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_KEY}&callback=initMap`}
         onLoad={handleLoadNaverMap}
       />
-    <NaverMapBox ref={mapRef}></NaverMapBox>
-  </>
+      <NaverMapBox ref={mapRef}></NaverMapBox>
+    </>
   );
 };
-
 
 export default NaverMap;

@@ -9,25 +9,25 @@ export interface ReservationProps {
 }
 
 const Reservation: FC<ReservationProps> = props => {
-  const [isActive, setIsActive] = useState(false);
+  const [click, setClick] = useState(false);
   const router = useRouter();
   const { children } = props;
 
   const handleLinkClick = () => router.push(Path.RESERVATION);
   const handleActiveToggle = () => {
-    setIsActive(!isActive);
+    setClick(!click);
   };
 
   return (
-    <Container isActive={isActive}>
-      <NaverIcon onClick={handleActiveToggle} isActive={isActive} />
+    <Container click={click}>
+      <NaverIcon onClick={handleActiveToggle} click={click} />
       <p onClick={handleLinkClick}>네이버 예약</p>
     </Container>
   );
 };
 
 interface ContainerProps {
-  isActive: boolean;
+  click: boolean;
 }
 
 const Container = styled.button<ContainerProps>`
@@ -45,8 +45,8 @@ const Container = styled.button<ContainerProps>`
     display: none;
   }
 
-  ${({ isActive }) =>
-    isActive &&
+  ${({ click }) =>
+    click &&
     css`
       width: 200px;
       background-color: #000;
@@ -70,8 +70,8 @@ const NaverIcon = styled(SiNaver)<ContainerProps>`
   width: 50px;
   height: 50px;
   border-radius: 20px;
-  ${({ isActive }) =>
-    isActive &&
+  ${({ click }) =>
+    click &&
     css`
       color: #fff;
     `}

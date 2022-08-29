@@ -3,9 +3,6 @@ import Path from '../../models/Path';
 
 export const Navigation = styled.nav`
   width: 100vw;
-  @media (max-width: 903px) {
-    display: none;
-  }
 `;
 
 export const Logo = styled.img`
@@ -30,13 +27,10 @@ export const Page = styled.li<PageProps>`
   font-size: 25px;
   color: #fff;
   cursor: pointer;
-  &:hover {
-    color: red;
-  }
 
   ${({ pathname, id }) =>
     pathname === id &&
     css`
-      color: aqua;
+      color: #ffd4a3;
     `}
 `;

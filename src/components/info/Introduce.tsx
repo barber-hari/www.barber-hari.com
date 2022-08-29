@@ -5,18 +5,22 @@ import ImageList from 'components/base/Image';
 import { INFO_IMAGES } from 'models/Image';
 import * as $ from './Introduce.styled';
 import Icon from 'components/base/Icon';
-import ReImageModal from 'components/base/modal/ReImageModal';
 import SmallSlider from './SmallSlider';
 import NaverMap from 'components/base/map/NaverMap';
 import Reservation from 'components/base/reservation/Reservation';
+import ModalSlider from './ModalSlider';
+import { useRouter } from 'next/router';
+import Path from '../../models/Path';
 
 const Introduce: FC = () => {
   const [show, setShow] = useState(false);
   const [targetId, setTargetId] = useState(0);
 
+  const { push } = useRouter();
+
   const openModalHandler = (targetIndex: number) => {
-    setShow(true);
     setTargetId(targetIndex);
+    setShow(true);
   };
 
   const closeModalHandler = () => void setShow(false);
@@ -47,25 +51,45 @@ const Introduce: FC = () => {
             </$.Address>
           </$.PictureBox>
           <SmallSlider />
-          <$.MapBox><NaverMap /></$.MapBox>
+          <$.MapBox>
+            <NaverMap />
+            <$.NaverMapFooter>
+              <$.Tell>
+                서울 강남구 역삼로67길 33 b101호 바버하리 0507-1323-6462
+              </$.Tell>
+              <$.IconBox onClick={() => push(Path.RESERVATION)}>
+                <p>네이버 예약</p>
+                <Icon iconType={'NAVERRESERVE'} width={'50px'} />
+              </$.IconBox>
+            </$.NaverMapFooter>
+          </$.MapBox>
         </$.LeftBox>
         <$.RightBox>
           <$.GalleryBox>
             <ImageList onClick={openModalHandler} INFO_IMAGES={INFO_IMAGES} />
-            {show && (
-              <ReImageModal
-                images={INFO_IMAGES}
-                targetIndex={targetId - 1}
-                closeModal={closeModalHandler}
-                show={show}
-              />
-            )}
           </$.GalleryBox>
         </$.RightBox>
-        <Reservation />
+        {/*<Reservation />*/}
+        {show && (
+          <ModalSlider
+            INFO_IMAGES={INFO_IMAGES}
+            closeModal={closeModalHandler}
+            show={show}
+            targetId={targetId - 1}
+          />
+        )}
       </$.BoxWrapper>
     </$.Container>
   );
 };
 
 export default Introduce;
+
+/// deprecated
+
+/* <ReImageModal
+             images={INFO_IMAGES}
+             targetIndex={targetId - 1}
+             closeModal={closeModalHandler}
+             show={show}
+           />*/

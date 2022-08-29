@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
 import * as $ from './SmallSlider.styled';
 import { STYLES_IMAGES } from '../../models/Image';
-import styled from 'styled-components';
 
 export interface SmallSliderProps {
   children?: ReactNode;
@@ -20,7 +19,6 @@ const SmallSlider: FC<SmallSliderProps> = props => {
 
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
-  const swiperRef = useRef(null);
 
   useEffect(() => {
     if (!swiperSetting) {
@@ -58,7 +56,7 @@ const SmallSlider: FC<SmallSliderProps> = props => {
       {swiperSetting && (
         <Swiper {...swiperSetting}>
           {STYLES_IMAGES.map(({ src, id }) => (
-            <SwiperSlide key={id} >
+            <SwiperSlide key={id}>
               <$.Image src={src} />
             </SwiperSlide>
           ))}
