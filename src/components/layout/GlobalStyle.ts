@@ -18,7 +18,7 @@ export default createGlobalStyle`
     height: 100vh;
     position: fixed;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     font-size: 100%;
     font-style: normal;
     font-weight: 300;

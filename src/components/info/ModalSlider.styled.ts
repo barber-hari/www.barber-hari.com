@@ -20,9 +20,13 @@ export const Container = styled.div`
   height: 500px;
 
   & .swiper-container {
+    width: 500px;
+    height: 500px;
   }
 
   & .swiper-slide {
+    /* width: 500px;
+    height: 500px; */
   }
 `;
 
@@ -54,26 +58,40 @@ export const Background = styled.div<BackgroundProps>`
     `}
 `;
 
-interface ButtonProps {
-  direction: string;
-}
 
-export const Image = styled.img`
-  /* border-radius: 10px; */
+
+export const ImageContainer = styled.div`
+  display: flex;
   width: 100%;
   height: 100%;
 `;
 
-export const ButtonContainer = styled.button<ButtonProps>`
-  top: -25vh;
+export const Image = styled.img`
+  width: 100%;
+  margin: auto;
+`;
+
+interface ButtonProps {
+  direction: 'left' | 'right';
+}
+
+export const SwiperButton = styled.button<ButtonProps>`
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
   z-index: 1000;
+  border: 4px solid rgba(255, 255, 255, .5);
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 100%;
   ${({ direction }) =>
-    direction == 'right' &&
+    direction == 'right' ?
     css`
-      float: right;
+      right: 10px;
+    ` : css`
+      left: 10px;
     `}
-  &:hover {
-    color: red;
+  & > i {
+    opacity: .7;
   }
 `;
 

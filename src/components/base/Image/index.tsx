@@ -11,7 +11,6 @@ interface ImageListProps {
 
 const ImageList: FC<ImageListProps> = props => {
   const { width = '100%', height, onClick, INFO_IMAGES } = props;
-  console.log(onClick);
 
   return (
     <>

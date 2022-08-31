@@ -104,7 +104,7 @@ export const Menu = styled.li`
   }
 
   &:hover {
-    color: wheat;
+    color: #f5deb3;
   }
 
   &:first-child {

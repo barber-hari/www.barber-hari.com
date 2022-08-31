@@ -7,12 +7,11 @@ import Path from '../../models/Path';
 
 const Navigation: FC = () => {
   const { pathname } = useRouter();
-  console.log(pathname);
 
   return (
     <$.Navigation>
       <$.Pages>
-        <$.Page pathname={pathname} id={'/info'}>
+        <$.Page isCurruntPage={pathname === Path.INFO}>
           <Link href={Path.INFO}>INFO</Link>
         </$.Page>
         <$.Page>
@@ -24,7 +23,7 @@ const Navigation: FC = () => {
           </Link>
         </$.Page>
 
-        <$.Page pathname={pathname} id={'/styles'}>
+        <$.Page isCurruntPage={pathname === Path.STYLES}>
           <Link href={Path.STYLES}>STYLES</Link>
         </$.Page>
       </$.Pages>

@@ -32,17 +32,36 @@ const Introduce: FC = () => {
           <$.PictureBox>
             <$.Picture src={barberHariImage.src} alt="" className="pc" />
             <$.Picture src={barberHariImage2.src} alt="" className="mobile" />
-            <$.Name>
-              BARBER <br />
-              HARI <br />
-              <$.History>
-                Lumio salon <br />
-                Cobera salon <br />
-                Uncle's booth barbershop <br />
-                Alex-muller barbershop
-              </$.History>
-            </$.Name>
-
+            <$.MobilePicture>
+              <$.Picture src={barberHariImage2.src} alt="" />
+              <$.Name>
+                BARBER <br />
+                HARI <br />
+              </$.Name>
+            </$.MobilePicture>
+            <$.Info>
+              <$.Name>
+                BARBER <br />
+                HARI <br />
+              </$.Name>
+              <$.Careers>
+                <$.CareerTitle>
+                History
+                </$.CareerTitle>
+                <$.Career>
+                Lumio salon
+                </$.Career>
+                <$.Career>
+                  Cobera salon 
+                </$.Career>
+                <$.Career>
+                  Uncle's booth barbershop
+                </$.Career>
+                <$.Career>
+                  Alex-muller barbershop
+                </$.Career>
+              </$.Careers>
+            </$.Info>
             <$.Address className="desktop">
               <Icon iconType="KAKAO" width="3vh" />
               barber_hari &nbsp;

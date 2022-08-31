@@ -56,17 +56,20 @@ const ModalSlider: FC<ModalSliderProps> = props => {
           <Swiper {...swiperSetting}>
             {INFO_IMAGES.map(({ src, id }) => (
               <SwiperSlide key={`modal-image-${id}`}>
-                <$.Image src={src} />
+                <$.ImageContainer>
+                  <$.Image src={src} />
+                </$.ImageContainer>
               </SwiperSlide>
             ))}
-            <$.ButtonContainer ref={prevRef} direction={'left'}>
-              <Icon iconType={'LARROW'} width={'40px'} />
-            </$.ButtonContainer>
-            <$.ButtonContainer ref={nextRef} direction={'right'}>
-              <Icon iconType={'RARROW'} width={'40px'} />
-            </$.ButtonContainer>
+
           </Swiper>
         )}
+                    <$.SwiperButton ref={prevRef} direction={'left'}>
+              <Icon iconType={'LARROW'} width={'40px'} />
+            </$.SwiperButton>
+            <$.SwiperButton ref={nextRef} direction={'right'}>
+              <Icon iconType={'RARROW'} width={'40px'} />
+            </$.SwiperButton>
       </$.Container>
     </$.Wrapper>
   );

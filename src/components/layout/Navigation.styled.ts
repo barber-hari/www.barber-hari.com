@@ -2,7 +2,11 @@ import styled, { css } from 'styled-components';
 import Path from '../../models/Path';
 
 export const Navigation = styled.nav`
-  width: 100vw;
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
 `;
 
 export const Logo = styled.img`
@@ -19,18 +23,14 @@ export const Pages = styled.ul`
 `;
 
 interface PageProps {
-  pathname?: string;
+  isCurruntPage?: boolean;
 }
 
 export const Page = styled.li<PageProps>`
   margin-top: 10px;
+  min-width: 100px;
+  text-align: center;
   font-size: 25px;
-  color: #fff;
+  color: ${({ isCurruntPage }) => isCurruntPage ? '#f5deb3' : '#fff'};
   cursor: pointer;
-
-  ${({ pathname, id }) =>
-    pathname === id &&
-    css`
-      color: #ffd4a3;
-    `}
 `;

@@ -3,7 +3,7 @@ import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
 import * as $ from './SmallSlider.styled';
-import { STYLES_IMAGES } from '../../models/Image';
+import { INFO_IMAGES } from 'models/Image';
 
 export interface SmallSliderProps {
   children?: ReactNode;
@@ -55,7 +55,7 @@ const SmallSlider: FC<SmallSliderProps> = props => {
     <$.Container>
       {swiperSetting && (
         <Swiper {...swiperSetting}>
-          {STYLES_IMAGES.map(({ src, id }) => (
+          {INFO_IMAGES.map(({ src, id }) => (
             <SwiperSlide key={id}>
               <$.Image src={src} />
             </SwiperSlide>
@@ -68,20 +68,6 @@ const SmallSlider: FC<SmallSliderProps> = props => {
           </$.ButtonContainer>
         </Swiper>
       )}
-
-      {/*    <$.StyledSwiper {...swiperSetting}>
-        {STYLES_IMAGES.map(({ src, id }) => (
-          <$.StyledSwiperSlide key={id}>
-            <$.Image src={src} />
-          </$.StyledSwiperSlide>
-        ))}
-        <$.ButtonContainer ref={prevRef}>
-          <$.LeftButtonIcon />
-        </$.ButtonContainer>
-        <$.ButtonContainer ref={nextRef}>
-          <$.RightButtonIcon />
-        </$.ButtonContainer>
-      </$.StyledSwiper>*/}
     </$.Container>
   );
 };

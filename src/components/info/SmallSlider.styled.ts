@@ -13,7 +13,7 @@ const swiperSlideStyle = {
 };
 
 export const Container = styled.div`
-  width: 80vw;
+  width: 100%;
   height: 30vh;
   border-radius: 10px;
   margin-top: 70px;
@@ -35,6 +35,11 @@ export const Container = styled.div`
 
   @media (min-width: 904px) {
     margin-top: 20px;
+  }
+
+
+  @media (max-width: 540px) {
+    display: none;
   }
 
   & .swiper-container {
