@@ -4,7 +4,7 @@ export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 1700px;
-  height: 100vh;
+  height: calc(100vh - 100px);
   overflow-y: scroll;
   background-color: #000;
 `;
