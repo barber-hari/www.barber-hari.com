@@ -1,29 +1,41 @@
 import React, { FC, ReactNode } from 'react';
-import axios from 'axios';
+import { useRouter } from 'next/router';
+import { GetStaticProps, GetStaticPropsContext } from 'next';
+import {
+  getAllDetailIds,
+  getDetailData,
+} from '../../../repositories/detailRepository';
 
 export interface DetailPageProps {
-  children?: ReactNode;
+  title: string;
+  body: string;
+  image: string;
 }
 
 const DetailPage: FC<DetailPageProps> = props => {
-  const { children } = props;
+  const { title, body, image } = props;
+  const router = useRouter();
+  const { id } = router.query;
+
   return <div></div>;
 };
 
 export default DetailPage;
 
-export const getServerSideProps = async ctx => {
-  const id = ctx.params.id;
-  const res = await axios.get(
-    `https://jsonplaceholder.typicode.com/posts/${id}`
-  );
-  const data = res.data;
+export async function getStaticPaths() {
+  const paths = getAllDetailIds();
+  return {
+    paths,
+    fallback: false,
+  };
+}
 
-  console.log(data); // 해당 콘솔은 어디에서 출력이 되나요?
-
+export const getStaticProps: GetStaticProps = async context => {
+  const { params } = context;
+  const detailData = await getDetailData(params?.id);
   return {
     props: {
-      item: data,
+      detailData,
     },
   };
 };
