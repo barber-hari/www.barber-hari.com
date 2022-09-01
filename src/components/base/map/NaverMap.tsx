@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useRef, useEffect } from 'react';
+import React, { FC, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Script from 'next/script';
 
@@ -9,12 +9,7 @@ const NaverMapBox = styled.div`
   z-index: 10;
 `;
 
-export interface NaverMapProps {
-  children?: ReactNode;
-}
-
-const NaverMap: FC<NaverMapProps> = props => {
-  const { children } = props;
+const NaverMap: FC = () => {
   const mapRef = useRef<HTMLDivElement>(null);
 
   const handleLoadNaverMap = () => {
