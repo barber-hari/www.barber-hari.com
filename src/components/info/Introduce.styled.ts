@@ -16,8 +16,8 @@ export const BoxWrapper = styled.div`
   height: 800px;
   max-width: 1700px;
 
-  @media (max-width: 1024px) {
-    padding: 0;
+  @media (max-width: 1439px) {
+    height: 900px;
   }
 
   @media (max-width: 540px) {
@@ -63,6 +63,7 @@ export const PictureBox = styled.div`
   flex-wrap: wrap;
   @media (max-width: 1439px) {
     width: 100%;
+    padding-top: 0;
   }
   @media (max-width: 1024px) {
   }
@@ -75,22 +76,17 @@ export const Picture = styled.img`
   margin-right: 20px;
   width: 250px;
   height: 250px;
-  margin-left: 10px;
   border-radius: 10px;
   &.mobile {
     display: none;
-
   }
 
-  @media (max-width: 1024px) {
-  }
   @media (max-width: 903px) {
-    margin-right: 0;
     &.pc {
-      display: none;
+      width: min(250px, 35vw);
     }
     &.mobile {
-      display: block;
+      display: none;
       float: left;
       width: 175px;
       height: 125px;
@@ -98,37 +94,40 @@ export const Picture = styled.img`
   }
 
   @media (max-width: 540px) {
-      &.mobile {
-        display: none;
-      }
+    &.pc {
+      display: none;
     }
+    &.mobile {
+      display: none;
+    }
+  }
 `;
 
 export const Info = styled.article`
   padding-left: 30px;
-  @media (max-width: 903px) {
+  @media (max-width: 540px) {
+    padding-left: 0;
     margin-top: 0;
-    padding-left: 10px;
     font-size: 30px;
   }
-`
+`;
 export const Careers = styled.dl`
   color: #fff;
   font-size: 16px;
   @media (max-width: 540px) {
-    font-size: 5vw;
+    font-size: 6vw;
   }
-`
+`;
 export const CareerTitle = styled.dt`
   display: block;
   margin: 20px 0;
-
-`
+`;
 export const Career = styled.dd`
   display: block;
   color: #fff;
   margin-bottom: 4px;
-`
+  font-size: min(16px, 4vw);
+`;
 
 export const Name = styled.h2`
   font-size: 50px;
@@ -139,13 +138,10 @@ export const Name = styled.h2`
   color: #ffffff;
   line-height: normal;
 
-  //@media (max-width: 1024px) {
-  //  margin-top: 5px;
-  //  font-size: 110px;
-  //}
+  @media (max-width: 1024px) {
+    font-size: min(50px, 5vw);
+  }
   @media (max-width: 903px) {
-    margin-top: 0;
-    font-size: 30px;
   }
 
   @media (max-width: 540px) {
@@ -185,14 +181,10 @@ export const MapBox = styled.div`
     margin-right: auto;
     margin-top: 20px;
     width: 100%;
-    height: 40vh;
   }
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    height: 35vh;
-  }
+
   @media (max-width: 540px) {
-    height: min(300px, 60vw);;
+    height: min(300px, 60vw);
   }
 `;
 
@@ -243,7 +235,7 @@ export const Address = styled.address`
     height: 25px;
   }
 
-  @media (max-width: 1439px) {
+  @media (max-width: 540px) {
     display: none;
   }
 `;
@@ -262,16 +254,16 @@ export const GalleryBox = styled.div`
   }
 `;
 
-
 export const MobilePicture = styled.div`
   display: none;
   @media (max-width: 540px) {
     display: block;
     width: 100%;
-    height: 55vw;
+    height: 48vw;
     position: relative;
     & > ${Picture} {
       position: absolute;
+      margin-top: 10px;
       left: 0;
       top: 15vw;
       width: 60%;
@@ -284,9 +276,6 @@ export const MobilePicture = styled.div`
       right: 0;
       text-align: right;
       font-size: 10vw;
-
     }
   }
 `;
-
-

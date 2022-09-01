@@ -1,21 +1,23 @@
 import React from 'react';
-import Layout from '../../components/layout/Layout';
-import Artwork from '../../components/styles/Artwork';
-import { useRouter } from 'next/router';
-import { STYLES_IMAGES } from '../../models/Image';
-import { getSortedDetailData } from '../../repositories/detailRepository';
+import Layout from 'components/layout/Layout';
+import { ImagePlus, STYLES_IMAGES } from 'models/Image';
 import { GetStaticProps } from 'next';
+import * as $ from './index.styled';
 
 export interface IndexProps {
-  allDetailData: string;
+  images: ImagePlus[];
 }
 
 const Index: React.FC<IndexProps> = props => {
-  const { allDetailData } = props;
+  const { images } = props;
   return (
     <Layout>
       {/*<Artwork />*/}
-      <div>{allDetailData.length}</div>
+      {images.map(({ id, src }) => (
+        <$.Images key={id}>
+          <$.Image src={src} />
+        </$.Images>
+      ))}
     </Layout>
   );
 };
@@ -24,10 +26,9 @@ export default Index;
 
 export const getStaticProps: GetStaticProps = async context => {
   const { params } = context;
-  const allDetailData = getSortedDetailData();
   return {
     props: {
-      allDetailData,
+      images: STYLES_IMAGES,
     },
   };
 };

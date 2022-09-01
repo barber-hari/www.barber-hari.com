@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
 import * as $ from './SmallSlider.styled';
 import { INFO_IMAGES } from 'models/Image';
+import Icon from '../base/Icon';
 
 export interface SmallSliderProps {
   children?: ReactNode;
@@ -30,10 +31,16 @@ const SmallSlider: FC<SmallSliderProps> = props => {
         },
         breakpoints: {
           320: {
-            slidesPerView: 4,
+            slidesPerView: 2,
           },
           600: {
-            slidesPerView: 6,
+            slidesPerView: 3,
+          },
+          1000: {
+            slidesPerView: 4,
+          },
+          1200: {
+            slidesPerView: 5,
           },
         },
         scrollbar: { draggable: true, el: null },
@@ -60,12 +67,12 @@ const SmallSlider: FC<SmallSliderProps> = props => {
               <$.Image src={src} />
             </SwiperSlide>
           ))}
-          <$.ButtonContainer ref={prevRef} direction={'left'}>
-            <$.LeftButtonIcon />
-          </$.ButtonContainer>
-          <$.ButtonContainer ref={nextRef} direction={'right'}>
-            <$.RightButtonIcon />
-          </$.ButtonContainer>
+          <$.SwiperButton ref={prevRef} direction={'left'}>
+            <Icon iconType={'LARROW'} width={'40px'} />
+          </$.SwiperButton>
+          <$.SwiperButton ref={nextRef} direction={'right'}>
+            <Icon iconType={'RARROW'} width={'40px'} />
+          </$.SwiperButton>
         </Swiper>
       )}
     </$.Container>

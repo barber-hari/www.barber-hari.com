@@ -5,6 +5,7 @@ import * as $ from './ModalSlider.styled';
 import Image from 'models/Image';
 import 'swiper/swiper.min.css';
 import Icon from '../base/Icon';
+
 export interface ModalSliderProps {
   children?: ReactNode;
   closeModal: () => void;
@@ -61,15 +62,14 @@ const ModalSlider: FC<ModalSliderProps> = props => {
                 </$.ImageContainer>
               </SwiperSlide>
             ))}
-
           </Swiper>
         )}
-                    <$.SwiperButton ref={prevRef} direction={'left'}>
-              <Icon iconType={'LARROW'} width={'40px'} />
-            </$.SwiperButton>
-            <$.SwiperButton ref={nextRef} direction={'right'}>
-              <Icon iconType={'RARROW'} width={'40px'} />
-            </$.SwiperButton>
+        <$.SwiperButton ref={prevRef} direction={'left'}>
+          <Icon iconType={'LARROW'} width={'40px'} />
+        </$.SwiperButton>
+        <$.SwiperButton ref={nextRef} direction={'right'}>
+          <Icon iconType={'RARROW'} width={'40px'} />
+        </$.SwiperButton>
       </$.Container>
     </$.Wrapper>
   );

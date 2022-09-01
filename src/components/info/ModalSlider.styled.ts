@@ -58,8 +58,6 @@ export const Background = styled.div<BackgroundProps>`
     `}
 `;
 
-
-
 export const ImageContainer = styled.div`
   display: flex;
   width: 100%;
@@ -80,28 +78,18 @@ export const SwiperButton = styled.button<ButtonProps>`
   transform: translateY(-50%);
   position: absolute;
   z-index: 1000;
-  border: 4px solid rgba(255, 255, 255, .5);
-  background-color: rgba(255, 255, 255, .5);
+  border: 4px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 100%;
   ${({ direction }) =>
-    direction == 'right' ?
-    css`
-      right: 10px;
-    ` : css`
-      left: 10px;
-    `}
+    direction == 'right'
+      ? css`
+          right: 10px;
+        `
+      : css`
+          left: 10px;
+        `}
   & > i {
-    opacity: .7;
+    opacity: 0.7;
   }
-`;
-
-export const LeftButtonIcon = styled(AiFillCaretLeft)`
-  width: 40px;
-  height: 40px;
-  color: #fff;
-`;
-export const RightButtonIcon = styled(AiFillCaretRight)`
-  width: 40px;
-  height: 40px;
-  color: #fff;
 `;
