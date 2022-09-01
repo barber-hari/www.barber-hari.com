@@ -104,7 +104,7 @@ export const Menu = styled.li`
   }
 
   &:hover {
-    color: wheat;
+    color: #f5deb3;
   }
 
   &:first-child {
@@ -115,6 +115,9 @@ export const Menu = styled.li`
       font-size: 1.8vh;
       font-family: 'Noto Sans KR', sans-serif;
       font-weight: bolder;
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
   }
 

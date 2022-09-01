@@ -16,7 +16,6 @@ const ImageModal: FC<ImageModalProps> = props => {
   const [currentIndex, setCurrentIndex] = useState(targetIndex);
   const backgroundRef = useRef<HTMLDivElement>(null);
 
-
   const closeBackgroundHandler = () => {
     closeModal();
   };
@@ -27,9 +26,9 @@ const ImageModal: FC<ImageModalProps> = props => {
 
   const handleSlideButton = (direction: 1 | -1) => {
     const index = currentIndex + direction;
-    if(direction === 1) {
+    if (direction === 1) {
       setCurrentIndex(index < images.length ? index : 0);
-    }else {
+    } else {
       setCurrentIndex(index < 0 ? images.length - 1 : index);
     }
   };

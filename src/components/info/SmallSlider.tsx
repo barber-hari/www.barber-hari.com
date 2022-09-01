@@ -2,25 +2,16 @@ import React, { FC, ReactNode, useEffect, useRef, useState } from 'react';
 import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
+import { INFO_IMAGES } from 'models/Image';
 import * as $ from './SmallSlider.styled';
-import { STYLES_IMAGES } from '../../models/Image';
-import styled from 'styled-components';
+import Icon from '../base/Icon';
 
-export interface SmallSliderProps {
-  children?: ReactNode;
-}
-
-const SmallSlider: FC<SmallSliderProps> = props => {
-  const { children } = props;
-
+const SmallSlider: FC = () => {
   SwiperCore.use([Navigation, Pagination, Scrollbar]);
-
-  const [slideIndex, setSlideIndex] = useState(0);
   const [swiperSetting, setSwiperSetting] = useState<Swiper | null>(null);
 
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
-  const swiperRef = useRef(null);
 
   useEffect(() => {
     if (!swiperSetting) {
@@ -32,10 +23,16 @@ const SmallSlider: FC<SmallSliderProps> = props => {
         },
         breakpoints: {
           320: {
-            slidesPerView: 4,
+            slidesPerView: 2,
           },
           600: {
-            slidesPerView: 6,
+            slidesPerView: 3,
+          },
+          1000: {
+            slidesPerView: 4,
+          },
+          1200: {
+            slidesPerView: 5,
           },
         },
         scrollbar: { draggable: true, el: null },
@@ -57,33 +54,19 @@ const SmallSlider: FC<SmallSliderProps> = props => {
     <$.Container>
       {swiperSetting && (
         <Swiper {...swiperSetting}>
-          {STYLES_IMAGES.map(({ src, id }) => (
-            <SwiperSlide key={id} >
+          {INFO_IMAGES.map(({ src, id }) => (
+            <SwiperSlide key={id}>
               <$.Image src={src} />
             </SwiperSlide>
           ))}
-          <$.ButtonContainer ref={prevRef} direction={'left'}>
-            <$.LeftButtonIcon />
-          </$.ButtonContainer>
-          <$.ButtonContainer ref={nextRef} direction={'right'}>
-            <$.RightButtonIcon />
-          </$.ButtonContainer>
+          <$.SwiperButton ref={prevRef} direction="left">
+            <Icon iconType="LARROW" width="40px" />
+          </$.SwiperButton>
+          <$.SwiperButton ref={nextRef} direction="right">
+            <Icon iconType="RARROW" width="40px" />
+          </$.SwiperButton>
         </Swiper>
       )}
-
-      {/*    <$.StyledSwiper {...swiperSetting}>
-        {STYLES_IMAGES.map(({ src, id }) => (
-          <$.StyledSwiperSlide key={id}>
-            <$.Image src={src} />
-          </$.StyledSwiperSlide>
-        ))}
-        <$.ButtonContainer ref={prevRef}>
-          <$.LeftButtonIcon />
-        </$.ButtonContainer>
-        <$.ButtonContainer ref={nextRef}>
-          <$.RightButtonIcon />
-        </$.ButtonContainer>
-      </$.StyledSwiper>*/}
     </$.Container>
   );
 };

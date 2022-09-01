@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import barberHariIcon from 'public/images/home/icon-barberhari.png';
 import Icon from 'components/base/Icon';
 import Link from 'next/link';
-import * as $ from './Contents.styled';
 import { useRouter } from 'next/router';
 import Path from 'models/Path';
+import * as $ from './Contents.styled';
 
 const Contents: FC = () => {
   const router = useRouter();
@@ -27,8 +27,10 @@ const Contents: FC = () => {
       <$.ContentSection>
         <$.Navigation>
           <$.Menu>
-            <Icon iconType="NAVER" width="3vh" onClick={handleLinkClick} />
-            <a onClick={handleLinkClick}>네이버 예약</a>
+            <a href={Path.RESERVATION} target="_blank" rel="noreferrer">
+              <Icon iconType="NAVER" width="3vh" />
+              네이버 예약
+            </a>
           </$.Menu>
           <$.Menu className="navi-mobile">
             <Icon iconType="KAKAO" width="3vh" />

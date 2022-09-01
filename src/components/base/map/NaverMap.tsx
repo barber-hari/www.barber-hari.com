@@ -1,26 +1,15 @@
-import React, { FC, ReactNode, useRef, useEffect } from 'react';
+import React, { FC, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Script from 'next/script';
-
-function a() {
-  let index = 1;
-  return () => {
-    console.log(index++)
-  }
-}
 
 const NaverMapBox = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  z-index: 10;
 `;
 
-export interface NaverMapProps {
-  children?: ReactNode;
-}
-
-const NaverMap: FC<NaverMapProps> = props => {
-  const { children } = props;
+const NaverMap: FC = () => {
   const mapRef = useRef<HTMLDivElement>(null);
 
   const handleLoadNaverMap = () => {
@@ -34,25 +23,24 @@ const NaverMap: FC<NaverMapProps> = props => {
     const map = new naver.maps.Map(mapRef.current, settings);
     const marker = new naver.maps.Marker({
       position: location,
-      map: map,
+      map,
     });
-  }
+  };
 
   useEffect(() => {
     handleLoadNaverMap();
-  }, [mapRef])
+  }, [mapRef]);
 
   return (
     <>
       <Script
-        type={'text/javascript'}
+        type="text/javascript"
         src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_KEY}&callback=initMap`}
         onLoad={handleLoadNaverMap}
       />
-    <NaverMapBox ref={mapRef}></NaverMapBox>
-  </>
+      <NaverMapBox ref={mapRef} />
+    </>
   );
 };
-
 
 export default NaverMap;

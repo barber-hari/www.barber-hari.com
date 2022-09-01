@@ -1,10 +1,24 @@
 import React, { FC } from 'react';
+import { useRouter } from 'next/router';
 import * as $ from './Artwork.styled';
-import { STYLES_IMAGES } from '../../models/Image';
+import { ImagePlus, STYLES_IMAGES } from '../../models/Image';
 
 export interface ArtworkProps {}
 
 const Artwork: FC<ArtworkProps> = () => {
+  const router = useRouter();
+  const onClick = ({ id, src }: ImagePlus) => {
+    router.push(
+      {
+        pathname: `/styles/detail/${id}`,
+        query: {
+          id,
+          src,
+        },
+      },
+      `/styles/detail/${id}`
+    );
+  };
   return (
     <$.Wrapper>
       <$.Container>
