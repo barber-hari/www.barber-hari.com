@@ -75,6 +75,7 @@ export const SwiperButton = styled.button<ButtonProps>`
   border: 4px solid rgba(255, 255, 255, 0.5);
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 100%;
+
   ${({ direction }) =>
     direction === 'right'
       ? css`
@@ -82,7 +83,7 @@ export const SwiperButton = styled.button<ButtonProps>`
         `
       : css`
           left: 10px;
-        `}
+        `},
   & > i {
     opacity: 0.7;
   }

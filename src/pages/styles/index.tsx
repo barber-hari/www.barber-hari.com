@@ -4,6 +4,7 @@ import { ImagePlus, STYLES_IMAGES } from 'models/Image';
 import { GetStaticProps } from 'next';
 import styled from 'styled-components';
 
+
 const Images = styled.div`
   width: 100px;
   height: 100px;
@@ -15,9 +16,21 @@ const Image = styled.img`
   object-fit: cover;
 `;
 
+
 export interface IndexProps {
   images: ImagePlus[];
 }
+
+export const Images = styled.div`
+  width: 100px;
+  height: 100px;
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
 
 const Index: React.FC<IndexProps> = props => {
   const { images } = props;
