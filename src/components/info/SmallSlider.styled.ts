@@ -64,7 +64,7 @@ export const SwiperButton = styled.button<ButtonProps>`
         `
       : css`
           left: 10px;
-        `}
+        `},
   & > i {
     opacity: 0.7;
   }

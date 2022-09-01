@@ -10,8 +10,6 @@ const Contents: FC = () => {
   const router = useRouter();
   console.log(router);
 
-  const handleLinkClick = () => router.push(Path.RESERVATION);
-
   return (
     <$.Contents>
       <$.TitleSection>
@@ -35,7 +33,9 @@ const Contents: FC = () => {
           <$.Menu className="navi-mobile">
             <Icon iconType="KAKAO" width="3vh" />
             <Icon iconType="INSTARGRAM" width="3vh" />
-            <Icon iconType="TELL" width="3vh" />
+            <a href="tel:010-3900-7212">
+              <Icon iconType="TELL" width="3vh" />
+            </a>
           </$.Menu>
           <$.Menu>
             <Link href={Path.INFO}>INFO</Link>

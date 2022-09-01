@@ -25,25 +25,31 @@ export const ImageBox = styled.div`
   &:hover {
     filter: grayscale(0.2);
   }
+
   &:nth-child(1) {
     grid-column: 1/3;
   }
+
   &:nth-child(2) {
     grid-column: 3/5;
     grid-row: 1/3;
   }
+
   &:nth-child(3) {
     grid-column: 1/4;
     grid-row: 4/5;
   }
+
   &:nth-child(4) {
     grid-column: 3/4;
     grid-row: 3/4;
   }
+
   &:nth-child(5) {
     grid-column: 1/3;
     grid-row: 2/4;
   }
+
   &:nth-child(6) {
     grid-column: 4/5;
     grid-row: 3/5;
@@ -56,6 +62,7 @@ export const Image = styled.img`
   object-fit: cover;
   border-radius: 5px;
   transition: all 0.3s linear;
+
   &:hover {
     transform: scale(1.4);
   }

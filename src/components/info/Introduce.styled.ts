@@ -77,6 +77,7 @@ export const Picture = styled.img`
   width: 250px;
   height: 250px;
   border-radius: 10px;
+
   &.mobile {
     display: none;
   }
@@ -85,6 +86,7 @@ export const Picture = styled.img`
     &.pc {
       width: min(250px, 35vw);
     }
+
     &.mobile {
       display: none;
       float: left;
@@ -97,6 +99,7 @@ export const Picture = styled.img`
     &.pc {
       display: none;
     }
+
     &.mobile {
       display: none;
     }
@@ -183,42 +186,50 @@ export const MapBox = styled.div`
 
 export const NaverMapFooter = styled.a`
   width: 100%;
-  height: 100px;
+  height: min(100px, 7vh);
   background-color: #fff;
   border-radius: 10px;
   z-index: 1000;
-  bottom: 99px;
   display: block;
+  position: absolute;
+  bottom: 0;
 `;
 
 export const IconBox = styled.span`
-  float: right;
-  top: 20px;
-  right: 5px;
+  position: absolute;
+  right: 3%;
+  top: 50%;
+  transform: translateY(-50%);
 
   & p {
-    right: 13px;
+    font-size: min(15px, 1vw);
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: bold;
     color: #008000;
+  }
+  & i {
+    margin-right: auto;
+    margin-left: auto;
   }
 `;
 
 export const Tell = styled.address`
   float: left;
-  max-width: 45vw;
+  max-width: 50vw;
   color: #1d2a2b;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
-  top: 40px;
+  top: 50%;
+  transform: translateY(-50%);
   left: 20px;
+  font-size: min(20px, 2vw);
 
   @media (max-width: 450px) {
-    top: 20px;
   }
 `;
 export const Address = styled.address`
   width: 100%;
+
   & > a {
     display: flex;
     align-items: center;

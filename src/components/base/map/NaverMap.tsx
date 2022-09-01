@@ -1,6 +1,10 @@
-import React, { FC, useRef, useEffect } from 'react';
+import React, { FC, ReactNode, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Script from 'next/script';
+
+interface NaverMapProps {
+  children: ReactNode;
+}
 
 const NaverMapBox = styled.div`
   width: 100%;
@@ -9,7 +13,8 @@ const NaverMapBox = styled.div`
   z-index: 10;
 `;
 
-const NaverMap: FC = () => {
+const NaverMap: FC<NaverMapProps> = props => {
+  const { children } = props;
   const mapRef = useRef<HTMLDivElement>(null);
 
   const handleLoadNaverMap = () => {
@@ -38,7 +43,7 @@ const NaverMap: FC = () => {
         src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_KEY}&callback=initMap`}
         onLoad={handleLoadNaverMap}
       />
-      <NaverMapBox ref={mapRef} />
+      <NaverMapBox ref={mapRef}>{children}</NaverMapBox>
     </>
   );
 };
