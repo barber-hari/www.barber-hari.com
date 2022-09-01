@@ -2,11 +2,22 @@ import React from 'react';
 import Layout from 'components/layout/Layout';
 import { ImagePlus, STYLES_IMAGES } from 'models/Image';
 import { GetStaticProps } from 'next';
-import * as $ from './index.styled';
+import styled from 'styled-components';
 
 export interface IndexProps {
   images: ImagePlus[];
 }
+
+export const Images = styled.div`
+  width: 100px;
+  height: 100px;
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
 
 const Index: React.FC<IndexProps> = props => {
   const { images } = props;
@@ -14,9 +25,9 @@ const Index: React.FC<IndexProps> = props => {
     <Layout>
       {/* <Artwork /> */}
       {images.map(({ id, src }) => (
-        <$.Images key={id}>
-          <$.Image src={src} />
-        </$.Images>
+        <Images key={id}>
+          <Image src={src} />
+        </Images>
       ))}
     </Layout>
   );
