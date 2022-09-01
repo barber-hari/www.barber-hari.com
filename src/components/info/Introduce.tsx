@@ -3,20 +3,16 @@ import barberHariImage from 'public/images/info/img-hariface.png';
 import barberHariImage2 from 'public/images/info/img-hariface2.jpg';
 import ImageList from 'components/base/Image';
 import { INFO_IMAGES } from 'models/Image';
-import * as $ from './Introduce.styled';
 import Icon from 'components/base/Icon';
-import SmallSlider from './SmallSlider';
 import NaverMap from 'components/base/map/NaverMap';
-import Reservation from 'components/base/reservation/Reservation';
+import Path from 'models/Path';
 import ModalSlider from './ModalSlider';
-import { useRouter } from 'next/router';
-import Path from '../../models/Path';
+import SmallSlider from './SmallSlider';
+import * as $ from './Introduce.styled';
 
 const Introduce: FC = () => {
   const [show, setShow] = useState(false);
   const [targetId, setTargetId] = useState(0);
-
-  const { push } = useRouter();
 
   const openModalHandler = (targetIndex: number) => {
     setTargetId(targetIndex);
@@ -45,40 +41,30 @@ const Introduce: FC = () => {
                 HARI <br />
               </$.Name>
               <$.Careers>
-                <$.CareerTitle>
-                History
-                </$.CareerTitle>
-                <$.Career>
-                Lumio salon
-                </$.Career>
-                <$.Career>
-                  Cobera salon 
-                </$.Career>
-                <$.Career>
-                  Uncle's booth barbershop
-                </$.Career>
-                <$.Career>
-                  Alex-muller barbershop
-                </$.Career>
+                <$.CareerTitle>History</$.CareerTitle>
+                <$.Career>Lumio salon</$.Career>
+                <$.Career>Cobera salon</$.Career>
+                <$.Career>Uncle's booth barbershop</$.Career>
+                <$.Career>Alex-muller barbershop</$.Career>
               </$.Careers>
             </$.Info>
             <$.Address className="desktop">
-              <Icon iconType="KAKAO" width="3vh" />
-              barber_hari &nbsp;
-              <Icon iconType="INSTARGRAM" width="3vh" />
-              barber_hari
+              <a href={Path.INSTARGRAM} target="_blank" rel="noreferrer">
+                <Icon iconType="INSTARGRAM" />
+                barber_hari
+              </a>
             </$.Address>
           </$.PictureBox>
           <SmallSlider />
           <$.MapBox>
             <NaverMap />
-            <$.NaverMapFooter>
+            <$.NaverMapFooter href={Path.RESERVATION} target="_blank">
               <$.Tell>
                 서울 강남구 역삼로67길 33 b101호 바버하리 0507-1323-6462
               </$.Tell>
-              <$.IconBox onClick={() => push(Path.RESERVATION)}>
+              <$.IconBox>
                 <p>네이버 예약</p>
-                <Icon iconType={'NAVERRESERVE'} width={'50px'} />
+                <Icon iconType="NAVERRESERVE" width="50px" />
               </$.IconBox>
             </$.NaverMapFooter>
           </$.MapBox>
@@ -88,7 +74,6 @@ const Introduce: FC = () => {
             <ImageList onClick={openModalHandler} INFO_IMAGES={INFO_IMAGES} />
           </$.GalleryBox>
         </$.RightBox>
-        {/*<Reservation />*/}
         {show && (
           <ModalSlider
             INFO_IMAGES={INFO_IMAGES}
@@ -111,4 +96,4 @@ export default Introduce;
              targetIndex={targetId - 1}
              closeModal={closeModalHandler}
              show={show}
-           />*/
+           /> */

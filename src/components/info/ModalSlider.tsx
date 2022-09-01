@@ -1,13 +1,12 @@
 import React, { FC, ReactNode, useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper';
-import * as $ from './ModalSlider.styled';
 import Image from 'models/Image';
+import * as $ from './ModalSlider.styled';
 import 'swiper/swiper.min.css';
 import Icon from '../base/Icon';
 
 export interface ModalSliderProps {
-  children?: ReactNode;
   closeModal: () => void;
   show: boolean;
   targetId: number;
@@ -15,11 +14,10 @@ export interface ModalSliderProps {
 }
 
 const ModalSlider: FC<ModalSliderProps> = props => {
-  const { children, closeModal, show, targetId, INFO_IMAGES } = props;
+  const { closeModal, show, targetId, INFO_IMAGES } = props;
 
   SwiperCore.use([Navigation, Pagination, Scrollbar]);
 
-  const [slideIndex, setSlideIndex] = useState(targetId);
   const [swiperSetting, setSwiperSetting] = useState<Swiper | null>(null);
 
   const prevRef = useRef<HTMLButtonElement>(null);
@@ -45,10 +43,11 @@ const ModalSlider: FC<ModalSliderProps> = props => {
         },
         loop: true,
         slidesPerView: 'auto',
-        initialSlide: slideIndex,
+        initialSlide: targetId,
       });
     }
   }, [swiperSetting]);
+
   return (
     <$.Wrapper>
       <$.Container>
@@ -64,11 +63,11 @@ const ModalSlider: FC<ModalSliderProps> = props => {
             ))}
           </Swiper>
         )}
-        <$.SwiperButton ref={prevRef} direction={'left'}>
-          <Icon iconType={'LARROW'} width={'40px'} />
+        <$.SwiperButton ref={prevRef} direction="left">
+          <Icon iconType="LARROW" width="40px" />
         </$.SwiperButton>
-        <$.SwiperButton ref={nextRef} direction={'right'}>
-          <Icon iconType={'RARROW'} width={'40px'} />
+        <$.SwiperButton ref={nextRef} direction="right">
+          <Icon iconType="RARROW" width="40px" />
         </$.SwiperButton>
       </$.Container>
     </$.Wrapper>

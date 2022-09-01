@@ -1,15 +1,6 @@
 import styled, { css } from 'styled-components';
 import 'swiper/swiper-bundle.css';
 
-const swiperStyle = {
-  backgroundColor: 'black',
-  height: '100%',
-};
-
-const swiperSlideStyle = {
-  borderRadius: '10px',
-};
-
 export const Container = styled.div`
   width: 100%;
   height: 30vh;
@@ -41,10 +32,6 @@ export const Container = styled.div`
     background-color: #000;
     height: 100%;
   }
-
-  & .swiper-slide {
-    /* border-radius: 10px; */
-  }
 `;
 
 interface ButtonProps {
@@ -52,7 +39,6 @@ interface ButtonProps {
 }
 
 export const Image = styled.img`
-  /* border-radius: 10px; */
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -72,7 +58,7 @@ export const SwiperButton = styled.button<ButtonProps>`
   border-radius: 100%;
 
   ${({ direction }) =>
-    direction == 'right'
+    direction === 'right'
       ? css`
           right: 10px;
         `

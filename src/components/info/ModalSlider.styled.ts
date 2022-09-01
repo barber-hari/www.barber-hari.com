@@ -1,6 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
 import 'swiper/swiper-bundle.css';
-import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -22,11 +21,6 @@ export const Container = styled.div`
   & .swiper-container {
     width: 500px;
     height: 500px;
-  }
-
-  & .swiper-slide {
-    /* width: 500px;
-    height: 500px; */
   }
 `;
 
@@ -82,7 +76,7 @@ export const SwiperButton = styled.button<ButtonProps>`
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 100%;
   ${({ direction }) =>
-    direction == 'right'
+    direction === 'right'
       ? css`
           right: 10px;
         `

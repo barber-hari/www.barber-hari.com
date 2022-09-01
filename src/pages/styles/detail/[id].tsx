@@ -17,7 +17,7 @@ const DetailPage: FC<DetailPageProps> = props => {
   const router = useRouter();
   const { id } = router.query;
 
-  return <div></div>;
+  return <div />;
 };
 
 export default DetailPage;

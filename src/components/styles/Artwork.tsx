@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
+import { useRouter } from 'next/router';
 import * as $ from './Artwork.styled';
 import { ImagePlus, STYLES_IMAGES } from '../../models/Image';
-import { useRouter } from 'next/router';
 
 export interface ArtworkProps {}
 

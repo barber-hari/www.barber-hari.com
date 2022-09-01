@@ -31,6 +31,6 @@ export const Page = styled.li<PageProps>`
   min-width: 100px;
   text-align: center;
   font-size: 25px;
-  color: ${({ isCurruntPage }) => isCurruntPage ? '#f5deb3' : '#fff'};
+  color: ${({ isCurruntPage }) => (isCurruntPage ? '#f5deb3' : '#fff')};
   cursor: pointer;
 `;

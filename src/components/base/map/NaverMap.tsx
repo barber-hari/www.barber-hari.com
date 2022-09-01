@@ -2,13 +2,6 @@ import React, { FC, ReactNode, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Script from 'next/script';
 
-function a() {
-  let index = 1;
-  return () => {
-    console.log(index++);
-  };
-}
-
 const NaverMapBox = styled.div`
   width: 100%;
   height: 100%;
@@ -35,7 +28,7 @@ const NaverMap: FC<NaverMapProps> = props => {
     const map = new naver.maps.Map(mapRef.current, settings);
     const marker = new naver.maps.Marker({
       position: location,
-      map: map,
+      map,
     });
   };
 
@@ -46,11 +39,11 @@ const NaverMap: FC<NaverMapProps> = props => {
   return (
     <>
       <Script
-        type={'text/javascript'}
+        type="text/javascript"
         src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_KEY}&callback=initMap`}
         onLoad={handleLoadNaverMap}
       />
-      <NaverMapBox ref={mapRef}></NaverMapBox>
+      <NaverMapBox ref={mapRef} />
     </>
   );
 };

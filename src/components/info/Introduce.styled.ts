@@ -39,6 +39,7 @@ export const LeftBox = styled.div`
 
   @media (max-width: 540px) {
     display: block;
+    padding: 0 10px;
     padding-bottom: 30px;
     padding-bottom: calc(constant(safe-area-inset-bottom) + 30px);
     padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
@@ -57,7 +58,6 @@ export const RightBox = styled.div`
 
 export const PictureBox = styled.div`
   margin-right: auto;
-  margin-left: auto;
   padding-top: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -157,13 +157,6 @@ export const History = styled.p`
     padding-top: 25px;
     font-size: 19px;
   }
-  /*  @media (max-width: 1024px) {
-    position: absolute;
-    top: 127px;
-    right: -80px;
-    font-size: 19px;
-  }*/
-
   @media (max-width: 903px) {
     display: none;
   }
@@ -188,16 +181,17 @@ export const MapBox = styled.div`
   }
 `;
 
-export const NaverMapFooter = styled.div`
+export const NaverMapFooter = styled.a`
   width: 100%;
   height: 100px;
   background-color: #fff;
   border-radius: 10px;
   z-index: 1000;
   bottom: 99px;
+  display: block;
 `;
 
-export const IconBox = styled.div`
+export const IconBox = styled.span`
   float: right;
   top: 20px;
   right: 5px;
@@ -224,15 +218,20 @@ export const Tell = styled.address`
   }
 `;
 export const Address = styled.address`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: white;
-  margin-top: 20px;
   width: 100%;
+  & > a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    margin-top: 20px;
+    width: 160px;
+    font-size: 20px;
+  }
+
   & i {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
   }
 
   @media (max-width: 540px) {
@@ -259,7 +258,7 @@ export const MobilePicture = styled.div`
   @media (max-width: 540px) {
     display: block;
     width: 100%;
-    height: 48vw;
+    height: 53vw;
     position: relative;
     & > ${Picture} {
       position: absolute;

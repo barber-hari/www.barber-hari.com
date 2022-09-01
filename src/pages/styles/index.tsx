@@ -12,7 +12,7 @@ const Index: React.FC<IndexProps> = props => {
   const { images } = props;
   return (
     <Layout>
-      {/*<Artwork />*/}
+      {/* <Artwork /> */}
       {images.map(({ id, src }) => (
         <$.Images key={id}>
           <$.Image src={src} />
