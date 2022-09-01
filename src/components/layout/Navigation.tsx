@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { FC } from 'react';
 import { useRouter } from 'next/router';
-import barberHariIcon from 'public/images/home/icon-barberhari.png';
+import barberHariIcon from '../../../public/images/home/icon-barberhari.png';
 import * as $ from './Navigation.styled';
 import Path from '../../models/Path';
 

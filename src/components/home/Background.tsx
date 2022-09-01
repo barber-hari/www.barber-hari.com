@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
-import sidebarImage from 'public/images/home/img-sidebar.jpg';
-import videoSrc from 'public/videos/test-video.mp4';
+import sidebarImage from '../../../public/images/home/img-sidebar.jpg';
+import videoSrc from '../../../public/videos/test-video.mp4';
 import * as $ from './Background.styled';
 
 const Background: FC = () => {

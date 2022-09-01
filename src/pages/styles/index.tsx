@@ -1,58 +1,29 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Layout from 'components/layout/Layout';
-import { ImagePlus, STYLES_IMAGES } from 'models/Image';
+import Artwork from 'components/styles/Artwork';
 import { GetStaticProps } from 'next';
-import styled from 'styled-components';
-
-
-const Images = styled.div`
-  width: 100px;
-  height: 100px;
-`;
-
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
+import { ImagePlus } from 'models/Image';
+import imagesData from '../../../public/json/styles_image.json';
 
 export interface IndexProps {
   images: ImagePlus[];
 }
 
-export const Images = styled.div`
-  width: 100px;
-  height: 100px;
-`;
-
-export const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
-const Index: React.FC<IndexProps> = props => {
+const Index: FC<IndexProps> = props => {
   const { images } = props;
   return (
     <Layout>
-      {/* <Artwork /> */}
-      {images.map(({ id, src }) => (
-        <Images key={id}>
-          <Image src={src} />
-        </Images>
-      ))}
+      <Artwork images={images} />
     </Layout>
   );
 };
 
 export default Index;
 
-export const getStaticProps: GetStaticProps = async context => {
-  const { params } = context;
+export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      images: STYLES_IMAGES,
+      images: imagesData.images,
     },
   };
 };

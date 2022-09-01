@@ -1,43 +1,26 @@
 import React, { FC } from 'react';
-import { useRouter } from 'next/router';
+import { ImagePlus } from 'models/Image';
 import * as $ from './Artwork.styled';
-import { ImagePlus, STYLES_IMAGES } from '../../models/Image';
 
-export interface ArtworkProps {}
+export interface ArtworkProps {
+  images: ImagePlus[];
+}
 
-const Artwork: FC<ArtworkProps> = () => {
-  const router = useRouter();
-  const onClick = ({ id, src }: ImagePlus) => {
-    router.push(
-      {
-        pathname: `/styles/detail/${id}`,
-        query: {
-          id,
-          src,
-        },
-      },
-      `/styles/detail/${id}`
-    );
-  };
+const Artwork: FC<ArtworkProps> = props => {
+  const { images } = props;
+
   return (
     <$.Wrapper>
       <$.Container>
         <$.Masonry>
-          {STYLES_IMAGES.map(({ src, id, tall }) =>
-            tall === 2 ? (
-              <$.Item
-                key={`styles-image-${id}`}
-                src={src}
-                className="is-double"
+          {images.map(({ id, src, title }) => (
+            <$.Images key={id}>
+              <$.Image
+                src={`${process.env.REACT_APP_PUBLIC_URL}/images/styles/${src}`}
               />
-            ) : (
-              <$.Item
-                key={`styles-image-${id}`}
-                src={src}
-                className="is-triple"
-              />
-            )
-          )}
+              <div>{title}</div>
+            </$.Images>
+          ))}
         </$.Masonry>
       </$.Container>
     </$.Wrapper>

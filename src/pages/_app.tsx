@@ -3,8 +3,8 @@ import type { AppProps } from 'next/app';
 import GlobalStyle from 'components/layout/GlobalStyle';
 import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
-import faviconSrc from 'public/favicon.ico';
-import ogImageSrc from 'public/imgae-og.jpg';
+import faviconSrc from '../../public/favicon.ico';
+import ogImageSrc from '../../public/imgae-og.jpg';
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (

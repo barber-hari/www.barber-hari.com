@@ -1,11 +1,11 @@
 import React, { FC, useState } from 'react';
-import barberHariImage from 'public/images/info/img-hariface.png';
-import barberHariImage2 from 'public/images/info/img-hariface2.jpg';
 import ImageList from 'components/base/Image';
 import { INFO_IMAGES } from 'models/Image';
 import Icon from 'components/base/Icon';
 import NaverMap from 'components/base/map/NaverMap';
 import Path from 'models/Path';
+import barberHariImage2 from '../../../public/images/info/img-hariface2.jpg';
+import barberHariImage from '../../../public/images/info/img-hariface.png';
 import ModalSlider from './ModalSlider';
 import SmallSlider from './SmallSlider';
 import * as $ from './Introduce.styled';

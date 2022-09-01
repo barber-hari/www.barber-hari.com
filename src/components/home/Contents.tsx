@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import barberHariIcon from 'public/images/home/icon-barberhari.png';
 import Icon from 'components/base/Icon';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Path from 'models/Path';
+import barberHariIcon from '../../../public/images/home/icon-barberhari.png';
 import * as $ from './Contents.styled';
 
 const Contents: FC = () => {
