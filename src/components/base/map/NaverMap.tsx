@@ -26,6 +26,7 @@ const NaverMap: FC<NaverMapProps> = props => {
       minZoom: 6,
     };
     const map = new naver.maps.Map(mapRef.current, settings);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const marker = new naver.maps.Marker({
       position: location,
       map,

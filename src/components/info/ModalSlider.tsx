@@ -46,7 +46,7 @@ const ModalSlider: FC<ModalSliderProps> = props => {
         initialSlide: targetId,
       });
     }
-  }, [swiperSetting]);
+  }, [swiperSetting, targetId]);
 
   return (
     <$.Wrapper>
