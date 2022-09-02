@@ -15,7 +15,7 @@ export const Image = styled.img<ImageStyledProps>`
   object-fit: cover;
 `;
 
-export const ImageBox = styled.div`
+export const ImageBox = styled.figure`
   z-index: 20;
   width: 100%;
   height: 100%;

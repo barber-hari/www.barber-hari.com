@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import React, { FC } from 'react';
 import { useRouter } from 'next/router';
+import Path from 'models/Path';
 import barberHariIcon from '../../../public/images/home/icon-barberhari.png';
 import * as $ from './Navigation.styled';
-import Path from '../../models/Path';
 
 const Navigation: FC = () => {
   const { pathname } = useRouter();

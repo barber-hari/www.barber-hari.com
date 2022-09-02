@@ -2,28 +2,30 @@ import React, { FC } from 'react';
 import Layout from 'components/layout/Layout';
 import Artwork from 'components/styles/Artwork';
 import { GetStaticProps } from 'next';
-import { ImagePlus } from 'models/Image';
-import imagesData from '../../../public/json/styles_image.json';
+import { findAllStyles } from 'repositories/detailRepository';
+import { Style } from 'models/style';
 
 export interface IndexProps {
-  images: ImagePlus[];
+  styles: Style[];
 }
 
 const Index: FC<IndexProps> = props => {
-  const { images } = props;
+  const { styles } = props;
   return (
     <Layout>
-      <Artwork images={images} />
+      <Artwork styles={styles} />
     </Layout>
   );
 };
 
 export default Index;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<IndexProps> = () => {
+  const allStyles = findAllStyles();
+
   return {
     props: {
-      images: imagesData.images,
+      styles: allStyles,
     },
   };
 };

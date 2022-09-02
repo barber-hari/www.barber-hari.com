@@ -21,6 +21,7 @@ const ImageList: FC<ImageListProps> = props => {
             width={width}
             src={src}
             onClick={() => void onClick(id)}
+            alt=""
           />
         </$.ImageBox>
       ))}

@@ -1,24 +1,30 @@
 import React, { FC } from 'react';
-import { ImagePlus } from 'models/Image';
+import { Style } from 'models/style';
 import * as $ from './Artwork.styled';
 
 export interface ArtworkProps {
-  images: ImagePlus[];
+  styles: Style[];
 }
 
 const Artwork: FC<ArtworkProps> = props => {
-  const { images } = props;
-
+  const { styles } = props;
+  console.log(styles);
   return (
     <$.Wrapper>
       <$.Container>
         <$.Masonry>
-          {images.map(({ id, src, title }) => (
-            <$.Images key={id}>
-              <$.Image
-                src={`${process.env.REACT_APP_PUBLIC_URL}/images/styles/${src}`}
-              />
-              <div>{title}</div>
+          {styles.map(({ id, images, title, content }) => (
+            <$.Images key={`image-${id}`}>
+              <>
+                <$.ImageTitle>{title}</$.ImageTitle>
+                <$.ImageTitle>{content}</$.ImageTitle>
+                {images.map(image => (
+                  <$.Image
+                    key={`image-${id}-${image}`}
+                    src={`styles/${id}/${image}`}
+                  />
+                ))}
+              </>
             </$.Images>
           ))}
         </$.Masonry>

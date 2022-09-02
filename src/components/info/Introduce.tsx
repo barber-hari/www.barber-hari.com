@@ -63,7 +63,7 @@ const Introduce: FC = () => {
                   서울 강남구 역삼로67길 33 b101호 바버하리 0507-1323-6462
                 </$.Tell>
                 <$.IconBox>
-                  <p>네이버 예약</p>
+                  <span>네이버 예약</span>
                   <Icon iconType="NAVERRESERVE" width="min(8vw,50px)" />
                 </$.IconBox>
               </$.NaverMapFooter>
