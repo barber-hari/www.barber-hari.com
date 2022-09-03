@@ -15,12 +15,12 @@ const DetailPage: FC<DetailProps> = props => {
 export default DetailPage;
 
 export async function getStaticPaths() {
-  const path = findAllId().map(id => ({
+  const paths = findAllId().map(id => ({
     params: { id },
   }));
-  console.log(path);
+  console.log(paths);
   return {
-    path: [{ params: { id: 1 } }, { params: { id: 2 } }, { params: { id: 3 } }],
+    paths,
     fallback: false,
   };
 }

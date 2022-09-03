@@ -3,4 +3,5 @@ export interface Style {
   title: string;
   content: string;
   images: string[];
+  thumb: string;
 }

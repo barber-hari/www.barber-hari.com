@@ -1,6 +1,6 @@
 import path from 'path';
 import * as fs from 'fs';
-import { Style } from '../models/style';
+import { Style } from 'models/style';
 
 const STYLES_DIRECTORY = path.join(process.cwd(), 'public/styles');
 
@@ -14,9 +14,9 @@ export const findAllStyles = (): Style[] => {
       const json = JSON.parse(
         fs.readFileSync(`${fullPath}/index.json`, 'utf-8')
       );
-      return json as unknown as Style;
+      return json as Style;
     });
-    return styles.sort((a, b) => (a.id < b.id ? 1 : -1));
+    return styles.sort((a, b) => (a.id > b.id ? 1 : -1));
   } catch (error) {
     console.log(error);
     return [];

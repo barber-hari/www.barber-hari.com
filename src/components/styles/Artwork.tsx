@@ -1,6 +1,10 @@
 import React, { FC } from 'react';
 import { Style } from 'models/style';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import * as $ from './Artwork.styled';
+import Path from '../../models/Path';
 
 export interface ArtworkProps {
   styles: Style[];
@@ -8,23 +12,32 @@ export interface ArtworkProps {
 
 const Artwork: FC<ArtworkProps> = props => {
   const { styles } = props;
-  console.log(styles);
+
+  const router = useRouter();
+
+  const routingHandler = ({ target }: React.MouseEvent) => {
+    if (!(target instanceof HTMLElement)) {
+      return;
+    }
+    void router.push(`${Path.STYLES}/${target.dataset.id}`);
+  };
+
   return (
     <$.Wrapper>
       <$.Container>
-        <$.Masonry>
-          {styles.map(({ id, images, title, content }) => (
+        <$.Masonry onClick={routingHandler}>
+          {styles.map(({ id, thumb, title, content }) => (
             <$.Images key={`image-${id}`}>
-              <>
-                <$.ImageTitle>{title}</$.ImageTitle>
-                <$.ImageTitle>{content}</$.ImageTitle>
-                {images.map(image => (
-                  <$.Image
-                    key={`image-${id}-${image}`}
-                    src={`styles/${id}/${image}`}
-                  />
-                ))}
-              </>
+              <Link href={`${Path.STYLES}/${id}`}>{title}</Link>
+              <$.ImageTitle>{content}</$.ImageTitle>
+              <Image
+                data-id={id}
+                key={`image-${id}-${thumb}`}
+                src={`/styles/${id}/${thumb}`}
+                loading="lazy"
+                layout="fill"
+                alt={title}
+              />
             </$.Images>
           ))}
         </$.Masonry>
