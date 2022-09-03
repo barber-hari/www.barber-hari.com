@@ -16,11 +16,11 @@ const DetailPage: FC<DetailProps> = props => {
 
   return (
     <Layout>
-      <div key={id}>
+      <div>
         {images.map(image => (
           <Image
             src={`/styles/${id}/${image}`}
-            key={`image-${id}`}
+            key={`image-${image}`}
             layout="fill"
             alt={title}
           />
