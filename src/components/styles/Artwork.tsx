@@ -16,10 +16,8 @@ const Artwork: FC<ArtworkProps> = props => {
   const router = useRouter();
 
   const routingHandler = ({ target }: React.MouseEvent) => {
-    if (!(target instanceof HTMLElement)) {
-      return;
-    }
-    void router.push(`${Path.STYLES}/${target.dataset.id}`);
+    target instanceof HTMLElement &&
+      router.push(`${Path.STYLES}/${target.dataset.id}`);
   };
 
   return (
