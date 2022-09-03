@@ -1,36 +1,48 @@
 import React, { FC } from 'react';
-import { Style } from 'models/style';
+import { Style } from 'models/Style';
 import { GetStaticProps } from 'next';
-import { findAllId, findAllStyles } from 'repositories/detailRepository';
+import { findAllId, findAllStyles } from 'repositories/styleRepository';
+import Layout from 'components/layout/Layout';
+import Image from 'next/image';
 
 export interface DetailProps {
-  styles: Style[];
+  style: Style;
 }
 
 const DetailPage: FC<DetailProps> = props => {
-  const { styles } = props;
-  return <div>{styles[0].id}</div>;
+  const {
+    style: { id, images, title },
+  } = props;
+
+  return (
+    <Layout>
+      <div key={id}>
+        {images.map(image => (
+          <Image
+            src={`/styles/${id}/${image}`}
+            key={`image-${id}`}
+            layout="fill"
+            alt={title}
+          />
+        ))}
+      </div>
+    </Layout>
+  );
 };
 
 export default DetailPage;
 
 export async function getStaticPaths() {
-  const paths = findAllId().map(id => ({
-    params: { id },
-  }));
-  console.log(paths);
   return {
-    paths,
+    paths: findAllId().map(id => ({ params: { id } })),
     fallback: false,
   };
 }
 
-export const getStaticProps: GetStaticProps<DetailProps> = () => {
-  const allStyles = findAllStyles();
-
+export const getStaticProps: GetStaticProps = ({ params }) => {
   return {
     props: {
-      styles: allStyles,
+      style: findAllStyles().find(({ id }) => id === params?.id),
     },
   };
 };

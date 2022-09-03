@@ -1,6 +1,6 @@
 import path from 'path';
 import * as fs from 'fs';
-import { Style } from 'models/style';
+import { Style } from 'models/Style';
 
 const STYLES_DIRECTORY = path.join(process.cwd(), 'public/styles');
 
@@ -18,7 +18,7 @@ export const findAllStyles = (): Style[] => {
     });
     return styles.sort((a, b) => (a.id > b.id ? 1 : -1));
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return [];
   }
 };
@@ -28,10 +28,9 @@ export const findAllId = () => {
     const directoryId = fs
       .readdirSync(STYLES_DIRECTORY)
       .filter((x: string) => !Number.isNaN(Number(x)));
-    console.log(directoryId);
     return directoryId as string[];
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return [];
   }
 };
