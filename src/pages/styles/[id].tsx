@@ -5,6 +5,7 @@ import { findAllId, findAllStyles } from 'repositories/styleRepository';
 import Layout from 'components/layout/Layout';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import * as $ from './DetailPage.styled';
 import Path from '../../models/Path';
 
@@ -18,6 +19,13 @@ const DetailPage: FC<DetailProps> = props => {
     styles,
     style: { id, title, description, images },
   } = props;
+
+  const router = useRouter();
+
+  const routingHandler = ({ target }: React.MouseEvent) => {
+    target instanceof HTMLImageElement &&
+      router.push(`${Path.STYLES}/${target.dataset.id}`);
+  };
 
   return (
     <Layout>

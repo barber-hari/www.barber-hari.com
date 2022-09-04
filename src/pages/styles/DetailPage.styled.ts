@@ -4,30 +4,38 @@ export const Container = styled.div`
   display: flex;
   position: relative;
   width: min(95%, 1700px);
-  padding-top: 20px;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding: 20px 25px 0;
   margin-right: auto;
   margin-left: auto;
-  overflow: scroll;
   justify-content: center;
+  @media (max-width: 1023px) {
+    display: block;
+  }
 `;
 
 export const SideBar = styled.aside`
   min-width: 270px;
   margin-right: 25px;
   margin-top: 20px;
-  border-right: 2px solid #ffffff;
-  overflow: scroll;
+  border-right: 1px solid #808080;
 
   @media (max-width: 1023px) {
-    display: none;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #808080;
+    border-right: 0;
+    width: 100%;
   }
 `;
 
 export const StyledInfo = styled.article`
   position: fixed;
   width: 240px;
+
+  @media (max-width: 1023px) {
+    position: relative;
+    width: 90%;
+  }
 `;
 
 export const HairInfo = styled.dl`
@@ -35,10 +43,14 @@ export const HairInfo = styled.dl`
   flex-flow: column;
   align-items: end;
   text-align: right;
-  width: 100%;
   color: #fff;
   font-weight: bold;
-  text-shadow: 1px 1px 1px #fff;
+
+  @media (max-width: 1023px) {
+    align-items: start;
+    text-align: start;
+    padding-bottom: 25px;
+  }
 `;
 
 export const HairTitle = styled.dt`
@@ -48,20 +60,26 @@ export const HairTitle = styled.dt`
 
 export const HairDescription = styled.dd`
   line-height: 20px;
-  width: 200px;
+  width: min(22vw, 300px);
   font-weight: bolder;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 1rem;
+
+  @media (max-width: 1023px) {
+    width: 70%;
+  }
 `;
 
 export const Contents = styled.section`
   width: min(90%, 1400px);
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const Images = styled.article`
   width: 100%;
-  border-bottom: 2px solid #ffffff;
+  border-bottom: 1px solid #808080;
 `;
 
 export const Image = styled.figure`
@@ -80,26 +98,25 @@ export const Image = styled.figure`
 
 export const Masonry = styled.article`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(400px, 1fr));
-  grid-auto-rows: 400px;
-  grid-gap: 50px;
-  margin-left: auto;
-  margin-right: auto;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 300px;
+  grid-column-gap: 25px;
+  grid-row-gap: 50px;
+  margin: 25px auto 150px;
 `;
 
 export const LinkImages = styled.figure`
   display: block;
   position: relative;
   width: 100%;
-  height: 100%;
+  cursor: pointer;
 
   & > span {
     border-radius: 3px;
   }
 
   & > a {
-    top: 415px;
+    top: 315px;
     z-index: 1000;
     border-radius: 10px;
     width: max-content;

@@ -14,8 +14,10 @@ const Layout: FC<LayoutProps> = props => {
 
   return (
     <$.Container isIndex={pathname === Path.INDEX}>
-      <Navigation />
-      <$.Main>{children}</$.Main>
+      <$.Main>
+        <Navigation />
+        {children}
+      </$.Main>
     </$.Container>
   );
 };

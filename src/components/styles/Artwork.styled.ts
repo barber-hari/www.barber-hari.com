@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  margin-left: auto;
-  margin-right: auto;
   width: 100vw;
-  overflow-y: scroll;
   background-color: #000;
 `;
 
@@ -24,8 +21,7 @@ export const Masonry = styled.article`
   grid-template-rows: repeat(auto-fill, minmax(400px, 1fr));
   grid-auto-rows: 400px;
   grid-gap: 50px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 50px auto 100px;
 `;
 
 export const Images = styled.figure`
@@ -33,6 +29,7 @@ export const Images = styled.figure`
   position: relative;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 
   & > span {
     border-radius: 3px;

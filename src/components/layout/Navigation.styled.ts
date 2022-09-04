@@ -3,9 +3,6 @@ import styled from 'styled-components';
 export const Navigation = styled.nav`
   width: 100%;
   height: 100px;
-  position: fixed;
-  top: 0;
-  left: 0;
 `;
 
 export const Logo = styled.img`

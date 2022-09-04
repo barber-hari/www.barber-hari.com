@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  height: 100%;
+  height: calc(100% - 100px);
   background-color: #000;
   display: flex;
 `;
@@ -207,6 +207,7 @@ export const IconBox = styled.span`
     font-weight: bold;
     color: #008000;
   }
+
   & i {
     margin-right: auto;
     margin-left: auto;
