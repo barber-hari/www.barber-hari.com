@@ -4,8 +4,8 @@ import { INFO_IMAGES } from 'models/Image';
 import Icon from 'components/base/Icon';
 import NaverMap from 'components/base/map/NaverMap';
 import Path from 'models/Path';
-import barberHariImage2 from '../../../public/images/info/img-hariface2.jpg';
-import barberHariImage from '../../../public/images/info/img-hariface.png';
+import profileImageMobile from 'images/info/img-hariface2.jpg';
+import profileImagePc from 'images/info/img-hariface.png';
 import ModalSlider from './ModalSlider';
 import SmallSlider from './SmallSlider';
 import * as $ from './Introduce.styled';
@@ -26,10 +26,10 @@ const Introduce: FC = () => {
       <$.BoxWrapper>
         <$.LeftBox>
           <$.PictureBox>
-            <$.Picture src={barberHariImage.src} alt="" className="pc" />
-            <$.Picture src={barberHariImage2.src} alt="" className="mobile" />
+            <$.Picture src={profileImagePc.src} alt="" className="pc" />
+            <$.Picture src={profileImageMobile.src} alt="" className="mobile" />
             <$.MobilePicture>
-              <$.Picture src={barberHariImage2.src} alt="" />
+              <$.Picture src={profileImageMobile.src} alt="" />
               <$.Name>
                 BARBER <br />
                 HARI <br />
@@ -89,12 +89,3 @@ const Introduce: FC = () => {
 };
 
 export default Introduce;
-
-/// deprecated
-
-/* <ReImageModal
-             images={INFO_IMAGES}
-             targetIndex={targetId - 1}
-             closeModal={closeModalHandler}
-             show={show}
-           /> */

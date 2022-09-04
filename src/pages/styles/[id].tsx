@@ -1,11 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Style } from 'models/Style';
 import { GetStaticProps } from 'next';
 import { findAllId, findAllStyles } from 'repositories/styleRepository';
 import Layout from 'components/layout/Layout';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import * as $ from './DetailPage.styled';
 import Path from '../../models/Path';
 
@@ -20,12 +19,13 @@ const DetailPage: FC<DetailProps> = props => {
     style: { id, title, description, images },
   } = props;
 
-  const router = useRouter();
-
-  const routingHandler = ({ target }: React.MouseEvent) => {
-    target instanceof HTMLImageElement &&
-      router.push(`${Path.STYLES}/${target.dataset.id}`);
-  };
+  useEffect(() => {
+    document.querySelector('main')?.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
+  }, [id])
 
   return (
     <Layout>
@@ -54,17 +54,19 @@ const DetailPage: FC<DetailProps> = props => {
           <$.Masonry>
             {styles.map(style => (
               <$.LinkImages key={`image-${style.id}`}>
-                <Link scroll href={`${Path.STYLES}/${style.id}`}>
-                  {style.title}
+                <Link href={`${Path.STYLES}/${style.id}`}>
+                  <a>
+                    {style.title}
+                    <Image
+                    data-id={style.id}
+                    key={`image-${style.id}-${style.thumb}`}
+                    src={`/styles/${style.id}/${style.thumb}`}
+                    loading="lazy"
+                    layout="fill"
+                    alt={style.title}
+                  />
+                  </a>
                 </Link>
-                <Image
-                  data-id={style.id}
-                  key={`image-${style.id}-${style.thumb}`}
-                  src={`/styles/${style.id}/${style.thumb}`}
-                  loading="lazy"
-                  layout="fill"
-                  alt={style.title}
-                />
               </$.LinkImages>
             ))}
           </$.Masonry>
@@ -83,11 +85,25 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps: GetStaticProps = ({ params }) => {
+export const getStaticProps: GetStaticProps<DetailProps> = ({ params }) => {
+  let style: Style = {
+    "id": "",
+    "title": "",
+    "description": "",
+    "images": [],
+    "thumb": ""
+  }
+  const styles = findAllStyles().filter((targetStyle) => {
+    if(targetStyle.id === params?.id) {
+      style = targetStyle;
+      return false;
+    }
+    return true;
+  });
   return {
     props: {
-      style: findAllStyles().find(({ id }) => id === params?.id),
-      styles: findAllStyles(),
+      style,
+      styles
     },
   };
 };
