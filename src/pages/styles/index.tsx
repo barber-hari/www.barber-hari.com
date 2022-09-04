@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import Layout from 'components/layout/Layout';
-import Artwork from 'components/styles/Artwork';
+import Styles from 'components/styles/Styles';
 import { GetStaticProps } from 'next';
 import { findAllStyles } from 'repositories/styleRepository';
 import { Style } from 'models/Style';
@@ -13,7 +13,7 @@ const Index: FC<IndexProps> = props => {
   const { styles } = props;
   return (
     <Layout>
-      <Artwork styles={styles} />
+      <Styles styles={styles} />
     </Layout>
   );
 };

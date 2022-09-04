@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.section`
   display: flex;
   position: relative;
   width: min(95%, 1700px);
@@ -14,7 +14,7 @@ export const Container = styled.div`
   }
 `;
 
-export const SideBar = styled.aside`
+export const SideBar = styled.header`
   min-width: 270px;
   margin-right: 25px;
   margin-top: 20px;
@@ -29,39 +29,34 @@ export const SideBar = styled.aside`
   }
 `;
 
-export const StyledInfo = styled.article`
-  position: fixed;
-  width: 240px;
-
-  @media (max-width: 1023px) {
-    position: relative;
-    width: 90%;
-  }
-`;
-
-export const HairInfo = styled.dl`
+export const HairInfo = styled.div`
   display: flex;
   flex-flow: column;
   align-items: end;
   text-align: right;
   color: #fff;
   font-weight: bold;
+  position: fixed;
+  width: 270px;
+  padding-right: 25px;
 
   @media (max-width: 1023px) {
     align-items: start;
     text-align: start;
     padding-bottom: 25px;
+    position: relative;
+    width: 90%;
   }
 `;
 
-export const HairTitle = styled.dt`
+export const HairTitle = styled.h2`
   margin-bottom: 25px;
   font-size: 2rem;
 `;
 
-export const HairDescription = styled.dd`
+export const HairDescription = styled.p`
   line-height: 20px;
-  width: min(22vw, 300px);
+  width: min(22vw, 250px);
   font-weight: bolder;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 1rem;
@@ -76,59 +71,43 @@ export const Contents = styled.section`
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
+
+  & > div {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: #ffffff;
+    font-size: 2rem;
+
+    &::before {
+      content: '';
+      flex-grow: 1;
+      margin-right: 15px;
+      background: #808080;
+      height: 2px;
+    }
+
+    &::after {
+      content: '';
+      flex-grow: 1;
+      margin-left: 15px;
+      background: #808080;
+      height: 2px;
+    }
+  }
 `;
 
-export const Images = styled.article`
+export const Images = styled.ul`
   width: 100%;
-  border-bottom: 1px solid #808080;
 `;
 
-export const Image = styled.figure`
+export const Image = styled.li`
   width: 100%;
   height: 90vh;
   margin-bottom: 25px;
 
   & > span {
     border-radius: 5px;
-  }
-
-  & img {
-    object-fit: cover;
-  }
-`;
-
-export const Masonry = styled.article`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-auto-rows: 300px;
-  grid-column-gap: 25px;
-  grid-row-gap: 50px;
-  margin: 25px auto 150px;
-`;
-
-export const LinkImages = styled.figure`
-  display: block;
-  position: relative;
-  width: 100%;
-  cursor: pointer;
-
-  & > span {
-    border-radius: 3px;
-  }
-
-  & > a {
-    top: 315px;
-    z-index: 1000;
-    border-radius: 10px;
-    width: max-content;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    color: #fff;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: bold;
-    text-shadow: -1px 0 #808080, 0 1px #808080, 1px 0 #808080, 0 -1px #808080,
-      3px 3px 5px #000000;
   }
 
   & img {
