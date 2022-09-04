@@ -3,7 +3,7 @@ import { Style } from 'models/Style';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as $ from './Artwork.styled';
-import Path from '../../models/Path';
+import Path from 'models/Path';
 
 export interface ArtworkProps {
   styles: Style[];
