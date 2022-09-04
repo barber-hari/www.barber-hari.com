@@ -11,7 +11,6 @@ export interface IndexProps {
 
 const Index: FC<IndexProps> = props => {
   const { styles } = props;
-  console.log(styles);
   return (
     <Layout>
       <Artwork styles={styles} />

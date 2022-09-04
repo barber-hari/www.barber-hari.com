@@ -8,6 +8,7 @@ export const Container = styled.div`
   margin-right: auto;
   margin-left: auto;
   justify-content: center;
+  margin-top: 50px;
   @media (max-width: 1023px) {
     display: block;
   }
