@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { Style } from 'models/Style';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import * as $ from './Artwork.styled';
 import Path from '../../models/Path';
 
@@ -16,7 +16,7 @@ const Artwork: FC<ArtworkProps> = props => {
   const router = useRouter();
 
   const routingHandler = ({ target }: React.MouseEvent) => {
-    target instanceof HTMLElement &&
+    target instanceof HTMLImageElement &&
       router.push(`${Path.STYLES}/${target.dataset.id}`);
   };
 
@@ -24,10 +24,9 @@ const Artwork: FC<ArtworkProps> = props => {
     <$.Wrapper>
       <$.Container>
         <$.Masonry onClick={routingHandler}>
-          {styles.map(({ id, thumb, title, content }) => (
+          {styles.map(({ id, thumb, title }) => (
             <$.Images key={`image-${id}`}>
               <Link href={`${Path.STYLES}/${id}`}>{title}</Link>
-              <$.ImageTitle>{content}</$.ImageTitle>
               <Image
                 data-id={id}
                 key={`image-${id}-${thumb}`}

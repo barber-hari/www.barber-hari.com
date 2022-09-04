@@ -1,5 +1,10 @@
 {
-  "id": "1", "title": "abcd", "content": "fffee",
-  "images": [ "img-stype1.jpg","img-stype2.jpg"],
+  "id": "1",
+  "title": "LEAF CUT",
+  "description": "턱 선 기장의 귀를 덮는 오버 가르마의 숏컷. 직선의 라인이 턱 선을 감싸고 옆 얼굴을 커버하여 시크하고 이지적인 무드를 만들어준다.",
+  "images": [
+    "img-stype1.jpg",
+    "img-stype2.jpg"
+  ],
   "thumb": "img-stype1.jpg"
 }

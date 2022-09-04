@@ -11,6 +11,7 @@ export interface IndexProps {
 
 const Index: FC<IndexProps> = props => {
   const { styles } = props;
+  console.log(styles);
   return (
     <Layout>
       <Artwork styles={styles} />
@@ -20,7 +21,7 @@ const Index: FC<IndexProps> = props => {
 
 export default Index;
 
-export const getStaticProps: GetStaticProps = () => {
+export const getStaticProps: GetStaticProps<IndexProps> = () => {
   return {
     props: {
       styles: findAllStyles(),
