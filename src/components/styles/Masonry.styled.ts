@@ -22,31 +22,33 @@ interface ImagesProps {
 }
 
 export const Images = styled.li<ImagesProps>`
-  display: block;
-  position: relative;
-  width: 100%;
   cursor: pointer;
 
-  & > span {
+  & a {
+    height: 100%;
+    display: flex;
+  }
+  & span {
     border-radius: 3px;
   }
 
-  & > a {
-    top: calc(${({ height }) => height} + 15px);
-    z-index: 1000;
-    border-radius: 10px;
-    width: max-content;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    color: #fff;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: bold;
-    text-shadow: -1px 0 #808080, 0 1px #808080, 1px 0 #808080, 0 -1px #808080,
-      3px 3px 5px #000000;
+  & img {
+    z-index: 1500;
+    object-fit: cover;
   }
 
-  & img {
-    object-fit: cover;
+  & h4 {
+    top: calc(${({ height }) => height} + 15px);
+    z-index: 2000;
+    display: flex;
+    width: max-content;
+    height: max-content;
+    justify-content: center;
+    margin: 0 auto;
+    color: #fff;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bolder;
+    text-shadow: -1px 0 #808080, 0 1px #808080, 1px 0 #808080, 0 -1px #808080,
+      3px 3px 5px #000000;
   }
 `;

@@ -33,9 +33,9 @@ export const getStaticProps: GetStaticProps<DetailProps> = ({ params }) => {
   let style: Style = {
     id: '',
     title: '',
+    thumb: '',
     description: '',
     images: [],
-    thumb: '',
   };
   const styles = findAllStyles().filter(targetStyle => {
     if (targetStyle.id === params?.id) {

@@ -2,16 +2,18 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 import { useRouter } from 'next/router';
 import Path from 'models/Path';
-import barberHariIcon from '../../../public/images/home/icon-barberhari.png';
+import barberHariIcon from 'images/home/icon-barberhari.png';
+import { useScroll } from 'hooks/useScroll';
 import * as $ from './Navigation.styled';
 
 const Navigation: FC = () => {
   const { pathname } = useRouter();
+  const { scrollHeight } = useScroll();
 
   return (
     <$.Navigation>
-      <$.Pages>
-        <$.Page isCurruntPage={pathname === Path.INFO}>
+      <$.Pages scroll={scrollHeight}>
+        <$.Page isCurrentPage={pathname === Path.INFO}>
           <Link href={Path.INFO}>INFO</Link>
         </$.Page>
         <$.Page>
@@ -22,8 +24,7 @@ const Navigation: FC = () => {
             />
           </Link>
         </$.Page>
-
-        <$.Page isCurruntPage={pathname === Path.STYLES}>
+        <$.Page isCurrentPage={pathname === Path.STYLES}>
           <Link href={Path.STYLES}>STYLES</Link>
         </$.Page>
       </$.Pages>

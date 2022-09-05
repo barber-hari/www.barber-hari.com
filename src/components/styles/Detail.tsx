@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useRef } from 'react';
 import Image from 'next/image';
 import { Style } from 'models/Style';
 import Masonry from 'components/styles/Masonry';
@@ -15,13 +15,7 @@ const Detail: FC<DetailProps> = props => {
     style: { id, title, description, images },
   } = props;
 
-  useEffect(() => {
-    document.querySelector('main')?.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });
-  }, [id]);
+  const lineRef = useRef(null);
 
   return (
     <$.Container>
@@ -44,7 +38,7 @@ const Detail: FC<DetailProps> = props => {
             </$.Image>
           ))}
         </$.Images>
-        <div>Other Styles</div>
+        <div ref={lineRef}>Other Styles</div>
         <Masonry styles={styles} width="300px" height="400px" />
       </$.Contents>
     </$.Container>
