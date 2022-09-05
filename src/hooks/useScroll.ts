@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 
 export const useScroll = () => {
   const [scrollHeight, setScrollHeight] = useState(0);
-  const target = document.querySelector('main');
 
   const scrollHandler = () => {
-    setScrollHeight(target?.scrollTop as number);
+    setScrollHeight(document.querySelector('main')?.scrollTop as number);
   };
 
   useEffect(() => {
@@ -13,6 +12,8 @@ export const useScroll = () => {
   }, [scrollHeight]);
 
   useEffect(() => {
+    const target = document.querySelector('main');
+
     const catchScroll = () => {
       target?.addEventListener('scroll', scrollHandler);
     };
