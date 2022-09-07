@@ -3,10 +3,15 @@ import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
 import { INFO_IMAGES } from 'models/Image';
+import Icon from 'components/base/Icon';
 import * as $ from './SmallSlider.styled';
-import Icon from '../base/Icon';
 
-const SmallSlider: FC = () => {
+interface smallSliderProps {
+  onClick: (targetId: number) => void;
+}
+const SmallSlider: FC<smallSliderProps> = props => {
+  const { onClick } = props;
+
   SwiperCore.use([Navigation, Pagination, Scrollbar]);
   const [swiperSetting, setSwiperSetting] = useState<Swiper | null>(null);
 
@@ -55,7 +60,7 @@ const SmallSlider: FC = () => {
       {swiperSetting && (
         <Swiper {...swiperSetting}>
           {INFO_IMAGES.map(({ src, id }) => (
-            <SwiperSlide key={id}>
+            <SwiperSlide key={id} onClick={() => void onClick(id)}>
               <$.Image src={src} />
             </SwiperSlide>
           ))}

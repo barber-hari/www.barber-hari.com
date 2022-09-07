@@ -1,25 +1,28 @@
 import React, { FC, useState } from 'react';
 import ImageList from 'components/base/Image';
-import { INFO_IMAGES } from 'models/Image';
 import Icon from 'components/base/Icon';
 import NaverMap from 'components/base/map/NaverMap';
 import Path from 'models/Path';
 import profileImageMobile from 'images/info/img-hariface2.jpg';
 import profileImagePc from 'images/info/img-hariface.png';
-import ModalSlider from './ModalSlider';
-import SmallSlider from './SmallSlider';
+import SmallSlider from 'components/info/SmallSlider';
+import { useRecoilState } from 'recoil';
+import { INFO_IMAGES } from 'models/Image';
+import ModalSlider from 'components/info/ModalSlider';
+import { UIState } from 'store/UIState';
 import * as $ from './Introduce.styled';
 
 const Introduce: FC = () => {
-  const [show, setShow] = useState(false);
+  const [{ isVisible }, setUIState] = useRecoilState(UIState);
   const [targetId, setTargetId] = useState(0);
 
-  const openModalHandler = (targetIndex: number) => {
-    setTargetId(targetIndex);
-    setShow(true);
+  const openModalHandler = (id: number) => {
+    setTargetId(id);
+    setUIState(state => ({ ...state, isVisible: true }));
   };
 
-  const closeModalHandler = () => void setShow(false);
+  const closeModalHandler = () =>
+    void setUIState(state => ({ ...state, isVisible: false }));
 
   return (
     <$.Container>
@@ -55,7 +58,7 @@ const Introduce: FC = () => {
               </a>
             </$.Address>
           </$.PictureBox>
-          <SmallSlider />
+          <SmallSlider onClick={openModalHandler} />
           <$.MapBox>
             <NaverMap>
               <$.NaverMapFooter href={Path.RESERVATION} target="_blank">
@@ -72,14 +75,13 @@ const Introduce: FC = () => {
         </$.LeftBox>
         <$.RightBox>
           <$.GalleryBox>
-            <ImageList onClick={openModalHandler} INFO_IMAGES={INFO_IMAGES} />
+            <ImageList onClick={openModalHandler} />
           </$.GalleryBox>
         </$.RightBox>
-        {show && (
+        {isVisible && (
           <ModalSlider
             INFO_IMAGES={INFO_IMAGES}
             closeModal={closeModalHandler}
-            show={show}
             targetId={targetId - 1}
           />
         )}

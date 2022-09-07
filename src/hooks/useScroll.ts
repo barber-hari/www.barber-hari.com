@@ -1,28 +1,24 @@
-import { useEffect, useState } from 'react';
+import { TouchEventHandler, useRef } from 'react';
 
-export const useScroll = () => {
-  const [scrollHeight, setScrollHeight] = useState(0);
+export interface TouchMoveHandler {
+  ({ deltaY }: { deltaY: number }): void;
+}
 
-  const scrollHandler = () => {
-    setScrollHeight(document.querySelector('main')?.scrollTop as number);
+const useTouchScroll = (touchMoveHandler: TouchMoveHandler) => {
+  const $touchStartY = useRef(0);
+
+  const onTouchStartHandler: TouchEventHandler = event => {
+    $touchStartY.current = event.touches[0].pageY;
   };
-
-  useEffect(() => {
-    console.log(scrollHeight);
-  }, [scrollHeight]);
-
-  useEffect(() => {
-    const target = document.querySelector('main');
-
-    const catchScroll = () => {
-      target?.addEventListener('scroll', scrollHandler);
-    };
-    catchScroll();
-    return () => {
-      target?.removeEventListener('scroll', scrollHandler);
-    };
-  });
+  const onTouchEndHandler: TouchEventHandler = event => {
+    touchMoveHandler({
+      deltaY: $touchStartY.current > event.changedTouches[0].pageY ? 1 : -1,
+    });
+  };
   return {
-    scrollHeight,
+    onTouchStartHandler,
+    onTouchEndHandler,
   };
 };
+
+export default useTouchScroll;
