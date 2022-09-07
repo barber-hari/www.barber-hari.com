@@ -21,7 +21,7 @@ export const Pages = styled.ul<NavigationProps>`
   align-items: center;
   width: 100vw;
   height: 100px;
-  background-color: grey;
+  background-color: #000000;
   gap: 2%;
 `;
 
