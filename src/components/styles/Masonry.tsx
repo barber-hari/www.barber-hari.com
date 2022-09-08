@@ -17,14 +17,16 @@ const Masonry: FC<MasonryProps> = props => {
       {styles.map(({ id, thumb, title }) => (
         <$.Images key={`image-${id}`} height={height}>
           <a href={`${Path.STYLES}/${id}`}>
-            <Image
-              data-id={id}
-              key={`image-${id}-${thumb}`}
-              src={`/styles/${id}/${thumb}`}
-              loading="lazy"
-              layout="fill"
-              alt={title}
-            />
+            <div>
+              <Image
+                data-id={id}
+                key={`image-${id}-${thumb}`}
+                src={`/styles/${id}/${thumb}`}
+                loading="lazy"
+                layout="fill"
+                alt={title}
+              />
+            </div>
             <h4>{title}</h4>
           </a>
         </$.Images>
