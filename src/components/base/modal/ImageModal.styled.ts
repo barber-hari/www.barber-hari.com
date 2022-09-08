@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import 'swiper/swiper-bundle.css';
+import swiperCss from 'swiper/swiper.min.css';
 
 export const Wrapper = styled.div`
   z-index: 100000;
@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  ${swiperCss}
 `;
 
 export const Container = styled.div`

@@ -7,7 +7,6 @@ import Icon from 'components/base/Icon';
 import { useRecoilState } from 'recoil';
 import { UIState } from 'store/UIState';
 import * as $ from './ImageModal.styled';
-import 'swiper/swiper.min.css';
 
 const ImageModal: FC= () => {
   const [ { isVisible, modalImages, targetId }, setUIState] = useRecoilState(UIState);
