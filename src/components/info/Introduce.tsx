@@ -8,21 +8,19 @@ import profileImagePc from 'images/info/img-hariface.png';
 import SmallSlider from 'components/info/SmallSlider';
 import { useRecoilState } from 'recoil';
 import { INFO_IMAGES } from 'models/Image';
-import ModalSlider from 'components/info/ModalSlider';
 import { UIState } from 'store/UIState';
 import * as $ from './Introduce.styled';
 
 const Introduce: FC = () => {
-  const [{ isVisible }, setUIState] = useRecoilState(UIState);
+  const [, setUIState] = useRecoilState(UIState);
   const [targetId, setTargetId] = useState(0);
 
   const openModalHandler = (id: number) => {
     setTargetId(id);
-    setUIState(state => ({ ...state, isVisible: true }));
+    setUIState(state => ({ ...state, isVisible: true, targetId, modalImages: INFO_IMAGES }));
   };
 
-  const closeModalHandler = () =>
-    void setUIState(state => ({ ...state, isVisible: false }));
+
 
   return (
     <$.Container>
@@ -78,13 +76,6 @@ const Introduce: FC = () => {
             <ImageList onClick={openModalHandler} />
           </$.GalleryBox>
         </$.RightBox>
-        {isVisible && (
-          <ModalSlider
-            INFO_IMAGES={INFO_IMAGES}
-            closeModal={closeModalHandler}
-            targetId={targetId - 1}
-          />
-        )}
       </$.BoxWrapper>
     </$.Container>
   );

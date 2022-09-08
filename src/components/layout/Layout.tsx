@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import Path from 'models/Path';
 import * as $ from './Layout.styled';
 import Navigation from './Navigation';
+import { useRecoilValue} from 'recoil';
+import { UIState } from 'store/UIState';
 
 interface LayoutProps {
   children: ReactNode;
@@ -11,9 +13,10 @@ interface LayoutProps {
 const Layout: FC<LayoutProps> = props => {
   const { children } = props;
   const { pathname } = useRouter();
+  const { isVisible } = useRecoilValue(UIState);
 
   return (
-    <$.Container isIndex={pathname === Path.INDEX}>
+    <$.Container isIndex={pathname === Path.INDEX} aria-hidden={isVisible}>
       <$.Main>
         <Navigation />
         {children}

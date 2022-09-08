@@ -1,43 +1,36 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper';
-import Image from 'models/Image';
+
 import Icon from 'components/base/Icon';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { UIState } from 'store/UIState';
-import * as $ from './ModalSlider.styled';
+import * as $ from './ImageModal.styled';
 import 'swiper/swiper.min.css';
 
-export interface ModalSliderProps {
-  closeModal: () => void;
-  targetId: number;
-  INFO_IMAGES: Image[];
-}
-
-const ModalSlider: FC<ModalSliderProps> = props => {
-  const { closeModal, targetId, INFO_IMAGES } = props;
-  const { isVisible } = useRecoilValue(UIState);
+const ImageModal: FC= () => {
+  const [ { isVisible, modalImages, targetId }, setUIState] = useRecoilState(UIState);
 
   SwiperCore.use([Navigation, Pagination, Scrollbar]);
   const [swiperSetting, setSwiperSetting] = useState<Swiper | null>(null);
-
-  const prevRef = useRef<HTMLButtonElement>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
+  const $app = useRef<HTMLElement>(null);
+  const handleClose = () => void setUIState(state => ({ ...state, isVisible: false }));
 
   useEffect(() => {
     if (!swiperSetting) {
       setSwiperSetting({
         spaceBetween: 24,
         navigation: {
-          prevEl: prevRef.current, // 이전 버튼
-          nextEl: nextRef.current, // 다음 버튼
+          prevEl: '.swiper-btn-left', // 이전 버튼
+          nextEl: '.swiper-btn-right', // 다음 버튼
         },
         scrollbar: { draggable: true, el: null },
         onBeforeInit: (swiper: SwiperCore) => {
           if (typeof swiper.params.navigation !== 'boolean') {
             if (swiper.params.navigation) {
-              swiper.params.navigation.prevEl = prevRef.current;
-              swiper.params.navigation.nextEl = nextRef.current;
+              swiper.params.navigation.prevEl = '.swiper-btn-left';
+              swiper.params.navigation.nextEl = '.swiper-btn-right';
             }
           }
           swiper.navigation.update();
@@ -49,13 +42,17 @@ const ModalSlider: FC<ModalSliderProps> = props => {
     }
   }, [swiperSetting, targetId]);
 
-  return (
-    <$.Wrapper>
+  useEffect(() => {
+    $app.current = window.document.getElementById('__next');
+  }, [])
+
+  return ($app.current && isVisible) ? createPortal((
+    <$.Wrapper role="modal">
       <$.Container>
-        <$.Background onClick={() => closeModal()} isVisible={isVisible} />
+        <$.Background onClick={handleClose} isVisible={isVisible} />
         {swiperSetting && (
           <Swiper {...swiperSetting}>
-            {INFO_IMAGES.map(({ src, id }) => (
+            {modalImages.map(({ src, id }) => (
               <SwiperSlide key={`modal-image-${id}`}>
                 <$.ImageContainer>
                   <$.Image src={src} />
@@ -64,15 +61,15 @@ const ModalSlider: FC<ModalSliderProps> = props => {
             ))}
           </Swiper>
         )}
-        <$.SwiperButton ref={prevRef} direction="left">
+        <$.SwiperButton className="swiper-btn-left" direction="left">
           <Icon iconType="LARROW" width="40px" />
         </$.SwiperButton>
-        <$.SwiperButton ref={nextRef} direction="right">
+        <$.SwiperButton className="swiper-btn-right" direction="right">
           <Icon iconType="RARROW" width="40px" />
         </$.SwiperButton>
       </$.Container>
     </$.Wrapper>
-  );
+  ), $app.current) : null;
 };
 
-export default ModalSlider;
+export default ImageModal;
