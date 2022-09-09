@@ -15,9 +15,9 @@ const Masonry: FC<MasonryProps> = props => {
   return (
     <$.Masonry width={width} height={height}>
       {styles.map(({ id, thumb, title }) => (
-        <$.Images key={`image-${id}`} height={height}>
-          <a href={`${Path.STYLES}/${id}`}>
-            <div>
+        <$.Images key={`image-${id}`}>
+          <$.ImageAnchor href={`${Path.STYLES}/${id}`}>
+            <$.ImageStyled>
               <Image
                 data-id={id}
                 key={`image-${id}-${thumb}`}
@@ -26,9 +26,9 @@ const Masonry: FC<MasonryProps> = props => {
                 layout="fill"
                 alt={title}
               />
-            </div>
-            <h4>{title}</h4>
-          </a>
+            </$.ImageStyled>
+            <$.ImageTitle>{title}</$.ImageTitle>
+          </$.ImageAnchor>
         </$.Images>
       ))}
     </$.Masonry>

@@ -17,36 +17,32 @@ export const Masonry = styled.ul<MasonryProps>`
   margin: 25px auto 150px;
 `;
 
-interface ImagesProps {
-  height: string;
-}
-
-export const Images = styled.li<ImagesProps>`
+export const Images = styled.li`
   cursor: pointer;
+`;
 
-  & > a {
-    display: block;
-    width: 100%;
-    height: 100%;
+export const ImageAnchor = styled.a`
+  display: block;
+  width: 100%;
+  height: 100%;
+`;
 
-    & > div {
-      display: block;
-      border-radius: 3px;
-      width: 100%;
-      height: calc(100% - 40px);
-    }
+export const ImageStyled = styled.div`
+  display: block;
+  border-radius: 3px;
+  width: 100%;
+  height: calc(100% - 40px);
+`;
 
-    & > h4 {
-    font-size: 20px;
-    width: 100%;
-    height: 40px;
-    padding-top: 15px;
-    text-align: center;
-    color: #fff;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: bolder;
-    text-shadow: -1px 0 #808080, 0 1px #808080, 1px 0 #808080, 0 -1px #808080,
-      3px 3px 5px #000000;
-    }
-  }
+export const ImageTitle = styled.h4`
+  font-size: 20px;
+  width: 100%;
+  height: 40px;
+  padding-top: 15px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bolder;
+  text-shadow: -1px 0 #808080, 0 1px #808080, 1px 0 #808080, 0 -1px #808080,
+    3px 3px 5px #000000;
 `;
