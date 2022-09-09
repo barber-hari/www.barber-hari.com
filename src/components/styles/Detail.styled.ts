@@ -2,15 +2,13 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
   display: flex;
-  position: relative;
   width: min(95%, 1700px);
-  padding: 20px 25px 0;
   margin-right: auto;
   margin-left: auto;
-  justify-content: center;
   margin-top: 50px;
   @media (max-width: 1023px) {
     display: block;
+    width: 100%;
   }
 `;
 
@@ -30,15 +28,9 @@ export const SideBar = styled.header`
 `;
 
 export const HairInfo = styled.div`
-  display: flex;
-  flex-flow: column;
-  align-items: end;
-  text-align: right;
   color: #fff;
   font-weight: bold;
   position: fixed;
-  width: 270px;
-  padding-right: 25px;
 
   @media (max-width: 1023px) {
     align-items: start;
