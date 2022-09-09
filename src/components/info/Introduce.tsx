@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import ImageList from 'components/base/Image';
 import Icon from 'components/base/Icon';
 import NaverMap from 'components/base/map/NaverMap';
@@ -6,21 +6,22 @@ import Path from 'models/Path';
 import profileImageMobile from 'images/info/img-hariface2.jpg';
 import profileImagePc from 'images/info/img-hariface.png';
 import SmallSlider from 'components/info/SmallSlider';
-import { useRecoilState } from 'recoil';
 import { INFO_IMAGES } from 'models/Image';
-import { UIState } from 'store/UIState';
+import { ModalState } from 'store/ModalState';
+import { useSetRecoilState } from 'recoil';
 import * as $ from './Introduce.styled';
 
 const Introduce: FC = () => {
-  const [, setUIState] = useRecoilState(UIState);
-  const [targetId, setTargetId] = useState(0);
+  const setModalState = useSetRecoilState(ModalState);
 
   const openModalHandler = (id: number) => {
-    setTargetId(id);
-    setUIState(state => ({ ...state, isVisible: true, targetId, modalImages: INFO_IMAGES }));
+    void setModalState(state => ({
+      ...state,
+      isVisible: true,
+      targetId: id,
+      modalImages: INFO_IMAGES,
+    }));
   };
-
-
 
   return (
     <$.Container>
