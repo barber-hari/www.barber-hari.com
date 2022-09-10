@@ -8,10 +8,6 @@ export const useScroll = () => {
   };
 
   useEffect(() => {
-    console.log(scrollHeight);
-  }, [scrollHeight]);
-
-  useEffect(() => {
     const target = document.querySelector('main');
 
     const catchScroll = () => {

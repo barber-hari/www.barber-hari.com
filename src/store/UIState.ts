@@ -7,8 +7,8 @@ interface UIStateProps {
   modalImages: Image[];
 }
 
-export const ModalState = atom<UIStateProps>({
-  key: 'ModalState',
+export const UIState = atom<UIStateProps>({
+  key: 'UIState',
   default: {
     isVisible: false,
     targetId: 0,

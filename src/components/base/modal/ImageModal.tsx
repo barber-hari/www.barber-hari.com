@@ -4,12 +4,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper';
 import Icon from 'components/base/Icon';
 import { useRecoilState } from 'recoil';
-import { ModalState } from 'store/ModalState';
+import { UIState } from 'store/UIState';
 import * as $ from './ImageModal.styled';
 
 const ImageModal: FC = () => {
   const [{ isVisible, modalImages, targetId }, setModalState] =
-    useRecoilState(ModalState);
+    useRecoilState(UIState);
 
   SwiperCore.use([Navigation, Pagination, Scrollbar]);
   const [swiperSetting, setSwiperSetting] = useState<Swiper | null>(null);

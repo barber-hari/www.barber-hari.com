@@ -7,12 +7,12 @@ import profileImageMobile from 'images/info/img-hariface2.jpg';
 import profileImagePc from 'images/info/img-hariface.png';
 import SmallSlider from 'components/info/SmallSlider';
 import { INFO_IMAGES } from 'models/Image';
-import { ModalState } from 'store/ModalState';
+import { UIState } from 'store/UIState';
 import { useSetRecoilState } from 'recoil';
 import * as $ from './Introduce.styled';
 
 const Introduce: FC = () => {
-  const setModalState = useSetRecoilState(ModalState);
+  const setModalState = useSetRecoilState(UIState);
 
   const openModalHandler = (id: number) => {
     void setModalState(state => ({
