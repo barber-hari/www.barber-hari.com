@@ -1,42 +1,17 @@
 import Link from 'next/link';
-import React, { FC, useRef } from 'react';
+import React, { FC } from 'react';
 import { useRouter } from 'next/router';
 import Path from 'models/Path';
 import barberHariIcon from 'images/home/icon-barberhari.png';
 import { useScroll } from 'hooks/useScroll';
-import { useRecoilState } from 'recoil';
-import useTouch, { TouchHandler } from 'hooks/useTouch';
-import { UIState } from 'store/UIState';
 import * as $ from './Navigation.styled';
 
 const Navigation: FC = () => {
   const { pathname } = useRouter();
-  const { scrollHeight } = useScroll();
-  const [{ isVisible }, setUIState] = useRecoilState(UIState);
-  const navigationRef = useRef<HTMLElement>(null);
-
-  const onWheelHandler: TouchHandler = ({ deltaY }) => {
-    if (deltaY > 0) {
-      if (!isVisible) {
-        navigationRef.current?.scrollTo(0, 0);
-        setUIState(state => ({ ...state, isVisible: true }));
-      }
-    } else {
-      navigationRef.current?.scrollTop === 0 &&
-        setUIState(state => ({ ...state, isVisible: false }));
-    }
-  };
-
-  const { onTouchStartHandler, onTouchEndHandler } = useTouch(onWheelHandler);
-
+  const { scrollHeight, scrollDirection } = useScroll();
   return (
-    <$.Navigation
-      ref={navigationRef}
-      onWheel={onWheelHandler}
-      onTouchStart={onTouchStartHandler}
-      onTouchEnd={onTouchEndHandler}
-    >
-      <$.Pages scroll={scrollHeight}>
+    <$.Navigation>
+      <$.Pages scroll={scrollHeight} direction={scrollDirection}>
         <$.Page isCurrentPage={pathname === Path.INFO}>
           <Link href={Path.INFO}>INFO</Link>
         </$.Page>

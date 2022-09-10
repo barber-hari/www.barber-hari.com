@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface NavigationProps {
   scroll: number;
+  direction: number;
 }
 
 export const Navigation = styled.nav`
@@ -16,7 +17,8 @@ export const Logo = styled.img`
 export const Pages = styled.ul<NavigationProps>`
   z-index: 2000;
   position: fixed;
-  display: ${({ scroll }) => (scroll > 300 ? 'none' : 'flex')};
+  display: ${({ scroll, direction }) =>
+    scroll > 300 && direction === 1 ? 'none' : 'flex'};
   justify-content: center;
   align-items: center;
   width: 100vw;
