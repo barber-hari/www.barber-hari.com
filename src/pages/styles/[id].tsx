@@ -1,15 +1,16 @@
 import React, { FC } from 'react';
-import { Style } from 'models/Style';
+import { IStyle } from 'models/IStyle';
 import { GetStaticProps } from 'next';
 import { findAllId, findAllStyles } from 'repositories/styleRepository';
 import Layout from 'components/layout/Layout';
-import Detail from '../../components/styles/Detail';
 import Head from 'next/head';
+import Detail from 'components/styles/Detail';
 
 export interface DetailProps {
-  styles: Style[];
-  style: Style;
+  styles: IStyle[];
+  style: IStyle;
 }
+
 export interface Style {
   id: string;
   title: string;
@@ -17,9 +18,10 @@ export interface Style {
   images: string[];
   thumb: string;
 }
+
 const DetailPage: FC<DetailProps> = props => {
   const { styles, style } = props;
-  const { thumb, title} = style;
+  const { thumb, title } = style;
 
   return (
     <>
@@ -33,7 +35,10 @@ const DetailPage: FC<DetailProps> = props => {
         <meta property="og:url" content="" />
         <meta name="twitter:card" content="사진" />
         <meta name="twitter:title" content="바버하리" />
-        <meta name="twitter:description" content={`BARBER-HARI SHOP ${title}`} />
+        <meta
+          name="twitter:description"
+          content={`BARBER-HARI SHOP ${title}`}
+        />
         <meta name="twitter:image" content={thumb} />
         <meta name="description" content={`BARBER-HARI SHOP ${title}`} />
         <title>BARBER-HARI 바버하리 {title}</title>
@@ -55,7 +60,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps<DetailProps> = ({ params }) => {
-  let style: Style = {
+  let style: IStyle = {
     id: '',
     title: '',
     thumb: '',

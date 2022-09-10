@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import { Style } from 'models/Style';
+import { IStyle } from 'models/IStyle';
 import Masonry from 'components/styles/Masonry';
 import * as $ from './Styles.styled';
 
 export interface ArtworkProps {
-  styles: Style[];
+  styles: IStyle[];
 }
 
 const Styles: FC<ArtworkProps> = props => {

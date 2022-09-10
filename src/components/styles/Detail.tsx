@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { Style } from 'models/Style';
+import { IStyle } from 'models/IStyle';
 import Masonry from 'components/styles/Masonry';
 import { useRecoilState } from 'recoil';
 import * as $ from './Detail.styled';
@@ -8,8 +8,8 @@ import { useScroll } from '../../hooks/useScroll';
 import { UIState } from '../../store/UIState';
 
 export interface DetailProps {
-  styles: Style[];
-  style: Style;
+  styles: IStyle[];
+  style: IStyle;
 }
 
 const Detail: FC<DetailProps> = props => {
@@ -26,7 +26,7 @@ const Detail: FC<DetailProps> = props => {
     clientHeight - 100 > scrollHeight
       ? setUIState(state => ({ ...state, isVisible: true }))
       : setUIState(state => ({ ...state, isVisible: false }));
-  }, [scrollHeight]);
+  }, [scrollHeight, setUIState]);
 
   return (
     <$.Container>

@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
-import { Style } from 'models/Style';
+import { IStyle } from 'models/IStyle';
 import Path from 'models/Path';
 import * as $ from './Masonry.styled';
 
 export interface MasonryProps {
-  styles: Style[];
+  styles: IStyle[];
   width: string;
   height: string;
 }

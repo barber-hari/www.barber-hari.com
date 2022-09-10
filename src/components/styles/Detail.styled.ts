@@ -42,8 +42,7 @@ export const HairInfo = styled.div<HairInfoProps>`
         `
       : css`
           opacity: 0;
-        `}
-
+        `};
   @media (max-width: 1023px) {
     align-items: start;
     text-align: start;

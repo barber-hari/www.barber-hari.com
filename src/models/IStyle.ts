@@ -1,4 +1,4 @@
-export interface Style {
+export interface IStyle {
   id: string;
   title: string;
   description: string;

@@ -3,10 +3,10 @@ import Layout from 'components/layout/Layout';
 import Styles from 'components/styles/Styles';
 import { GetStaticProps } from 'next';
 import { findAllStyles } from 'repositories/styleRepository';
-import { Style } from 'models/Style';
+import { IStyle } from 'models/IStyle';
 
 export interface IndexProps {
-  styles: Style[];
+  styles: IStyle[];
 }
 
 const Index: FC<IndexProps> = props => {
