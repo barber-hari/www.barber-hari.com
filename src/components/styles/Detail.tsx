@@ -1,8 +1,11 @@
-import React, { FC, useRef } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Style } from 'models/Style';
 import Masonry from 'components/styles/Masonry';
+import { useRecoilState } from 'recoil';
 import * as $ from './Detail.styled';
+import { useScroll } from '../../hooks/useScroll';
+import { UIState } from '../../store/UIState';
 
 export interface DetailProps {
   styles: Style[];
@@ -14,19 +17,27 @@ const Detail: FC<DetailProps> = props => {
     styles,
     style: { id, title, description, images },
   } = props;
+  const { scrollHeight } = useScroll();
+  const [{ isVisible }, setUIState] = useRecoilState(UIState);
+  const imageRef = useRef<HTMLUListElement>(null);
 
-  const lineRef = useRef(null);
+  useEffect(() => {
+    const { clientHeight } = imageRef.current as HTMLUListElement;
+    clientHeight - 100 > scrollHeight
+      ? setUIState(state => ({ ...state, isVisible: true }))
+      : setUIState(state => ({ ...state, isVisible: false }));
+  }, [scrollHeight]);
 
   return (
     <$.Container>
       <$.SideBar>
-        <$.HairInfo>
+        <$.HairInfo isVisible={isVisible}>
           <$.HairTitle>{title}</$.HairTitle>
           <$.HairDescription>{description}</$.HairDescription>
         </$.HairInfo>
       </$.SideBar>
-      <$.Contents>
-        <$.Images>
+      <$.ImageContainer>
+        <$.Images ref={imageRef}>
           {images.map(image => (
             <$.Image key={`images-${image}`}>
               <Image
@@ -38,9 +49,9 @@ const Detail: FC<DetailProps> = props => {
             </$.Image>
           ))}
         </$.Images>
-        <div ref={lineRef}>Other Styles</div>
+        <div>Other Styles</div>
         <Masonry styles={styles} width="300px" height="400px" />
-      </$.Contents>
+      </$.ImageContainer>
     </$.Container>
   );
 };

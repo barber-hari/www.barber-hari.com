@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 interface NavigationProps {
   scroll: number;
@@ -13,12 +13,21 @@ export const Navigation = styled.nav`
 export const Logo = styled.img`
   width: 75px;
 `;
-
+const NavigationFade = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 export const Pages = styled.ul<NavigationProps>`
   z-index: 2000;
   position: fixed;
   display: ${({ scroll, direction }) =>
-    scroll > 300 && direction === 1 ? 'none' : 'flex'};
+    scroll > 150 && direction === 1 ? 'none' : 'flex'};
+  transition: 2s linear;
+  animation: ${NavigationFade} 0.3s linear;
   justify-content: center;
   align-items: center;
   width: 100vw;

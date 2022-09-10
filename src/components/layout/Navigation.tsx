@@ -9,6 +9,7 @@ import * as $ from './Navigation.styled';
 const Navigation: FC = () => {
   const { pathname } = useRouter();
   const { scrollHeight, scrollDirection } = useScroll();
+
   return (
     <$.Navigation>
       <$.Pages scroll={scrollHeight} direction={scrollDirection}>

@@ -7,14 +7,9 @@ export const useScroll = () => {
   const scrollHandler = () => {
     const { scrollTop } = document.querySelector('main') as HTMLElement;
     setScrollHeight(scrollTop);
-
-    if (scrollTop - scrollHeight >= 0 && scrollDirection !== 1) {
-      setScrollDirection(1);
-    } else if (scrollTop - scrollHeight < 0 && scrollDirection !== -1) {
-      setScrollDirection(-1);
-    }
-    console.log(scrollDirection);
-    console.log(scrollTop, scrollHeight);
+    scrollTop - scrollHeight < 0
+      ? setScrollDirection(-1)
+      : setScrollDirection(1);
   };
 
   useEffect(() => {

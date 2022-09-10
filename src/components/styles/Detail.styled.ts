@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.section`
   display: flex;
@@ -27,10 +27,22 @@ export const SideBar = styled.header`
   }
 `;
 
-export const HairInfo = styled.div`
+interface HairInfoProps {
+  isVisible: boolean;
+}
+export const HairInfo = styled.div<HairInfoProps>`
   color: #fff;
   font-weight: bold;
   position: fixed;
+  transition: 0.3s;
+  ${({ isVisible }) =>
+    isVisible
+      ? css`
+          opacity: 1;
+        `
+      : css`
+          opacity: 0;
+        `}
 
   @media (max-width: 1023px) {
     align-items: start;
@@ -58,7 +70,7 @@ export const HairDescription = styled.p`
   }
 `;
 
-export const Contents = styled.section`
+export const ImageContainer = styled.section`
   width: min(90%, 1400px);
   margin-top: 20px;
   margin-left: auto;
