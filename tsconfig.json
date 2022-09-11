@@ -11,7 +11,8 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
+      "webworker"
     ],
     "outDir": "./build",
     "experimentalDecorators": true,
@@ -31,7 +32,7 @@
     "jsx": "preserve",
     "typeRoots": [
       "node_modules/@types",
-      "src/typings"
+      "src/types"
     ],
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
