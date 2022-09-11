@@ -15,6 +15,10 @@ export const Masonry = styled.ul<MasonryProps>`
   grid-column-gap: 40px;
   grid-row-gap: 50px;
   margin: 25px auto 150px;
+
+  @media (max-width: 540px) {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
 `;
 
 export const Images = styled.li`

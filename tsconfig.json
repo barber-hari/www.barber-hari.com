@@ -11,7 +11,8 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
+      "webworker"
     ],
     "outDir": "./build",
     "experimentalDecorators": true,

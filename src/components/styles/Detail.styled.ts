@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Container = styled.section`
   display: flex;
@@ -30,12 +30,13 @@ export const SideBar = styled.header`
 interface HairInfoProps {
   isVisible: boolean;
 }
+
 export const HairInfo = styled.div<HairInfoProps>`
   color: #fff;
   font-weight: bold;
   position: fixed;
   transition: 0.3s;
-  opacity: ${({ isVisible }) => isVisible ? 1 : 0};
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
   @media (max-width: 1023px) {
     align-items: start;
     text-align: start;

@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 interface NavigationProps {
   isVisible: boolean;
@@ -12,7 +12,7 @@ export const Navigation = styled.nav`
 export const Logo = styled.img`
   width: 75px;
 `;
-const NavigationFade = keyframes`
+const NavigationFadeIn = keyframes`
   0% {
     opacity: 0;
   }
@@ -20,11 +20,18 @@ const NavigationFade = keyframes`
     opacity: 1;
   }
 `;
+const NavigationFadeOut = keyframes`
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+`;
 export const Pages = styled.ul<NavigationProps>`
   z-index: 2000;
   position: fixed;
-  display: ${({ isVisible }) => isVisible ? 'flex' : 'none'};
-  animation: ${NavigationFade} 0.3s linear;
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
@@ -32,6 +39,15 @@ export const Pages = styled.ul<NavigationProps>`
   background-color: #000000;
   gap: 2%;
   padding-bottom: 10px;
+  ${({ isVisible }) =>
+    isVisible
+      ? css`
+          animation: ${NavigationFadeIn} 0.3s forwards linear;
+        `
+      : css`
+          animation: ${NavigationFadeOut} 0.3s forwards linear;
+          z-index: -1000;
+        `}
 `;
 
 interface PageProps {

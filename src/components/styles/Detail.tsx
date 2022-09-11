@@ -2,8 +2,8 @@ import React, { FC, useRef, useState } from 'react';
 import Image from 'next/image';
 import { IStyle } from 'models/IStyle';
 import Masonry from 'components/styles/Masonry';
-import * as $ from './Detail.styled';
 import useScroll from 'hooks/useScroll';
+import * as $ from './Detail.styled';
 
 export interface DetailProps {
   styles: IStyle[];
@@ -22,7 +22,8 @@ const Detail: FC<DetailProps> = props => {
   const handleScroll = (scrollHeight: number) => {
     const { clientHeight } = imageRef.current as HTMLUListElement;
     setIsVisibleHairInfo(clientHeight - 100 > scrollHeight);
-  }
+  };
+
   useScroll(handleScroll);
 
   return (
