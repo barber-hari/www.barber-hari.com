@@ -109,5 +109,6 @@ export const Image = styled.li`
 
   & img {
     object-fit: cover;
+    width: 100%;
   }
 `;

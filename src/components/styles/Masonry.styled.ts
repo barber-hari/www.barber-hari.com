@@ -50,3 +50,8 @@ export const ImageTitle = styled.h4`
   text-shadow: -1px 0 #808080, 0 1px #808080, 1px 0 #808080, 0 -1px #808080,
     3px 3px 5px #000000;
 `;
+
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+`;

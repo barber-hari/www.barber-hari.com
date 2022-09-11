@@ -1,5 +1,4 @@
 import React, { FC, useRef, useState } from 'react';
-import Image from 'next/image';
 import { IStyle } from 'models/IStyle';
 import Masonry from 'components/styles/Masonry';
 import useScroll from 'hooks/useScroll';
@@ -38,10 +37,9 @@ const Detail: FC<DetailProps> = props => {
         <$.Images ref={imageRef}>
           {images.map(image => (
             <$.Image key={`images-${image}`}>
-              <Image
+              <img
                 src={`/styles/${id}/${image}`}
                 key={`image-${image}`}
-                layout="fill"
                 alt={title}
               />
             </$.Image>

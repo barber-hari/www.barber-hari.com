@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import Image from 'next/image';
 import { IStyle } from 'models/IStyle';
 import Path from 'models/Path';
 import * as $ from './Masonry.styled';
@@ -18,12 +17,11 @@ const Masonry: FC<MasonryProps> = props => {
         <$.Images key={`image-${id}`}>
           <$.ImageAnchor href={`${Path.STYLES}/${id}`}>
             <$.ImageStyled>
-              <Image
+              <$.Image
                 data-id={id}
                 key={`image-${id}-${thumb}`}
                 src={`/styles/${id}/${thumb}`}
                 loading="lazy"
-                layout="fill"
                 alt={title}
               />
             </$.ImageStyled>
