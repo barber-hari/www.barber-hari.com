@@ -1,20 +1,21 @@
 import styled, { css, keyframes } from 'styled-components';
-import 'swiper/swiper-bundle.css';
+import swiperCss from 'swiper/swiper.min.css';
 
 export const Wrapper = styled.div`
+  z-index: 100000;
   position: fixed;
   width: 100vw;
   height: 100vh;
-  z-index: 1000;
   left: 0;
   top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  ${swiperCss}
 `;
 
 export const Container = styled.div`
-  z-index: 1100;
+  z-index: 2000;
   width: 500px;
   height: 500px;
 
@@ -25,7 +26,7 @@ export const Container = styled.div`
 `;
 
 interface BackgroundProps {
-  show: boolean;
+  isVisible: boolean;
 }
 const BackgroundFade = keyframes`
 
@@ -39,20 +40,21 @@ const BackgroundFade = keyframes`
 `;
 export const Background = styled.div<BackgroundProps>`
   position: fixed;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
   transition: 5s linear;
-  ${({ show }) =>
-    show &&
+  ${({ isVisible }) =>
+    isVisible &&
     css`
       animation: ${BackgroundFade} 0.3s linear;
     `}
 `;
 
 export const ImageContainer = styled.div`
+  z-index: 99999;
   display: flex;
   width: 100%;
   height: 100%;

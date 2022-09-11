@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  height: 100%;
+  height: calc(100% - 100px);
   background-color: #000;
   display: flex;
 `;
@@ -25,7 +25,7 @@ export const BoxWrapper = styled.div`
   }
 `;
 
-export const LeftBox = styled.div`
+export const LeftBox = styled.section`
   width: 50%;
   height: 100%;
   padding-right: 25px;
@@ -46,7 +46,7 @@ export const LeftBox = styled.div`
   }
 `;
 
-export const RightBox = styled.div`
+export const RightBox = styled.section`
   display: flex;
   justify-content: right;
   width: 50%;
@@ -56,7 +56,7 @@ export const RightBox = styled.div`
   }
 `;
 
-export const PictureBox = styled.div`
+export const PictureBox = styled.header`
   margin-right: auto;
   padding-top: 20px;
   display: flex;
@@ -165,7 +165,7 @@ export const History = styled.p`
   }
 `;
 
-export const MapBox = styled.div`
+export const MapBox = styled.address`
   width: 100%;
   height: 400px;
 
@@ -207,6 +207,7 @@ export const IconBox = styled.span`
     font-weight: bold;
     color: #008000;
   }
+
   & i {
     margin-right: auto;
     margin-left: auto;
@@ -249,7 +250,7 @@ export const Address = styled.address`
     display: none;
   }
 `;
-export const GalleryBox = styled.div`
+export const GalleryBox = styled.article`
   z-index: 10;
   width: 800px;
   height: 100%;

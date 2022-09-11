@@ -17,7 +17,7 @@
     "@babel/preset-typescript"
   ],
   "plugins": [
-    "babel-plugin-styled-components",
+    ["styled-components", { "ssr": true }],
     ["@babel/transform-runtime", {
       "corejs": 3
     }],

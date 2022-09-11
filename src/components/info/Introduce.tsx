@@ -1,35 +1,37 @@
-import React, { FC, useState } from 'react';
-import barberHariImage from 'public/images/info/img-hariface.png';
-import barberHariImage2 from 'public/images/info/img-hariface2.jpg';
+import React, { FC } from 'react';
 import ImageList from 'components/base/Image';
-import { INFO_IMAGES } from 'models/Image';
 import Icon from 'components/base/Icon';
 import NaverMap from 'components/base/map/NaverMap';
 import Path from 'models/Path';
-import ModalSlider from './ModalSlider';
-import SmallSlider from './SmallSlider';
+import profileImageMobile from 'images/info/img-hariface2.jpg';
+import profileImagePc from 'images/info/img-hariface.png';
+import SmallSlider from 'components/info/SmallSlider';
+import { INFO_IMAGES } from 'models/Image';
+import { ModalState } from 'store/UIStore';
+import { useSetRecoilState } from 'recoil';
 import * as $ from './Introduce.styled';
 
 const Introduce: FC = () => {
-  const [show, setShow] = useState(false);
-  const [targetId, setTargetId] = useState(0);
+  const setModalState = useSetRecoilState(ModalState);
 
-  const openModalHandler = (targetIndex: number) => {
-    setTargetId(targetIndex);
-    setShow(true);
+  const openModalHandler = (id: number) => {
+    void setModalState(state => ({
+      ...state,
+      isVisible: true,
+      targetId: id,
+      modalImages: INFO_IMAGES,
+    }));
   };
-
-  const closeModalHandler = () => void setShow(false);
 
   return (
     <$.Container>
       <$.BoxWrapper>
         <$.LeftBox>
           <$.PictureBox>
-            <$.Picture src={barberHariImage.src} alt="" className="pc" />
-            <$.Picture src={barberHariImage2.src} alt="" className="mobile" />
+            <$.Picture src={profileImagePc.src} alt="" className="pc" />
+            <$.Picture src={profileImageMobile.src} alt="" className="mobile" />
             <$.MobilePicture>
-              <$.Picture src={barberHariImage2.src} alt="" />
+              <$.Picture src={profileImageMobile.src} alt="" />
               <$.Name>
                 BARBER <br />
                 HARI <br />
@@ -55,7 +57,7 @@ const Introduce: FC = () => {
               </a>
             </$.Address>
           </$.PictureBox>
-          <SmallSlider />
+          <SmallSlider onClick={openModalHandler} />
           <$.MapBox>
             <NaverMap>
               <$.NaverMapFooter href={Path.RESERVATION} target="_blank">
@@ -72,29 +74,12 @@ const Introduce: FC = () => {
         </$.LeftBox>
         <$.RightBox>
           <$.GalleryBox>
-            <ImageList onClick={openModalHandler} INFO_IMAGES={INFO_IMAGES} />
+            <ImageList onClick={openModalHandler} />
           </$.GalleryBox>
         </$.RightBox>
-        {show && (
-          <ModalSlider
-            INFO_IMAGES={INFO_IMAGES}
-            closeModal={closeModalHandler}
-            show={show}
-            targetId={targetId - 1}
-          />
-        )}
       </$.BoxWrapper>
     </$.Container>
   );
 };
 
 export default Introduce;
-
-/// deprecated
-
-/* <ReImageModal
-             images={INFO_IMAGES}
-             targetIndex={targetId - 1}
-             closeModal={closeModalHandler}
-             show={show}
-           /> */

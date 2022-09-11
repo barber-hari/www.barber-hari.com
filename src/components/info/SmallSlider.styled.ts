@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import 'swiper/swiper-bundle.css';
 
-export const Container = styled.div`
+export const Container = styled.article`
   width: 100%;
   height: 30vh;
   border-radius: 10px;
