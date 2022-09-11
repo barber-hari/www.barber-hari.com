@@ -4,6 +4,7 @@ import Styles from 'components/styles/Styles';
 import { GetStaticProps } from 'next';
 import { findAllStyles } from 'repositories/styleRepository';
 import { IStyle } from 'models/IStyle';
+import Meta from 'components/layout/Meta';
 
 export interface IndexProps {
   styles: IStyle[];
@@ -12,9 +13,12 @@ export interface IndexProps {
 const Index: FC<IndexProps> = props => {
   const { styles } = props;
   return (
-    <Layout>
-      <Styles styles={styles} />
-    </Layout>
+    <>
+      <Meta />
+      <Layout>
+        <Styles styles={styles} />
+      </Layout>
+    </>
   );
 };
 
