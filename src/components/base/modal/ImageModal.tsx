@@ -37,7 +37,7 @@ const ImageModal: FC = () => {
       loop: true,
       slidesPerView: 'auto',
       initialSlide: targetId,
-    }
+    };
   }, [targetId]);
 
   useEffect(() => {

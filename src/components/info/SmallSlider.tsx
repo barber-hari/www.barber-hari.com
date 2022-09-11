@@ -18,7 +18,7 @@ const SmallSlider: FC<smallSliderProps> = props => {
     setSwiperSetting({
       spaceBetween: 24,
       navigation: {
-        prevEl: '.small-slider-swiper-btn-left', 
+        prevEl: '.small-slider-swiper-btn-left',
         nextEl: '.small-slider-swiper-btn-right',
       },
       breakpoints: {
@@ -46,25 +46,33 @@ const SmallSlider: FC<smallSliderProps> = props => {
         swiper.navigation.update();
       },
       loop: true,
-    })
+    });
   }, []);
 
-  return swiperSetting && (
-    <$.Container>
-      <Swiper {...swiperSetting}>
-        {INFO_IMAGES.map(({ src, id }) => (
-          <SwiperSlide key={id} onClick={() => void onClick(id)}>
-            <$.Image src={src} />
-          </SwiperSlide>
-        ))}
-        <$.SwiperButton className="small-slider-swiper-btn-left" direction="left">
-          <Icon iconType="LARROW" width="40px" />
-        </$.SwiperButton>
-        <$.SwiperButton className="small-slider-swiper-btn-right" direction="right">
-          <Icon iconType="RARROW" width="40px" />
-        </$.SwiperButton>
-      </Swiper>
-    </$.Container>
+  return (
+    swiperSetting && (
+      <$.Container>
+        <Swiper {...swiperSetting}>
+          {INFO_IMAGES.map(({ src, id }) => (
+            <SwiperSlide key={id} onClick={() => void onClick(id)}>
+              <$.Image src={src} />
+            </SwiperSlide>
+          ))}
+          <$.SwiperButton
+            className="small-slider-swiper-btn-left"
+            direction="left"
+          >
+            <Icon iconType="LARROW" width="40px" />
+          </$.SwiperButton>
+          <$.SwiperButton
+            className="small-slider-swiper-btn-right"
+            direction="right"
+          >
+            <Icon iconType="RARROW" width="40px" />
+          </$.SwiperButton>
+        </Swiper>
+      </$.Container>
+    )
   );
 };
 

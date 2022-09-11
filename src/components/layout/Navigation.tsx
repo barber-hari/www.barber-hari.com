@@ -3,8 +3,7 @@ import React, { FC, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Path from 'models/Path';
 import barberHariIcon from 'images/home/icon-barberhari.png';
-import useScroll, { HandleScroll } from 'hooks/useScroll';
-import useHover from 'hooks/useHover';
+import useScroll from 'hooks/useScroll';
 import * as $ from './Navigation.styled';
 
 const Navigation: FC = () => {
@@ -12,21 +11,31 @@ const Navigation: FC = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   const timer = useRef<ReturnType<typeof setTimeout>>();
-  const { ref, isHover } = useHover();
 
-  const handleScroll: HandleScroll = (scrollHeight, scrollDirection) => {
-    setIsVisible(!(scrollHeight > 150 && scrollDirection === 1));
+  const { scrollHeight } = useScroll((height, direction) => {
+    setIsVisible(!(height > 150 && direction === 1));
     timer.current && clearTimeout(timer.current);
+    timer.current = setTimeout(() => {
+      setIsVisible(height < 150);
+    }, 3000);
+  });
+
+  const handleMouseOver = () => {
+    timer.current && clearTimeout(timer.current);
+  };
+  const handleMouseLeave = () => {
     timer.current = setTimeout(() => {
       setIsVisible(scrollHeight < 150);
     }, 3000);
   };
 
-  useScroll(handleScroll);
-
   return (
-    <$.Navigation>
-      <$.Pages isVisible={isVisible} ref={ref}>
+    <$.Navigation
+      onMouseOver={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
+      onFocus={handleMouseOver}
+    >
+      <$.Pages isVisible={isVisible}>
         <$.Page isCurrentPage={pathname === Path.INFO}>
           <Link href={Path.INFO}>INFO</Link>
         </$.Page>

@@ -23,9 +23,15 @@ const NavigationFadeIn = keyframes`
 const NavigationFadeOut = keyframes`
   0% {
     opacity: 1;
+    transform: translateY(0);
+  }
+  99% {
+    opacity: 0;
+    transform: translateY(0);
   }
   100% {
     opacity: 0;
+    transform: translateY(-100px);
   }
 `;
 export const Pages = styled.ul<NavigationProps>`
@@ -39,6 +45,7 @@ export const Pages = styled.ul<NavigationProps>`
   background-color: #000000;
   gap: 2%;
   padding-bottom: 10px;
+  transform: translateY(0);
   ${({ isVisible }) =>
     isVisible
       ? css`
@@ -46,7 +53,6 @@ export const Pages = styled.ul<NavigationProps>`
         `
       : css`
           animation: ${NavigationFadeOut} 0.3s forwards linear;
-          z-index: -1000;
         `}
 `;
 

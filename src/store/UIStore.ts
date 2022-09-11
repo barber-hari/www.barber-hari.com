@@ -6,7 +6,6 @@ interface UIVisibleState {
 }
 
 interface ModalStateProps extends UIVisibleState {
-
   targetId: number;
   modalImages: Image[];
 }
