@@ -9,6 +9,7 @@ import Detail from 'components/styles/Detail';
 export interface DetailProps {
   styles: IStyle[];
   style: IStyle;
+  pageId: string;
 }
 
 export interface Style {
@@ -20,7 +21,7 @@ export interface Style {
 }
 
 const DetailPage: FC<DetailProps> = props => {
-  const { styles, style } = props;
+  const { styles, style, pageId } = props;
   const { thumb, title } = style;
 
   return (
@@ -28,7 +29,10 @@ const DetailPage: FC<DetailProps> = props => {
       <Head>
         <meta property="og:type" content="website" />
         <meta property="og:title" content="바버하리" />
-        <meta property="og:image" content={thumb} />
+        <meta
+          property="og:image"
+          content={`www.barberhari.com/styles/${pageId}/${thumb}`}
+        />
         <meta property="og:description" content={`BARBER-HARI SHOP ${title}`} />
         <meta property="og:site_name" content="바버하리" />
         <meta property="og:locale" content="kr" />
@@ -39,7 +43,10 @@ const DetailPage: FC<DetailProps> = props => {
           name="twitter:description"
           content={`BARBER-HARI SHOP ${title}`}
         />
-        <meta name="twitter:image" content={thumb} />
+        <meta
+          name="twitter:image"
+          content={`www.barberhari.com/styles/${pageId}/${thumb}`}
+        />
         <meta name="description" content={`BARBER-HARI SHOP ${title}`} />
         <title>BARBER-HARI 바버하리 {title}</title>
       </Head>
@@ -76,6 +83,7 @@ export const getStaticProps: GetStaticProps<DetailProps> = ({ params }) => {
   });
   return {
     props: {
+      pageId: params?.id?.toString() || '',
       style,
       styles,
     },
