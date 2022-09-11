@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import Background from 'components/home/Background';
 import Contents from 'components/home/Contents';
 import styled from 'styled-components';
+import Meta from 'components/layout/Meta';
 
 const Container = styled.div`
   display: block;
@@ -14,10 +15,13 @@ const Container = styled.div`
 
 const Home: NextPage = () => {
   return (
-    <Container>
-      <Background />
-      <Contents />
-    </Container>
+    <>
+      <Meta />
+      <Container>
+        <Background />
+        <Contents />
+      </Container>
+    </>
   );
 };
 export default Home;
