@@ -1,14 +1,18 @@
 import { atom } from 'recoil';
 import Image from 'models/Image';
 
-interface UIStateProps {
+interface UIVisibleState {
   isVisible: boolean;
+}
+
+interface ModalStateProps extends UIVisibleState {
+
   targetId: number;
   modalImages: Image[];
 }
 
-export const UIState = atom<UIStateProps>({
-  key: 'UIState',
+export const ModalState = atom<ModalStateProps>({
+  key: 'ModalState',
   default: {
     isVisible: false,
     targetId: 0,

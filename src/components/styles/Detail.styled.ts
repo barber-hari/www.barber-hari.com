@@ -35,14 +35,7 @@ export const HairInfo = styled.div<HairInfoProps>`
   font-weight: bold;
   position: fixed;
   transition: 0.3s;
-  ${({ isVisible }) =>
-    isVisible
-      ? css`
-          opacity: 1;
-        `
-      : css`
-          opacity: 0;
-        `};
+  opacity: ${({ isVisible }) => isVisible ? 1 : 0};
   @media (max-width: 1023px) {
     align-items: start;
     text-align: start;

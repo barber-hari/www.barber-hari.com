@@ -1,18 +1,29 @@
 import Link from 'next/link';
-import React, { FC } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Path from 'models/Path';
 import barberHariIcon from 'images/home/icon-barberhari.png';
-import { useScroll } from 'hooks/useScroll';
+import useScroll, { HandleScroll } from 'hooks/useScroll';
 import * as $ from './Navigation.styled';
 
 const Navigation: FC = () => {
   const { pathname } = useRouter();
-  const { scrollHeight, scrollDirection } = useScroll();
+  const timer = useRef<ReturnType<typeof setTimeout>>(null);
+  const [isVisible, setIsVisible] = useState(true);
+
+
+  const handleScroll: HandleScroll = (scrollHeight, scrollDirection) => {
+    setIsVisible(!(scrollHeight > 150 && scrollDirection === 1));
+    timer.current && clearTimeout(timer.current);
+    timer.current = setTimeout(() => {
+      setIsVisible(scrollHeight < 150);
+    }, 3000)
+  }
+  useScroll(handleScroll);
 
   return (
-    <$.Navigation>
-      <$.Pages scroll={scrollHeight} direction={scrollDirection}>
+    <$.Navigation >
+      <$.Pages isVisible={isVisible}>
         <$.Page isCurrentPage={pathname === Path.INFO}>
           <Link href={Path.INFO}>INFO</Link>
         </$.Page>

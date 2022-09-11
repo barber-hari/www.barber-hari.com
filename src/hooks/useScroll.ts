@@ -1,8 +1,18 @@
 import { useEffect, useState } from 'react';
 
-export const useScroll = () => {
+export type ScrollDirection = -1 | 1;
+export type HandleScroll = (scrollHeight: number, scrollDirection: ScrollDirection) => void
+
+interface UseScroll {
+  (onScroll?: HandleScroll): {
+    scrollHeight: number;
+    scrollDirection: ScrollDirection
+  };
+}
+
+const useScroll: UseScroll = (onScroll) => {
   const [scrollHeight, setScrollHeight] = useState(0);
-  const [scrollDirection, setScrollDirection] = useState(-1);
+  const [scrollDirection, setScrollDirection] = useState<ScrollDirection>(-1);
 
   const scrollHandler = () => {
     const { scrollTop } = document.querySelector('main') as HTMLElement;
@@ -10,6 +20,7 @@ export const useScroll = () => {
     scrollTop - scrollHeight < 0
       ? setScrollDirection(-1)
       : setScrollDirection(1);
+    onScroll && onScroll(scrollHeight, scrollDirection);
   };
 
   useEffect(() => {
@@ -29,3 +40,5 @@ export const useScroll = () => {
     scrollDirection,
   };
 };
+
+export default useScroll;

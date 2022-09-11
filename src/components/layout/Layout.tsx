@@ -2,7 +2,7 @@ import React, { FC, ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import Path from 'models/Path';
 import { useRecoilValue } from 'recoil';
-import { UIState } from 'store/UIState';
+import { ModalState } from 'store/UIStore';
 import * as $ from './Layout.styled';
 import Navigation from './Navigation';
 
@@ -13,8 +13,7 @@ interface LayoutProps {
 const Layout: FC<LayoutProps> = props => {
   const { children } = props;
   const { pathname } = useRouter();
-  const { isVisible } = useRecoilValue(UIState);
-
+  const { isVisible } = useRecoilValue(ModalState);
   return (
     <$.Container isIndex={pathname === Path.INDEX} aria-hidden={isVisible}>
       <$.Main>

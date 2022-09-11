@@ -1,8 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
 interface NavigationProps {
-  scroll: number;
-  direction: number;
+  isVisible: boolean;
 }
 
 export const Navigation = styled.nav`
@@ -24,9 +23,7 @@ const NavigationFade = keyframes`
 export const Pages = styled.ul<NavigationProps>`
   z-index: 2000;
   position: fixed;
-  display: ${({ scroll, direction }) =>
-    scroll > 150 && direction === 1 ? 'none' : 'flex'};
-  transition: 2s linear;
+  display: ${({ isVisible }) => isVisible ? 'flex' : 'none'};
   animation: ${NavigationFade} 0.3s linear;
   justify-content: center;
   align-items: center;
@@ -34,6 +31,7 @@ export const Pages = styled.ul<NavigationProps>`
   height: 100px;
   background-color: #000000;
   gap: 2%;
+  padding-bottom: 10px;
 `;
 
 interface PageProps {

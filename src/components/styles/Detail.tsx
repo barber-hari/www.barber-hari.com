@@ -1,11 +1,9 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import Image from 'next/image';
 import { IStyle } from 'models/IStyle';
 import Masonry from 'components/styles/Masonry';
-import { useRecoilState } from 'recoil';
 import * as $ from './Detail.styled';
-import { useScroll } from '../../hooks/useScroll';
-import { UIState } from '../../store/UIState';
+import useScroll from 'hooks/useScroll';
 
 export interface DetailProps {
   styles: IStyle[];
@@ -17,21 +15,20 @@ const Detail: FC<DetailProps> = props => {
     styles,
     style: { id, title, description, images },
   } = props;
-  const { scrollHeight } = useScroll();
-  const [{ isVisible }, setUIState] = useRecoilState(UIState);
+
+  const [isVisibleHairInfo, setIsVisibleHairInfo] = useState(true);
   const imageRef = useRef<HTMLUListElement>(null);
 
-  useEffect(() => {
+  const handleScroll = (scrollHeight: number) => {
     const { clientHeight } = imageRef.current as HTMLUListElement;
-    clientHeight - 100 > scrollHeight
-      ? setUIState(state => ({ ...state, isVisible: true }))
-      : setUIState(state => ({ ...state, isVisible: false }));
-  }, [scrollHeight, setUIState]);
+    setIsVisibleHairInfo(clientHeight - 100 > scrollHeight);
+  }
+  useScroll(handleScroll);
 
   return (
     <$.Container>
       <$.SideBar>
-        <$.HairInfo isVisible={isVisible}>
+        <$.HairInfo isVisible={isVisibleHairInfo}>
           <$.HairTitle>{title}</$.HairTitle>
           <$.HairDescription>{description}</$.HairDescription>
         </$.HairInfo>
