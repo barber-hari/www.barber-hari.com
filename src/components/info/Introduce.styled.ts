@@ -5,6 +5,17 @@ export const Container = styled.div`
   height: calc(100% - 100px);
   background-color: #000;
   display: flex;
+  padding-bottom: 30px;
+
+  @media (max-width: 1439px) {
+    padding-bottom: 0;
+  }
+
+  @media (max-width: 540px) {
+    height: auto;
+    padding-bottom: calc(constant(safe-area-inset-bottom) + 30px);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
+  }
 `;
 
 export const BoxWrapper = styled.div`
@@ -22,8 +33,6 @@ export const BoxWrapper = styled.div`
 
   @media (max-width: 540px) {
     height: auto;
-    padding-bottom: calc(constant(safe-area-inset-bottom) + 30px);
-    padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
   }
 `;
 
@@ -42,9 +51,6 @@ export const LeftBox = styled.section`
   @media (max-width: 540px) {
     display: block;
     padding: 0 10px;
-    padding-bottom: 30px;
-    padding-bottom: calc(constant(safe-area-inset-bottom) + 30px);
-    padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
   }
 `;
 
