@@ -3,8 +3,8 @@ import { IStyle } from 'models/IStyle';
 import { GetStaticProps } from 'next';
 import { findAllId, findAllStyles } from 'repositories/styleRepository';
 import Layout from 'components/layout/Layout';
-import Head from 'next/head';
 import Detail from 'components/styles/Detail';
+import Meta from 'components/layout/Meta';
 
 export interface DetailProps {
   styles: IStyle[];
@@ -26,30 +26,12 @@ const DetailPage: FC<DetailProps> = props => {
 
   return (
     <>
-      <Head>
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="바버하리" />
-        <meta
-          property="og:image"
-          content={`www.barberhari.com/styles/${pageId}/${thumb}`}
-        />
-        <meta property="og:description" content={`BARBER-HARI SHOP ${title}`} />
-        <meta property="og:site_name" content="바버하리" />
-        <meta property="og:locale" content="kr" />
-        <meta property="og:url" content="www.barberhari.com" />
-        <meta name="twitter:card" content="사진" />
-        <meta name="twitter:title" content="바버하리" />
-        <meta
-          name="twitter:description"
-          content={`BARBER-HARI SHOP ${title}`}
-        />
-        <meta
-          name="twitter:image"
-          content={`www.barberhari.com/styles/${pageId}/${thumb}`}
-        />
-        <meta name="description" content={`BARBER-HARI SHOP ${title}`} />
-        <title>BARBER-HARI 바버하리 {title}</title>
-      </Head>
+      <Meta
+        pageTitle={`BARBER-HARI 바버하리`}
+        ogDescription={`BARBER-HARI SHOP ${title}`}
+        ogTitle={`BARBER-HARI 바버하리`}
+        ogImage={`www.barberhari.com/styles/${pageId}/${thumb}`}
+      />
       <Layout>
         <Detail styles={styles} style={style} />
       </Layout>
