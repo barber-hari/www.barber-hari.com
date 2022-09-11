@@ -32,7 +32,7 @@ const DetailPage: FC<DetailProps> = props => {
         <meta property="og:description" content={`BARBER-HARI SHOP ${title}`} />
         <meta property="og:site_name" content="바버하리" />
         <meta property="og:locale" content="kr" />
-        <meta property="og:url" content="" />
+        <meta property="og:url" content="www.barberhari.com" />
         <meta name="twitter:card" content="사진" />
         <meta name="twitter:title" content="바버하리" />
         <meta
