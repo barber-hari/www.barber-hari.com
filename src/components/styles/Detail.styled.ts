@@ -100,7 +100,6 @@ export const Images = styled.ul`
 
 export const Image = styled.li`
   width: 100%;
-  height: 90vh;
   margin-bottom: 25px;
 
   & > span {
