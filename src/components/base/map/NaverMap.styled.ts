@@ -13,7 +13,7 @@ export const NaverMapFooter = styled.a`
 
 export const IconBox = styled.span`
   position: absolute;
-  width: min(100px, 15vw);
+  width: min(100px, 17vw);
   right: 3%;
   top: 50%;
   transform: translateY(-50%);

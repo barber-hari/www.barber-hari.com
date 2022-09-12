@@ -35,16 +35,7 @@ const Slider: FC<smallSliderProps> = props => {
           slidesPerView: 5,
         },
       },
-      scrollbar: { draggable: true, el: null },
-      onBeforeInit: (swiper: SwiperCore) => {
-        if (typeof swiper.params.navigation !== 'boolean') {
-          if (swiper.params.navigation) {
-            swiper.params.navigation.prevEl = '.small-slider-swiper-btn-left';
-            swiper.params.navigation.nextEl = '.small-slider-swiper-btn-right';
-          }
-        }
-        swiper.navigation.update();
-      },
+      scrollbar: { draggable: true },
       loop: true,
     });
   }, []);

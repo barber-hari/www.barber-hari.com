@@ -12,39 +12,30 @@ const ImageModal: FC = () => {
     useRecoilState(ModalState);
 
   SwiperCore.use([Navigation, Pagination, Scrollbar]);
+
   const swiperSetting = useRef<Swiper | null>(null);
   const $app = useRef<HTMLElement | null>(null);
+
   const closeModalHandler = () =>
     void setModalState(state => ({ ...state, isVisible: false }));
-
-  useEffect(() => {
-    swiperSetting.current = {
-      spaceBetween: 24,
-      navigation: {
-        prevEl: '.swiper-btn-left', // 이전 버튼
-        nextEl: '.swiper-btn-right', // 다음 버튼
-      },
-      scrollbar: { draggable: true, el: null },
-      onBeforeInit: (swiper: SwiperCore) => {
-        if (typeof swiper.params.navigation !== 'boolean') {
-          if (swiper.params.navigation) {
-            swiper.params.navigation.prevEl = '.swiper-btn-left';
-            swiper.params.navigation.nextEl = '.swiper-btn-right';
-          }
-        }
-        swiper.navigation.update();
-      },
-      loop: true,
-      slidesPerView: 'auto',
-      initialSlide: targetId,
-    };
-  }, [targetId]);
 
   useEffect(() => {
     $app.current = window.document.getElementById('__next');
   }, []);
 
-  return $app.current && isVisible
+  useEffect(() => {
+    swiperSetting.current = {
+      scrollbar: { draggable: true },
+      loop: true,
+      initialSlide: targetId - 1,
+      navigation: {
+        prevEl: '.swiper-btn-left',
+        nextEl: '.swiper-btn-right',
+      },
+    };
+  }, [targetId]);
+
+  return isVisible && $app.current
     ? createPortal(
         <$.Wrapper role="dialog">
           <$.Container>
