@@ -19,7 +19,7 @@ export default createGlobalStyle`
 
   body {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
     font-size: 100%;
@@ -29,6 +29,8 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     background-color: #000000;
+    padding-bottom: calc(constant(safe-area-inset-bottom) + 0px);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 0px);
 
     @media (max-width: 1023px) {
       min-height: -webkit-fill-available;
