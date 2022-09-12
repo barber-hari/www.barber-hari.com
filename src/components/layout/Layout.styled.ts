@@ -6,11 +6,8 @@ interface ContainerProps {
 
 export const Container = styled.div<ContainerProps>`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: #000;
-  position: fixed;
-  bottom: 0;
-  left: 0;
   padding-bottom: calc(constant(safe-area-inset-bottom) + 0px);
   padding-bottom: calc(env(safe-area-inset-bottom) + 0px);
 `;
