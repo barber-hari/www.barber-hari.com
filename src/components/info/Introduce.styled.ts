@@ -7,10 +7,6 @@ export const Container = styled.div`
   display: flex;
   padding-bottom: 30px;
 
-  @media (max-width: 1439px) {
-    padding-bottom: 30px;
-  }
-
   @media (max-width: 540px) {
     height: auto;
   }
@@ -49,6 +45,8 @@ export const LeftBox = styled.section`
   @media (max-width: 540px) {
     display: block;
     padding: 0 10px;
+    padding-bottom: calc(constant(safe-area-inset-bottom) + 130px);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 130px);
   }
 `;
 
