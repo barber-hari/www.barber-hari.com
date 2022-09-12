@@ -1,12 +1,12 @@
 import React, { FC, useRef, useState } from 'react';
-import { IStyle } from 'models/IStyle';
+import { HairStyle } from 'models/HairStyle';
 import Masonry from 'components/styles/Masonry';
 import useScroll from 'hooks/useScroll';
 import * as $ from './Detail.styled';
 
 export interface DetailProps {
-  styles: IStyle[];
-  style: IStyle;
+  styles: HairStyle[];
+  style: HairStyle;
 }
 
 const Detail: FC<DetailProps> = props => {
@@ -37,6 +37,7 @@ const Detail: FC<DetailProps> = props => {
         <$.Images ref={imageRef}>
           {images.map(image => (
             <$.Image key={`images-${image}`}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`/styles/${id}/${image}`}
                 key={`image-${image}`}
@@ -45,7 +46,7 @@ const Detail: FC<DetailProps> = props => {
             </$.Image>
           ))}
         </$.Images>
-        <div>Other Styles</div>
+        <$.Line>Other Styles</$.Line>
         <Masonry styles={styles} width="300px" height="400px" />
       </$.ImageContainer>
     </$.Container>

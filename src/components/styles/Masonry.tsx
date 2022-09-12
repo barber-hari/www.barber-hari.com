@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import { IStyle } from 'models/IStyle';
+import { HairStyle } from 'models/HairStyle';
 import Path from 'models/Path';
 import * as $ from './Masonry.styled';
 
 export interface MasonryProps {
-  styles: IStyle[];
+  styles: HairStyle[];
   width: string;
   height: string;
 }

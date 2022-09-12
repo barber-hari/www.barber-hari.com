@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
-import { IStyle } from 'models/IStyle';
+import { HairStyle } from 'models/HairStyle';
 import Masonry from 'components/styles/Masonry';
-import * as $ from './Styles.styled';
+import * as $ from './Contents.styled';
 
 export interface ArtworkProps {
-  styles: IStyle[];
+  styles: HairStyle[];
 }
 
-const Styles: FC<ArtworkProps> = props => {
+const Contents: FC<ArtworkProps> = props => {
   const { styles } = props;
   return (
     <$.Wrapper>
@@ -18,4 +18,4 @@ const Styles: FC<ArtworkProps> = props => {
   );
 };
 
-export default Styles;
+export default Contents;

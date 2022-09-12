@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { INFO_IMAGES } from 'models/Image';
-import * as $ from './ImageList.styled';
+import * as $ from './GalleryImage.styled';
 
-interface ImageListProps {
+interface GalleryImageProps {
   onClick: (targetId: number) => void;
 }
 
-const ImageList: FC<ImageListProps> = props => {
+const GalleryImage: FC<GalleryImageProps> = props => {
   const { onClick } = props;
   return (
     <>
@@ -25,4 +25,4 @@ const ImageList: FC<ImageListProps> = props => {
   );
 };
 
-export default ImageList;
+export default GalleryImage;

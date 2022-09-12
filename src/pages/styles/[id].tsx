@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { IStyle } from 'models/IStyle';
+import { HairStyle } from 'models/HairStyle';
 import { GetStaticProps } from 'next';
 import { findAllId, findAllStyles } from 'repositories/styleRepository';
 import Layout from 'components/layout/Layout';
@@ -7,8 +7,8 @@ import Detail from 'components/styles/Detail';
 import Meta from 'components/layout/Meta';
 
 export interface DetailProps {
-  styles: IStyle[];
-  style: IStyle;
+  styles: HairStyle[];
+  style: HairStyle;
   pageId: string;
 }
 
@@ -49,7 +49,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps<DetailProps> = ({ params }) => {
-  let style: IStyle = {
+  let style: HairStyle = {
     id: '',
     title: '',
     thumb: '',

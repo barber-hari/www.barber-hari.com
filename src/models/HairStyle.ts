@@ -1,4 +1,4 @@
-export interface IStyle {
+export interface HairStyle {
   id: string;
   title: string;
   description: string;

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Head from 'next/head';
-import faviconSrc from '../../../public/favicon.ico';
-import ogImageSrc from '../../../public/imgae-og.jpg';
+import faviconSrc from 'public/favicon.ico';
+import ogImageSrc from 'public/imgae-og.jpg';
 
 interface MetaProps {
   ogTitle?: string;

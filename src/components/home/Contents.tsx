@@ -21,17 +21,17 @@ const Contents: FC = () => {
       <$.ContentSection>
         <$.Navigation>
           <$.Menu>
-            <a href={Path.RESERVATION} target="_blank" rel="noreferrer">
+            <$.Anchor href={Path.RESERVATION} target="_blank" rel="noreferrer">
               <Icon iconType="NAVER" width="3vh" />
               네이버 예약
-            </a>
+            </$.Anchor>
           </$.Menu>
           <$.Menu className="navi-mobile">
             <Icon iconType="KAKAO" width="3vh" />
             <Icon iconType="INSTARGRAM" width="3vh" />
-            <a href="tel:010-3900-7212">
+            <$.Anchor href="tel:010-3900-7212">
               <Icon iconType="TELL" width="3vh" />
-            </a>
+            </$.Anchor>
           </$.Menu>
           <$.Menu>
             <Link href={Path.INFO}>INFO</Link>
@@ -41,9 +41,9 @@ const Contents: FC = () => {
           </$.Menu>
           <$.Menu className="navi-mobile-none">
             <Icon iconType="KAKAO" width="3vh" />
-            <a href={Path.INSTARGRAM} target="_blank" rel="noreferrer">
+            <$.Anchor href={Path.INSTARGRAM} target="_blank" rel="noreferrer">
               <Icon iconType="INSTARGRAM" width="3vh" />
-            </a>
+            </$.Anchor>
           </$.Menu>
         </$.Navigation>
         <$.Address>

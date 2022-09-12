@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import Path from 'models/Path';
 import { useRecoilValue } from 'recoil';
 import { ModalState } from 'store/UIStore';
+import Navigation from 'components/layout/Navigation';
 import * as $ from './Layout.styled';
-import Navigation from './Navigation';
 
 interface LayoutProps {
   children: ReactNode;

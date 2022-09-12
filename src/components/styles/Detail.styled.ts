@@ -68,29 +68,29 @@ export const ImageContainer = styled.section`
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
+`;
 
-  & > div {
-    display: flex;
-    flex-basis: 100%;
-    align-items: center;
-    color: #ffffff;
-    font-size: 2rem;
+export const Line = styled.div`
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: #ffffff;
+  font-size: 2rem;
 
-    &::before {
-      content: '';
-      flex-grow: 1;
-      margin-right: 15px;
-      background: #808080;
-      height: 2px;
-    }
+  &::before {
+    content: '';
+    flex-grow: 1;
+    margin-right: 15px;
+    background: #808080;
+    height: 2px;
+  }
 
-    &::after {
-      content: '';
-      flex-grow: 1;
-      margin-left: 15px;
-      background: #808080;
-      height: 2px;
-    }
+  &::after {
+    content: '';
+    flex-grow: 1;
+    margin-left: 15px;
+    background: #808080;
+    height: 2px;
   }
 `;
 
