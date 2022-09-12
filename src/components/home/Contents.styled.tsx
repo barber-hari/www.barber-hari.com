@@ -92,6 +92,15 @@ export const Navigation = styled.ul`
   }
 `;
 
+export const Anchor = styled.a`
+  font-size: 1.8vh;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+`;
+
 export const Menu = styled.li`
   display: flex;
   align-items: center;
@@ -186,13 +195,3 @@ export const Tell = styled.span`
     content: 'tell. ';
   }
 `;
-
-/*
-@media (orientation: portrait) {
-    /!* 세로 모드 일 경우 *!/
-}
-
-@media (orientation: landscape) {
-    /!* 가로 모드일 경우 *!/
-}
-*/

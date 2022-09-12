@@ -51,10 +51,10 @@ const Contents: FC = () => {
               </$.Careers>
             </$.Info>
             <$.Address className="desktop">
-              <a href={Path.INSTARGRAM} target="_blank" rel="noreferrer">
+              <$.Anchor href={Path.INSTARGRAM} target="_blank" rel="noreferrer">
                 <Icon iconType="INSTARGRAM" />
                 barber_hari
-              </a>
+              </$.Anchor>
             </$.Address>
           </$.PictureBox>
           <Slider onClick={openModalHandler} />

@@ -13,22 +13,22 @@ export const NaverMapFooter = styled.a`
 
 export const IconBox = styled.span`
   position: absolute;
-  width: 15vw;
+  width: min(100px, 15vw);
   right: 3%;
   top: 50%;
   transform: translateY(-50%);
-
-  & p {
-    font-size: min(20px, 3vw);
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: bold;
-    color: #008000;
-  }
 
   & i {
     margin-right: auto;
     margin-left: auto;
   }
+`;
+
+export const Reservation = styled.p`
+  font-size: min(20px, 3vw);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  color: #008000;
 `;
 
 export const Tell = styled.address`

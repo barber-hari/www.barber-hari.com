@@ -185,16 +185,6 @@ export const MapBox = styled.address`
 export const Address = styled.address`
   width: 100%;
 
-  & > a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: white;
-    margin-top: 20px;
-    width: 160px;
-    font-size: 20px;
-  }
-
   & i {
     width: 30px;
     height: 30px;
@@ -204,6 +194,17 @@ export const Address = styled.address`
     display: none;
   }
 `;
+
+export const Anchor = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  margin-top: 20px;
+  width: 160px;
+  font-size: 20px;
+`;
+
 export const GalleryBox = styled.article`
   z-index: 10;
   width: 800px;

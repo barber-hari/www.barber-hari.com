@@ -37,6 +37,7 @@ const Detail: FC<DetailProps> = props => {
         <$.Images ref={imageRef}>
           {images.map(image => (
             <$.Image key={`images-${image}`}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`/styles/${id}/${image}`}
                 key={`image-${image}`}
@@ -45,7 +46,7 @@ const Detail: FC<DetailProps> = props => {
             </$.Image>
           ))}
         </$.Images>
-        <div>Other Styles</div>
+        <$.Line>Other Styles</$.Line>
         <Masonry styles={styles} width="300px" height="400px" />
       </$.ImageContainer>
     </$.Container>
