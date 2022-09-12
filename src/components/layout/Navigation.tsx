@@ -13,10 +13,10 @@ const Navigation: FC = () => {
   const timer = useRef<ReturnType<typeof setTimeout>>();
 
   const { scrollHeight } = useScroll((height, direction) => {
-    setIsVisible(!(height > 150 && direction === 1));
+    setIsVisible(!(height > 50 && direction === 1));
     timer.current && clearTimeout(timer.current);
     timer.current = setTimeout(() => {
-      setIsVisible(height < 150);
+      setIsVisible(height < 50);
     }, 3000);
   });
 
@@ -25,7 +25,7 @@ const Navigation: FC = () => {
   };
   const handleMouseLeave = () => {
     timer.current = setTimeout(() => {
-      setIsVisible(scrollHeight < 150);
+      setIsVisible(scrollHeight < 50);
     }, 3000);
   };
 
