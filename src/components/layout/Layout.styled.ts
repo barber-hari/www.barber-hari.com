@@ -8,6 +8,7 @@ export const Container = styled.div<ContainerProps>`
   width: 100vw;
   height: 100vh;
   background-color: #000;
+  position: fixed;
 `;
 
 export const Main = styled.main`
