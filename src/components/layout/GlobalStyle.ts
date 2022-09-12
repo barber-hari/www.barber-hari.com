@@ -29,6 +29,7 @@ export default createGlobalStyle`
     line-height: 1;
     margin: 0;
     padding: 0;
+    background-color: #000000;
 
     @media (max-width: 1023px) {
       min-height: -webkit-fill-available;

@@ -5,6 +5,11 @@ export const Container = styled.div`
   height: calc(100% - 100px);
   background-color: #000;
   display: flex;
+  padding-bottom: 30px;
+
+  @media (max-width: 540px) {
+    height: auto;
+  }
 `;
 
 export const BoxWrapper = styled.div`
@@ -39,8 +44,7 @@ export const LeftBox = styled.section`
 
   @media (max-width: 540px) {
     display: block;
-    padding: 0 10px;
-    padding-bottom: 30px;
+    padding: 0 10px 30px;
   }
 `;
 
@@ -62,10 +66,6 @@ export const PictureBox = styled.header`
   @media (max-width: 1439px) {
     width: 100%;
     padding-top: 0;
-  }
-  @media (max-width: 1024px) {
-  }
-  @media (max-width: 440px) {
   }
 `;
 

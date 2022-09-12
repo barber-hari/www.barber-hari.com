@@ -41,7 +41,9 @@ const Contents: FC = () => {
           </$.Menu>
           <$.Menu className="navi-mobile-none">
             <Icon iconType="KAKAO" width="3vh" />
-            <Icon iconType="INSTARGRAM" width="3vh" />
+            <a href={Path.INSTARGRAM} target="_blank" rel="noreferrer">
+              <Icon iconType="INSTARGRAM" width="3vh" />
+            </a>
           </$.Menu>
         </$.Navigation>
         <$.Address>

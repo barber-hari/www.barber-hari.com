@@ -27,9 +27,9 @@ const DetailPage: FC<DetailProps> = props => {
   return (
     <>
       <Meta
-        pageTitle={`BARBER-HARI 바버하리`}
+        pageTitle="BARBER-HARI 바버하리"
         ogDescription={`BARBER-HARI SHOP ${title}`}
-        ogTitle={`BARBER-HARI 바버하리`}
+        ogTitle="BARBER-HARI 바버하리"
         ogImage={`www.barberhari.com/styles/${pageId}/${thumb}`}
       />
       <Layout>
