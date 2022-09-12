@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import Layout from 'components/layout/Layout';
-import Styles from 'components/styles/Styles';
+import Contents from 'components/styles/Contents';
 import { GetStaticProps } from 'next';
 import { findAllStyles } from 'repositories/styleRepository';
-import { IStyle } from 'models/IStyle';
+import { HairStyle } from 'models/HairStyle';
 import Meta from 'components/layout/Meta';
 
 export interface IndexProps {
-  styles: IStyle[];
+  styles: HairStyle[];
 }
 
 const Index: FC<IndexProps> = props => {
@@ -16,7 +16,7 @@ const Index: FC<IndexProps> = props => {
     <>
       <Meta />
       <Layout>
-        <Styles styles={styles} />
+        <Contents styles={styles} />
       </Layout>
     </>
   );

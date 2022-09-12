@@ -1,12 +1,12 @@
 import React, { FC, useRef, useState } from 'react';
-import { IStyle } from 'models/IStyle';
+import { HairStyle } from 'models/HairStyle';
 import Masonry from 'components/styles/Masonry';
 import useScroll from 'hooks/useScroll';
 import * as $ from './Detail.styled';
 
 export interface DetailProps {
-  styles: IStyle[];
-  style: IStyle;
+  styles: HairStyle[];
+  style: HairStyle;
 }
 
 const Detail: FC<DetailProps> = props => {

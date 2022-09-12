@@ -1,10 +1,9 @@
-import React, { FC, ReactNode, useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Script from 'next/script';
-
-interface NaverMapProps {
-  children: ReactNode;
-}
+import Path from 'models/Path';
+import Icon from 'components/base/Icon';
+import * as $ from './NaverMap.styled';
 
 const NaverMapBox = styled.div`
   width: 100%;
@@ -13,8 +12,7 @@ const NaverMapBox = styled.div`
   z-index: 10;
 `;
 
-const NaverMap: FC<NaverMapProps> = props => {
-  const { children } = props;
+const NaverMap: FC = () => {
   const mapRef = useRef<HTMLDivElement>(null);
 
   const handleLoadNaverMap = () => {
@@ -44,7 +42,17 @@ const NaverMap: FC<NaverMapProps> = props => {
         src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_KEY}&callback=initMap`}
         onLoad={handleLoadNaverMap}
       />
-      <NaverMapBox ref={mapRef}>{children}</NaverMapBox>
+      <NaverMapBox ref={mapRef}>
+        <$.NaverMapFooter href={Path.RESERVATION} target="_blank">
+          <$.Tell>
+            서울 강남구 역삼로67길 33 b101호 바버하리 0507-1323-6462
+          </$.Tell>
+          <$.IconBox>
+            <p>네이버 예약</p>
+            <Icon iconType="NAVERRESERVE" width="min(8vw,50px)" />
+          </$.IconBox>
+        </$.NaverMapFooter>
+      </NaverMapBox>
     </>
   );
 };

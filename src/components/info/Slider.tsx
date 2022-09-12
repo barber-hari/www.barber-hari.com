@@ -4,12 +4,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
 import { INFO_IMAGES } from 'models/Image';
 import Icon from 'components/base/Icon';
-import * as $ from './SmallSlider.styled';
+import * as $ from './Slider.styled';
 
 interface smallSliderProps {
   onClick: (targetId: number) => void;
 }
-const SmallSlider: FC<smallSliderProps> = props => {
+const Slider: FC<smallSliderProps> = props => {
   const { onClick } = props;
   const [swiperSetting, setSwiperSetting] = useState<Swiper | null>(null);
   SwiperCore.use([Navigation, Pagination, Scrollbar]);
@@ -76,4 +76,4 @@ const SmallSlider: FC<smallSliderProps> = props => {
   );
 };
 
-export default SmallSlider;
+export default Slider;

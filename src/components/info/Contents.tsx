@@ -5,13 +5,13 @@ import NaverMap from 'components/base/map/NaverMap';
 import Path from 'models/Path';
 import profileImageMobile from 'images/info/img-hariface2.jpg';
 import profileImagePc from 'images/info/img-hariface.png';
-import SmallSlider from 'components/info/SmallSlider';
+import Slider from 'components/info/Slider';
 import { INFO_IMAGES } from 'models/Image';
 import { ModalState } from 'store/UIStore';
 import { useSetRecoilState } from 'recoil';
-import * as $ from './Introduce.styled';
+import * as $ from './Contents.styled';
 
-const Introduce: FC = () => {
+const Contents: FC = () => {
   const setModalState = useSetRecoilState(ModalState);
 
   const openModalHandler = (id: number) => {
@@ -57,19 +57,9 @@ const Introduce: FC = () => {
               </a>
             </$.Address>
           </$.PictureBox>
-          <SmallSlider onClick={openModalHandler} />
+          <Slider onClick={openModalHandler} />
           <$.MapBox>
-            <NaverMap>
-              <$.NaverMapFooter href={Path.RESERVATION} target="_blank">
-                <$.Tell>
-                  서울 강남구 역삼로67길 33 b101호 바버하리 0507-1323-6462
-                </$.Tell>
-                <$.IconBox>
-                  <p>네이버 예약</p>
-                  <Icon iconType="NAVERRESERVE" width="min(8vw,50px)" />
-                </$.IconBox>
-              </$.NaverMapFooter>
-            </NaverMap>
+            <NaverMap />
           </$.MapBox>
         </$.LeftBox>
         <$.RightBox>
@@ -82,4 +72,4 @@ const Introduce: FC = () => {
   );
 };
 
-export default Introduce;
+export default Contents;
