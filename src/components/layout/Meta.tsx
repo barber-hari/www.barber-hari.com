@@ -19,7 +19,7 @@ const Meta: FC<MetaProps> = props => {
   } = props;
   return (
     <Head>
-      <meta name="viewport" content="initial-scale=1, viewport-fit=contain" />
+      <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={ogTitle} />
       <meta property="og:image" content={ogImage} />

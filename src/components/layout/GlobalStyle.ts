@@ -13,6 +13,10 @@ export default createGlobalStyle`
     font-family: 'Inria Serif', serif;
   }
 
+  html, body {
+    background-color: #000;
+  }
+
   body {
     width: 100%;
     height: 100vh;
@@ -30,6 +34,12 @@ export default createGlobalStyle`
       min-height: -webkit-fill-available;
     }
   }
+
+  #__next {
+    width: 100%;
+    height: 100%;
+  }
+
   /* ∞∞ text styling ∞∞ */
   h1,
   h2,
