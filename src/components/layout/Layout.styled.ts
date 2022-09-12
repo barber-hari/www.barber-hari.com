@@ -16,7 +16,5 @@ export const Main = styled.main`
   overflow-y: auto;
 
   @media (max-width: 1023px) {
-    padding-bottom: calc(constant(safe-area-inset-bottom) + 30px);
-    padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
   }
 `;
