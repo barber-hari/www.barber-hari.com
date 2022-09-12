@@ -8,13 +8,11 @@ export const Container = styled.div`
   padding-bottom: 30px;
 
   @media (max-width: 1439px) {
-    padding-bottom: 0;
+    padding-bottom: 30px;
   }
 
   @media (max-width: 540px) {
     height: auto;
-    padding-bottom: calc(constant(safe-area-inset-bottom) + 30px);
-    padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
   }
 `;
 
@@ -72,10 +70,6 @@ export const PictureBox = styled.header`
   @media (max-width: 1439px) {
     width: 100%;
     padding-top: 0;
-  }
-  @media (max-width: 1024px) {
-  }
-  @media (max-width: 440px) {
   }
 `;
 

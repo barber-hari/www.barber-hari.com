@@ -15,10 +15,8 @@ export const Main = styled.main`
   width: 100%;
   overflow-y: auto;
 
-  @media all and (min-width: 768px) and (max-width: 1023px) {
-  }
-  @media all and (min-width: 480px) and (max-width: 767px) {
-  }
-  @media all and (min-width: 320px) and (max-width: 479px) {
+  @media (max-width: 1023px) {
+    padding-bottom: calc(constant(safe-area-inset-bottom) + 30px);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
   }
 `;
