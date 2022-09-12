@@ -44,9 +44,7 @@ export const LeftBox = styled.section`
 
   @media (max-width: 540px) {
     display: block;
-    padding: 0 10px;
-    padding-bottom: calc(constant(safe-area-inset-bottom) + 130px);
-    padding-bottom: calc(env(safe-area-inset-bottom) + 130px);
+    padding: 0 10px 30px;
   }
 `;
 
