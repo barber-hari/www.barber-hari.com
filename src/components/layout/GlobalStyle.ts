@@ -30,7 +30,7 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     background-color: #000000;
-    bottom: 0;
+    top: 0;
     left: 0;
 
     @media (max-width: 1023px) {
