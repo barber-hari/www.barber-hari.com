@@ -26,7 +26,7 @@ export const BoxWrapper = styled.div`
   }
 
   @media (max-width: 540px) {
-    height: auto;
+    height: calc(100% - 100px);
   }
 `;
 

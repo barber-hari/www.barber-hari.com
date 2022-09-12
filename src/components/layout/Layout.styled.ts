@@ -13,10 +13,8 @@ export const Container = styled.div<ContainerProps>`
 export const Main = styled.main`
   height: 100%;
   width: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
 
   @media (max-width: 1023px) {
-    padding-bottom: constant(safe-area-inset-bottom);
-    padding-bottom: env(safe-area-inset-bottom);
   }
 `;
