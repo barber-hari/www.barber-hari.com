@@ -18,7 +18,7 @@ const useScroll: UseScroll = onScroll => {
   const [scrollDirection, setScrollDirection] = useState<ScrollDirection>(-1);
 
   const scrollHandler = () => {
-    const { scrollTop } = document.querySelector('main') as HTMLElement;
+    const scrollTop = window.scrollY;
     setScrollHeight(scrollTop);
     scrollTop - scrollHeight < 0
       ? setScrollDirection(-1)
@@ -27,7 +27,7 @@ const useScroll: UseScroll = onScroll => {
   };
 
   useEffect(() => {
-    const element = document.querySelector('main');
+    const element = window;
 
     const catchScroll = () => {
       element?.addEventListener('scroll', scrollHandler);
