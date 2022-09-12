@@ -5,16 +5,13 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: #000;
 `;
 
 export const Main = styled.main`
   height: 100%;
   width: 100%;
-  overflow-y: scroll;
-
-  @media (max-width: 1023px) {
-  }
+  overflow-y: auto;
 `;
