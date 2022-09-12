@@ -17,8 +17,8 @@ const Contents: FC = () => {
   const openModalHandler = (id: number) => {
     void setModalState(state => ({
       ...state,
-      isVisible: true,
       targetId: id,
+      isVisible: true,
       modalImages: INFO_IMAGES,
     }));
   };
