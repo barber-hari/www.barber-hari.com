@@ -11,6 +11,7 @@ const Container = styled.div`
   height: 100vh;
   color: #fff;
   overflow-y: auto;
+  position: fixed;
 `;
 
 const Home: NextPage = () => {

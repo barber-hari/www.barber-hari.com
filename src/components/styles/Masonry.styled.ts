@@ -14,7 +14,7 @@ export const Masonry = styled.ul<MasonryProps>`
   grid-auto-rows: ${({ height }) => height};
   grid-column-gap: 40px;
   grid-row-gap: 50px;
-  margin: 25px auto 150px;
+  margin: 25px auto;
 
   @media (max-width: 540px) {
     grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
