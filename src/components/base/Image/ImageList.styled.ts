@@ -19,12 +19,8 @@ export const ImageBox = styled.figure`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  transition: all 5s linear;
   filter: grayscale(0.7);
 
-  &:hover {
-    filter: grayscale(0.2);
-  }
   &:nth-child(1) {
     grid-column: 1/3;
   }
