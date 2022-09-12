@@ -11,12 +11,12 @@ export const Container = styled.div<ContainerProps>`
 `;
 
 export const Main = styled.main`
-  min-height: -webkit-fill-available;
+  height: 100%;
   width: 100%;
   overflow-y: auto;
 
   @media (max-width: 1023px) {
-    padding-bottom: calc(constant(safe-area-inset-bottom) + 30px);
-    padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
   }
 `;
