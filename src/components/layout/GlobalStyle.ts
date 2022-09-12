@@ -30,6 +30,8 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     background-color: #000000;
+    padding-bottom: calc(constant(safe-area-inset-bottom) + 0px);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 0px);
 
     @media (max-width: 1023px) {
       min-height: -webkit-fill-available;
