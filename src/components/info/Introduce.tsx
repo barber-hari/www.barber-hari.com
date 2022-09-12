@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import ImageList from 'components/base/Image';
+import GalleryImage from 'components/info/GalleryImage';
 import Icon from 'components/base/Icon';
 import NaverMap from 'components/base/map/NaverMap';
 import Path from 'models/Path';
@@ -74,7 +74,7 @@ const Introduce: FC = () => {
         </$.LeftBox>
         <$.RightBox>
           <$.GalleryBox>
-            <ImageList onClick={openModalHandler} />
+            <GalleryImage onClick={openModalHandler} />
           </$.GalleryBox>
         </$.RightBox>
       </$.BoxWrapper>
