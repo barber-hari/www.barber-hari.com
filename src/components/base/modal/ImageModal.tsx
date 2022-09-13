@@ -12,30 +12,29 @@ const ImageModal: FC = () => {
     useRecoilState(ModalState);
 
   SwiperCore.use([Navigation, Pagination, Scrollbar]);
-
   const swiperSetting = useRef<Swiper | null>(null);
   const $app = useRef<HTMLElement | null>(null);
-
   const closeModalHandler = () =>
     void setModalState(state => ({ ...state, isVisible: false }));
+
+  useEffect(() => {
+    swiperSetting.current = {
+      navigation: {
+        prevEl: '.swiper-btn-left', // 이전 버튼
+        nextEl: '.swiper-btn-right', // 다음 버튼
+      },
+      scrollbar: { draggable: true },
+      loop: true,
+      slidesPerView: 'auto',
+      initialSlide: targetId - 1,
+    };
+  }, [targetId]);
 
   useEffect(() => {
     $app.current = window.document.getElementById('__next');
   }, []);
 
-  useEffect(() => {
-    swiperSetting.current = {
-      scrollbar: { draggable: true },
-      loop: true,
-      initialSlide: targetId - 1,
-      navigation: {
-        prevEl: '.swiper-btn-left',
-        nextEl: '.swiper-btn-right',
-      },
-    };
-  }, [targetId]);
-
-  return isVisible && $app.current
+  return $app.current && isVisible
     ? createPortal(
         <$.Wrapper role="dialog">
           <$.Container>
