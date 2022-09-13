@@ -20,8 +20,8 @@ const ImageModal: FC = () => {
   useEffect(() => {
     swiperSetting.current = {
       navigation: {
-        prevEl: '.swiper-btn-left', // 이전 버튼
-        nextEl: '.swiper-btn-right', // 다음 버튼
+        prevEl: '.swiper-btn-left',
+        nextEl: '.swiper-btn-right',
       },
       scrollbar: { draggable: true },
       loop: true,
