@@ -16,12 +16,12 @@ export const SideBar = styled.header`
   min-width: 270px;
   margin-right: 25px;
   margin-top: 20px;
-  border-right: 1px solid #808080;
+  border-right: 2px solid #808080;
 
   @media (max-width: 1023px) {
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid #808080;
+    border-bottom: 2px solid #808080;
     border-right: 0;
     width: 100%;
   }
@@ -76,7 +76,15 @@ export const Line = styled.div`
   align-items: center;
   color: #ffffff;
   font-size: 2rem;
-  margin: 50px 0 40px;
+  margin: 80px 0 40px;
+  padding-top: 10px;
+  border-top: 2px solid #808080;
+
+  /*
+  패딩탑 10px
+보더탑 2px solid rgb 128 128 128
+마진 80px 0 40px
+  */
 
   &::before {
     content: '';
