@@ -76,6 +76,7 @@ export const Line = styled.div`
   align-items: center;
   color: #ffffff;
   font-size: 2rem;
+  margin: 50px 0 40px;
 
   &::before {
     content: '';
