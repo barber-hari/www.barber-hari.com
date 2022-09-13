@@ -29,7 +29,7 @@ const Contents: FC = () => {
           <$.Menu className="navi-mobile">
             <Icon iconType="KAKAO" width="3vh" />
             <Icon iconType="INSTARGRAM" width="3vh" />
-            <$.Anchor href="tel:010-3900-7212">
+            <$.Anchor href="tel:070-7728-6462">
               <Icon iconType="TELL" width="3vh" />
             </$.Anchor>
           </$.Menu>
