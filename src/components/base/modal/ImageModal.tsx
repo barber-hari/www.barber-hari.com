@@ -10,25 +10,21 @@ import * as $ from './ImageModal.styled';
 const ImageModal: FC = () => {
   const [{ isVisible, modalImages, targetId }, setModalState] =
     useRecoilState(ModalState);
-
   SwiperCore.use([Navigation, Pagination, Scrollbar]);
-  const swiperSetting = useRef<Swiper | null>(null);
   const $app = useRef<HTMLElement | null>(null);
   const closeModalHandler = () =>
     void setModalState(state => ({ ...state, isVisible: false }));
 
-  useEffect(() => {
-    swiperSetting.current = {
-      navigation: {
-        prevEl: '.swiper-btn-left',
-        nextEl: '.swiper-btn-right',
-      },
-      scrollbar: { draggable: true },
-      loop: true,
-      slidesPerView: 'auto',
-      initialSlide: targetId - 1,
-    };
-  }, [targetId]);
+  const getSwiperSetting = (initialSlide: number): Swiper => ({
+    navigation: {
+      prevEl: '.swiper-btn-left',
+      nextEl: '.swiper-btn-right',
+    },
+    scrollbar: { draggable: true },
+    loop: true,
+    slidesPerView: 'auto',
+    initialSlide,
+  });
 
   useEffect(() => {
     $app.current = window.document.getElementById('__next');
@@ -39,17 +35,15 @@ const ImageModal: FC = () => {
         <$.Wrapper role="dialog">
           <$.Container>
             <$.Background onClick={closeModalHandler} isVisible={isVisible} />
-            {swiperSetting.current && (
-              <Swiper {...swiperSetting.current}>
-                {modalImages.map(({ src, id }) => (
-                  <SwiperSlide key={`modal-image-${id}`}>
-                    <$.ImageContainer>
-                      <$.Image src={src} />
-                    </$.ImageContainer>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            )}
+            <Swiper {...getSwiperSetting(targetId - 1)}>
+              {modalImages.map(({ src, id }) => (
+                <SwiperSlide key={`modal-image-${id}`}>
+                  <$.ImageContainer>
+                    <$.Image src={src} />
+                  </$.ImageContainer>
+                </SwiperSlide>
+              ))}
+            </Swiper>
             <$.SwiperButton className="swiper-btn-left" direction="left">
               <Icon iconType="LARROW" width="40px" />
             </$.SwiperButton>
