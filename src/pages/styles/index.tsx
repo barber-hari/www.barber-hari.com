@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Layout from 'components/layout/Layout';
 import Contents from 'components/styles/Contents';
 import { GetStaticProps } from 'next';
-import { findAllStyles } from 'repositories/styleRepository';
+import { findAllStyles } from 'repositories/StyleRepository';
 import { HairStyle } from 'models/HairStyle';
 import Meta from 'components/layout/Meta';
 

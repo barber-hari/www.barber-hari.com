@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { HairStyle } from 'models/HairStyle';
 import { GetStaticProps } from 'next';
-import { findAllId, findAllStyles } from 'repositories/styleRepository';
+import { findAllId, findAllStyles } from 'repositories/StyleRepository';
 import Layout from 'components/layout/Layout';
 import Detail from 'components/styles/Detail';
 import Meta from 'components/layout/Meta';

@@ -20,8 +20,8 @@ export const Container = styled.div`
   height: 500px;
 
   & .swiper-container {
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
   }
 `;
 
@@ -54,15 +54,9 @@ export const Background = styled.div<BackgroundProps>`
 `;
 
 export const ImageContainer = styled.div`
-  z-index: 99999;
   display: flex;
   width: 100%;
   height: 100%;
-`;
-
-export const Image = styled.img`
-  width: 100%;
-  margin: auto;
 `;
 
 interface ButtonProps {
