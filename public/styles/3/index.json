@@ -1,10 +1,11 @@
 {
   "id": "3",
-  "title": "abcd",
-  "description": "fffee",
+  "title": "DESIGN FADE",
+  "description": "바버하리에서 갖고있는 기술력을 통해 자연스럽고 고급스러운 페이드층을 연출합니다.",
   "images": [
-    "img-stype1.jpg",
-    "img-stype2.jpg"
+    "hair03_image01.jpg",
+    "hair03_image02.jpg",
+    "hair03_image03.jpg"
   ],
-  "thumb": "img-stype5.jpg"
+  "thumb":   "hair03_image01.jpg"
 }
