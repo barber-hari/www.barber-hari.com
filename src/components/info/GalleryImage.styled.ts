@@ -12,6 +12,8 @@ export const ImageBox = styled.figure`
   overflow: hidden;
   filter: grayscale(0.7);
 
+  border-radius: 10px;
+
   &:nth-child(1) {
     grid-column: 1/3;
   }
