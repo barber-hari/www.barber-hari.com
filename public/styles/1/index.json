@@ -1,10 +1,12 @@
 {
   "id": "1",
-  "title": "LEAF CUT",
-  "description": "턱 선 기장의 귀를 덮는 오버 가르마의 숏컷. 직선의 라인이 턱 선을 감싸고 옆 얼굴을 커버하여 시크하고 이지적인 무드를 만들어준다.",
+  "title": "DANDY BABY",
+  "description": "평상시에 머리 손질이 불편하시거나, 머리손질이 귀찮으신 고객님들을 위해 \n디자인을 연출한 언제나 댄디하고 깔끔함을 유지하실수있는 댄디 베이비 펌 입니다.",
   "images": [
-    "img-stype1.jpg",
-    "img-stype2.jpg"
+    "hair01_image01.jpg",
+    "hair01_image02.jpg",
+    "hair01_image03.jpg",
+    "hair01_image04.jpg"
   ],
-  "thumb": "img-stype1.jpg"
+  "thumb": "hair01_image01.jpg"
 }

@@ -1,10 +1,12 @@
 {
   "id": "2",
-  "title": "abcd",
-  "description": "fffee",
+  "title": "SLICKBACK",
+  "description": "바버스타일중 가장 손질의 자유도가 높은 디자인이며, 페이드 층 또한 자유롭게 연출하는 디자인입니다. ",
   "images": [
-    "img-stype1.jpg",
-    "img-stype2.jpg"
+    "hair02_image01.png",
+    "hair02_image02.png",
+    "hair02_image03.png",
+    "hair02_image04.png"
   ],
-  "thumb": "img-stype3.jpg"
+  "thumb":  "hair02_image01.png"
 }
