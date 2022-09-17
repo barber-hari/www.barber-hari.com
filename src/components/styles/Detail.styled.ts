@@ -49,6 +49,8 @@ export const HairInfo = styled.div<HairInfoProps>`
 export const HairTitle = styled.h2`
   margin-bottom: 25px;
   font-size: 2rem;
+  font-weight: bolder;
+  font-family: 'Noto Sans KR', sans-serif;
 `;
 
 export const HairDescription = styled.p`
@@ -79,12 +81,6 @@ export const Line = styled.div`
   margin: 80px 0 40px;
   padding-top: 10px;
   border-top: 2px solid #808080;
-
-  /*
-  패딩탑 10px
-보더탑 2px solid rgb 128 128 128
-마진 80px 0 40px
-  */
 
   &::before {
     content: '';
