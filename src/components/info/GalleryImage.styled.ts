@@ -6,6 +6,15 @@ export interface ImageStyledProps {
   src: string;
 }
 
+export const Image = styled.img<ImageStyledProps>`
+  border-radius: 10px;
+  z-index: 30;
+  display: block;
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
+  object-fit: cover;
+`;
+
 export const ImageBox = styled.figure`
   width: 100%;
   height: 100%;
