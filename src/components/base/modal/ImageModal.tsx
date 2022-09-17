@@ -5,7 +5,6 @@ import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper';
 import Icon from 'components/base/Icon';
 import { useRecoilState } from 'recoil';
 import { ModalState } from 'store/UIStore';
-import Image from 'next/image';
 import * as $ from './ImageModal.styled';
 
 const ImageModal: FC = () => {
@@ -40,7 +39,7 @@ const ImageModal: FC = () => {
               {modalImages.map(({ src, id }) => (
                 <SwiperSlide key={`modal-image-${id}`}>
                   <$.ImageContainer>
-                    <Image src={src} layout="fill" />
+                    <$.Image src={src} />
                   </$.ImageContainer>
                 </SwiperSlide>
               ))}

@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { INFO_IMAGES } from 'models/Image';
-import Image from 'next/image';
 import * as $ from './GalleryImage.styled';
 
 interface GalleryImageProps {
@@ -13,8 +12,9 @@ const GalleryImage: FC<GalleryImageProps> = props => {
     <>
       {INFO_IMAGES.map(({ src, id }) => (
         <$.ImageBox key={id}>
-          <Image
-            layout="fill"
+          <$.Image
+            height="100%"
+            width="100%"
             src={src}
             onClick={() => void onClick(id)}
             alt=""

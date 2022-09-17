@@ -63,6 +63,11 @@ interface ButtonProps {
   direction: 'left' | 'right';
 }
 
+export const Image = styled.img`
+  width: 100%;
+  margin: auto;
+`;
+
 export const SwiperButton = styled.button<ButtonProps>`
   top: 50%;
   transform: translateY(-50%);
