@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export type ScrollDirection = -1 | 1;
+
 export type HandleScroll = (
   scrollHeight: number,
   scrollDirection: ScrollDirection
