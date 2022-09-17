@@ -3,7 +3,7 @@ import React, { FC, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Path from 'models/Path';
 import barberHariIcon from 'images/home/icon-barberhari.png';
-import useScroll from 'hooks/useScroll';
+import useScroll, { HandleScroll } from 'hooks/useScroll';
 import * as $ from './Navigation.styled';
 
 const Navigation: FC = () => {
@@ -12,13 +12,15 @@ const Navigation: FC = () => {
 
   const timer = useRef<ReturnType<typeof setTimeout>>();
 
-  const { scrollHeight } = useScroll((height, direction) => {
-    setIsVisible(!(height > 50 && direction === 1));
+  const handleScroll: HandleScroll = (scrollHeight, scrollDirection) => {
+    setIsVisible(!(scrollHeight > 150 && scrollDirection === 1));
     timer.current && clearTimeout(timer.current);
     timer.current = setTimeout(() => {
-      setIsVisible(height < 50);
+      setIsVisible(scrollHeight < 150);
     }, 3000);
-  });
+  };
+
+  const { scrollHeight } = useScroll(handleScroll);
 
   const handleMouseOver = () => {
     timer.current && clearTimeout(timer.current);
