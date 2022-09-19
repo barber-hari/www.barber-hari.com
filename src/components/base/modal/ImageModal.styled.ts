@@ -16,8 +16,8 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   z-index: 2000;
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 600px;
 
   & .swiper-container {
     width: 100%;
