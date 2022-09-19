@@ -14,7 +14,7 @@ import * as $ from './Contents.styled';
 const Contents: FC = () => {
   const setModalState = useSetRecoilState(ModalState);
 
-  const openModalHandler = (id: number) => {
+  const handleOpenModal = (id: number) => {
     void setModalState(state => ({
       ...state,
       targetId: id,
@@ -57,14 +57,14 @@ const Contents: FC = () => {
               </$.Anchor>
             </$.Address>
           </$.PictureBox>
-          <Slider onClick={openModalHandler} />
+          <Slider onClick={handleOpenModal} />
           <$.MapBox>
             <NaverMap />
           </$.MapBox>
         </$.LeftBox>
         <$.RightBox>
           <$.GalleryBox>
-            <GalleryImage onClick={openModalHandler} />
+            <GalleryImage onClick={handleOpenModal} />
           </$.GalleryBox>
         </$.RightBox>
       </$.BoxWrapper>

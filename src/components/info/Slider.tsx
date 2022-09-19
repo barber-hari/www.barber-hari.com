@@ -53,13 +53,13 @@ const Slider: FC<smallSliderProps> = props => {
             className="small-slider-swiper-btn-left"
             direction="left"
           >
-            <Icon iconType="LARROW" width="40px" />
+            <Icon iconType="LEFT_ARROW" width="40px" />
           </$.SwiperButton>
           <$.SwiperButton
             className="small-slider-swiper-btn-right"
             direction="right"
           >
-            <Icon iconType="RARROW" width="40px" />
+            <Icon iconType="RIGHT_ARROW" width="40px" />
           </$.SwiperButton>
         </Swiper>
       </$.Container>

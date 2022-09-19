@@ -48,7 +48,7 @@ const NaverMap: FC = () => {
           </$.Tell>
           <$.IconBox>
             <$.Reservation>네이버 예약</$.Reservation>
-            <Icon iconType="NAVERRESERVE" width="min(8vw,50px)" />
+            <Icon iconType="NAVER_RESERVE" width="min(8vw,50px)" />
           </$.IconBox>
         </$.NaverMapFooter>
       </NaverMapBox>

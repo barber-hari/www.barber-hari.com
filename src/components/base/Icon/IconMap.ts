@@ -12,9 +12,9 @@ export type IconType =
   | 'KAKAO'
   | 'INSTARGRAM'
   | 'TELL'
-  | `LARROW`
-  | `RARROW`
-  | `NAVERRESERVE`;
+  | 'LEFT_ARROW'
+  | 'RIGHT_ARROW'
+  | 'NAVER_RESERVE';
 
 export type IconMapType = {
   [key in IconType]: StaticImageData;
@@ -25,7 +25,7 @@ export const IconMap: IconMapType = {
   NAVER: naverSrc,
   KAKAO: kakaoSrc,
   TELL: tellSrc,
-  RARROW: rightArrowSrc,
-  LARROW: leftArrowSrc,
-  NAVERRESERVE: naverReserveSrc,
+  RIGHT_ARROW: rightArrowSrc,
+  LEFT_ARROW: leftArrowSrc,
+  NAVER_RESERVE: naverReserveSrc,
 };
