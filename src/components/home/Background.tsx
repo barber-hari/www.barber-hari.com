@@ -6,7 +6,7 @@ import * as $ from './Background.styled';
 const Background: FC = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const onPlayingHandler = () => {
+  const handleOnPlay = () => {
     setIsLoaded(true);
   };
 
@@ -20,7 +20,7 @@ const Background: FC = () => {
         preload="auto"
         autoPlay
         src={videoSrc}
-        onPlaying={onPlayingHandler}
+        onPlaying={handleOnPlay}
       />
       <$.SideBar
         src={sidebarImage.src}
