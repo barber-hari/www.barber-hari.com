@@ -30,7 +30,7 @@ const DetailPage: FC<DetailProps> = props => {
         pageTitle="BARBER-HARI 바버하리"
         ogDescription={`BARBER-HARI SHOP ${title}`}
         ogTitle="BARBER-HARI 바버하리"
-        ogImage={`www.barberhari.com/styles/${pageId}/${thumb}`}
+        ogImage={`${pageId}/${thumb}`}
       />
       <Layout>
         <Detail styles={styles} style={style} />
