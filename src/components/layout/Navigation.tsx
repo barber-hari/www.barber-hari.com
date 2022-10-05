@@ -37,7 +37,7 @@ const Navigation: FC = () => {
       onMouseLeave={handleMouseLeave}
       onFocus={handleMouseOver}
     >
-      <$.Pages isVisible={isVisible}>
+      <$.Pages isVisible={isVisible} scrollHeight={scrollHeight}>
         <$.Page isCurrentPage={pathname === Path.INFO}>
           <Link href={Path.INFO}>INFO</Link>
         </$.Page>

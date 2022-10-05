@@ -2,6 +2,7 @@ import styled, { css, keyframes } from 'styled-components';
 
 interface NavigationProps {
   isVisible: boolean;
+  scrollHeight: number;
 }
 
 export const Navigation = styled.nav`
@@ -53,7 +54,12 @@ export const Pages = styled.ul<NavigationProps>`
         `
       : css`
           animation: ${NavigationFadeOut} 0.3s forwards linear;
-        `}
+        `};
+  ${({ scrollHeight }) =>
+    scrollHeight === 0 &&
+    css`
+      animation: ${NavigationFadeIn} 0.3s forwards linear;
+    `}
 `;
 
 interface PageProps {

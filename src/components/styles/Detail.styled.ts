@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.section`
   display: flex;
@@ -29,6 +29,7 @@ export const SideBar = styled.header`
 
 interface HairInfoProps {
   isVisible: boolean;
+  scrollHeight: number;
 }
 
 export const HairInfo = styled.div<HairInfoProps>`
@@ -37,6 +38,7 @@ export const HairInfo = styled.div<HairInfoProps>`
   position: fixed;
   transition: 0.3s;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+
   @media (max-width: 1023px) {
     align-items: start;
     text-align: start;
@@ -44,6 +46,12 @@ export const HairInfo = styled.div<HairInfoProps>`
     position: relative;
     width: 90%;
   }
+
+  ${({ scrollHeight }) =>
+    scrollHeight === 0 &&
+    css`
+      opacity: 1;
+    `}
 `;
 
 export const HairTitle = styled.h2`
