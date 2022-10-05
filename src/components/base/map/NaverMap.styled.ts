@@ -31,7 +31,7 @@ export const Reservation = styled.p`
   color: #008000;
 `;
 
-export const Tell = styled.address`
+export const Tel = styled.address`
   float: left;
   max-width: 50vw;
   color: #1d2a2b;

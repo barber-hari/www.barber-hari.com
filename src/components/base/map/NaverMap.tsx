@@ -43,9 +43,9 @@ const NaverMap: FC = () => {
       />
       <NaverMapBox ref={mapRef}>
         <$.NaverMapFooter href={Path.RESERVATION} target="_blank">
-          <$.Tell>
+          <$.Tel>
             서울 강남구 역삼로67길 33 b101호 바버하리 0507-1323-6462
-          </$.Tell>
+          </$.Tel>
           <$.IconBox>
             <$.Reservation>네이버 예약</$.Reservation>
             <Icon iconType="NAVER_RESERVE" width="min(8vw,50px)" />
