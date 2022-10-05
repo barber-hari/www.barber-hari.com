@@ -188,10 +188,10 @@ export const Address = styled.address`
   }
 `;
 
-export const Tell = styled.span`
+export const Tel = styled.span`
   margin-left: 10px;
 
   &::before {
-    content: 'tell. ';
+    content: 'tel. ';
   }
 `;

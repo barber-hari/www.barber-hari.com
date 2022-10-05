@@ -30,7 +30,7 @@ const Contents: FC = () => {
             <Icon iconType="KAKAO" width="3vh" />
             <Icon iconType="INSTARGRAM" width="3vh" />
             <$.Anchor href="tel:070-7728-6462">
-              <Icon iconType="TELL" width="3vh" />
+              <Icon iconType="TEL" width="3vh" />
             </$.Anchor>
           </$.Menu>
           <$.Menu>
@@ -48,7 +48,7 @@ const Contents: FC = () => {
         </$.Navigation>
         <$.Address>
           서울 강남구 역삼로67길 33 b101호 바버하리
-          <$.Tell>0507-1323-6462</$.Tell>
+          <$.Tel>0507-1323-6462</$.Tel>
         </$.Address>
       </$.ContentSection>
     </$.Contents>
