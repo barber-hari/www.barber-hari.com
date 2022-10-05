@@ -23,12 +23,12 @@ const Detail: FC<DetailProps> = props => {
     setIsVisibleHairInfo(clientHeight - 100 > scrollHeight);
   };
 
-  useScroll(handleScroll);
+  const { scrollHeight } = useScroll(handleScroll);
 
   return (
     <$.Container>
       <$.SideBar>
-        <$.HairInfo isVisible={isVisibleHairInfo}>
+        <$.HairInfo isVisible={isVisibleHairInfo} scrollHeight={scrollHeight}>
           <$.HairTitle>{title}</$.HairTitle>
           <$.HairDescription>{description}</$.HairDescription>
         </$.HairInfo>
